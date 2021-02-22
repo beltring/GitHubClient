@@ -9,14 +9,22 @@ import UIKit
 
 class RootNavigationViewController: UINavigationController {
 
+    private var isLogin = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
 
-    func setRootController(){
+    func setRootController() {
+        let vc: UIViewController
         
-        let vc: UIViewController = RootTabBarViewController.initial()
+        if isLogin {
+            vc = RootTabBarViewController.initial()
+        }
+        else {
+            vc = LoginViewController.initial()
+        }
         
         setViewControllers([vc], animated: false)
     }
