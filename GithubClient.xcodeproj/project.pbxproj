@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		23B1D42825E3EC61001E9570 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B1D42725E3EC61001E9570 /* AppDelegate.swift */; };
-		23B1D42C25E3EC61001E9570 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B1D42B25E3EC61001E9570 /* ViewController.swift */; };
-		23B1D42F25E3EC61001E9570 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23B1D42D25E3EC61001E9570 /* Main.storyboard */; };
 		23B1D43225E3EC61001E9570 /* GithubClient.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 23B1D43025E3EC61001E9570 /* GithubClient.xcdatamodeld */; };
 		23B1D43425E3EC62001E9570 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23B1D43325E3EC62001E9570 /* Assets.xcassets */; };
 		23B1D43725E3EC62001E9570 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23B1D43525E3EC62001E9570 /* LaunchScreen.storyboard */; };
@@ -17,13 +15,14 @@
 		23B1D46125E3F861001E9570 /* UIViewController+Instance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B1D46025E3F861001E9570 /* UIViewController+Instance.swift */; };
 		23B1D46425E3F88A001E9570 /* UIView+Instance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B1D46325E3F88A001E9570 /* UIView+Instance.swift */; };
 		23B1D46725E3F90E001E9570 /* UICollectionViewCell+Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B1D46625E3F90E001E9570 /* UICollectionViewCell+Collection.swift */; };
+		23B1D49225E4075E001E9570 /* RootTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B1D49125E4075E001E9570 /* RootTabBarViewController.swift */; };
+		23B1D49525E4076C001E9570 /* RootTabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23B1D49425E4076C001E9570 /* RootTabBar.storyboard */; };
+		23B1D4A425E40C80001E9570 /* RootNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B1D4A325E40C80001E9570 /* RootNavigationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		23B1D42425E3EC61001E9570 /* GithubClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GithubClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		23B1D42725E3EC61001E9570 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		23B1D42B25E3EC61001E9570 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		23B1D42E25E3EC61001E9570 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		23B1D43125E3EC61001E9570 /* GithubClient.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GithubClient.xcdatamodel; sourceTree = "<group>"; };
 		23B1D43325E3EC62001E9570 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		23B1D43625E3EC62001E9570 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -32,6 +31,9 @@
 		23B1D46025E3F861001E9570 /* UIViewController+Instance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Instance.swift"; sourceTree = "<group>"; };
 		23B1D46325E3F88A001E9570 /* UIView+Instance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Instance.swift"; sourceTree = "<group>"; };
 		23B1D46625E3F90E001E9570 /* UICollectionViewCell+Collection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell+Collection.swift"; sourceTree = "<group>"; };
+		23B1D49125E4075E001E9570 /* RootTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabBarViewController.swift; sourceTree = "<group>"; };
+		23B1D49425E4076C001E9570 /* RootTabBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RootTabBar.storyboard; sourceTree = "<group>"; };
+		23B1D4A325E40C80001E9570 /* RootNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootNavigationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,8 +71,6 @@
 				23B1D44925E3F25B001E9570 /* Helpers */,
 				23B1D44225E3F0E3001E9570 /* DataStorage */,
 				23B1D44525E3F163001E9570 /* GitHub */,
-				23B1D42B25E3EC61001E9570 /* ViewController.swift */,
-				23B1D42D25E3EC61001E9570 /* Main.storyboard */,
 				23B1D44425E3F0F9001E9570 /* SupportingFiles */,
 				23B1D43825E3EC62001E9570 /* Info.plist */,
 			);
@@ -122,6 +122,9 @@
 		23B1D44725E3F179001E9570 /* Root */ = {
 			isa = PBXGroup;
 			children = (
+				23B1D49725E40770001E9570 /* RootNav */,
+				23B1D49125E4075E001E9570 /* RootTabBarViewController.swift */,
+				23B1D49425E4076C001E9570 /* RootTabBar.storyboard */,
 			);
 			path = Root;
 			sourceTree = "<group>";
@@ -191,6 +194,14 @@
 			name = UIViewController;
 			sourceTree = "<group>";
 		};
+		23B1D49725E40770001E9570 /* RootNav */ = {
+			isa = PBXGroup;
+			children = (
+				23B1D4A325E40C80001E9570 /* RootNavigationViewController.swift */,
+			);
+			path = RootNav;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -248,9 +259,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23B1D49525E4076C001E9570 /* RootTabBar.storyboard in Resources */,
 				23B1D43725E3EC62001E9570 /* LaunchScreen.storyboard in Resources */,
 				23B1D43425E3EC62001E9570 /* Assets.xcassets in Resources */,
-				23B1D42F25E3EC61001E9570 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,9 +272,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23B1D4A425E40C80001E9570 /* RootNavigationViewController.swift in Sources */,
+				23B1D49225E4075E001E9570 /* RootTabBarViewController.swift in Sources */,
 				23B1D45D25E3F811001E9570 /* UITableViewCell+Table.swift in Sources */,
 				23B1D46425E3F88A001E9570 /* UIView+Instance.swift in Sources */,
-				23B1D42C25E3EC61001E9570 /* ViewController.swift in Sources */,
 				23B1D46125E3F861001E9570 /* UIViewController+Instance.swift in Sources */,
 				23B1D46725E3F90E001E9570 /* UICollectionViewCell+Collection.swift in Sources */,
 				23B1D42825E3EC61001E9570 /* AppDelegate.swift in Sources */,
@@ -274,14 +286,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		23B1D42D25E3EC61001E9570 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				23B1D42E25E3EC61001E9570 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		23B1D43525E3EC62001E9570 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -417,6 +421,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 65CGDLNXGP;
 				INFOPLIST_FILE = GithubClient/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -424,7 +429,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.vironit.boltromyuk.GithubClient;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -436,6 +441,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 65CGDLNXGP;
 				INFOPLIST_FILE = GithubClient/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -443,7 +449,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.vironit.boltromyuk.GithubClient;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
