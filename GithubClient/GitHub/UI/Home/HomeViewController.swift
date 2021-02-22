@@ -27,11 +27,15 @@ class HomeViewController: UIViewController {
     }
     
     private func showRepositories(){
-        
+        let vc = RepositoriesViewController.initial()
+        self.navigationController?.pushViewController(vc, animated: true)
+        self.navigationController?.viewControllers.last?.title = "Repositories"
     }
+    
     private func showPullRequests(){
         
     }
+    
     private func showIssues(){
         
     }

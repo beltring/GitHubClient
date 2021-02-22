@@ -12,6 +12,8 @@
 		2353639F25E4574800225412 /* PopularCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353639D25E4574800225412 /* PopularCollectionViewCell.swift */; };
 		235363A025E4574800225412 /* PopularCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2353639E25E4574800225412 /* PopularCollectionViewCell.xib */; };
 		235363A325E45B2200225412 /* UIColor+GithubClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235363A225E45B2200225412 /* UIColor+GithubClient.swift */; };
+		235363AF25E4641200225412 /* Repositories.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 235363AE25E4641200225412 /* Repositories.storyboard */; };
+		235363B225E4643800225412 /* RepositoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235363B125E4643800225412 /* RepositoriesViewController.swift */; };
 		23B1D42825E3EC61001E9570 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B1D42725E3EC61001E9570 /* AppDelegate.swift */; };
 		23B1D43225E3EC61001E9570 /* GithubClient.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 23B1D43025E3EC61001E9570 /* GithubClient.xcdatamodeld */; };
 		23B1D43425E3EC62001E9570 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23B1D43325E3EC62001E9570 /* Assets.xcassets */; };
@@ -41,6 +43,8 @@
 		2353639D25E4574800225412 /* PopularCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularCollectionViewCell.swift; sourceTree = "<group>"; };
 		2353639E25E4574800225412 /* PopularCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopularCollectionViewCell.xib; sourceTree = "<group>"; };
 		235363A225E45B2200225412 /* UIColor+GithubClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+GithubClient.swift"; sourceTree = "<group>"; };
+		235363AE25E4641200225412 /* Repositories.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Repositories.storyboard; sourceTree = "<group>"; };
+		235363B125E4643800225412 /* RepositoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesViewController.swift; sourceTree = "<group>"; };
 		23B1D42425E3EC61001E9570 /* GithubClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GithubClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		23B1D42725E3EC61001E9570 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		23B1D43125E3EC61001E9570 /* GithubClient.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GithubClient.xcdatamodel; sourceTree = "<group>"; };
@@ -110,6 +114,15 @@
 				235363A225E45B2200225412 /* UIColor+GithubClient.swift */,
 			);
 			path = UIColor;
+			sourceTree = "<group>";
+		};
+		235363AD25E463B400225412 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				235363AE25E4641200225412 /* Repositories.storyboard */,
+				235363B125E4643800225412 /* RepositoriesViewController.swift */,
+			);
+			path = Repositories;
 			sourceTree = "<group>";
 		};
 		23B1D41B25E3EC61001E9570 = {
@@ -183,6 +196,7 @@
 				23B1D4A825E4102D001E9570 /* Login */,
 				23B1D4B925E41C0D001E9570 /* Home */,
 				23B1D4D025E43054001E9570 /* Profile */,
+				235363AD25E463B400225412 /* Repositories */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -370,6 +384,7 @@
 				23B1D4D525E430A4001E9570 /* Profile.storyboard in Resources */,
 				23B1D4CB25E4225F001E9570 /* MenuTableViewCell.xib in Resources */,
 				23B1D43425E3EC62001E9570 /* Assets.xcassets in Resources */,
+				235363AF25E4641200225412 /* Repositories.storyboard in Resources */,
 				235363A025E4574800225412 /* PopularCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -385,6 +400,7 @@
 				23B1D4AD25E41055001E9570 /* LoginViewController.swift in Sources */,
 				23B1D4A425E40C80001E9570 /* RootNavigationViewController.swift in Sources */,
 				235363A325E45B2200225412 /* UIColor+GithubClient.swift in Sources */,
+				235363B225E4643800225412 /* RepositoriesViewController.swift in Sources */,
 				23B1D49225E4075E001E9570 /* RootTabBarViewController.swift in Sources */,
 				2353639F25E4574800225412 /* PopularCollectionViewCell.swift in Sources */,
 				23B1D45D25E3F811001E9570 /* UITableViewCell+Table.swift in Sources */,
