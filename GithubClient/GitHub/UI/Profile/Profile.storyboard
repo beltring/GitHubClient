@@ -131,13 +131,25 @@
                                     <constraint firstItem="9HG-Wa-diG" firstAttribute="leading" secondItem="Idn-XH-5hN" secondAttribute="trailing" constant="20" id="zRa-kC-Wh5"/>
                                 </constraints>
                             </view>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cfy-uf-5pY">
+                                <rect key="frame" x="0.0" y="264" width="414" height="245"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="245" id="aCn-s6-owW"/>
+                                </constraints>
+                                <connections>
+                                    <segue destination="USh-9O-qr6" kind="embed" id="eAX-Ow-rSY"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Yfz-Uf-6OQ"/>
                         <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="Cfy-uf-5pY" firstAttribute="top" secondItem="wgh-9u-AXm" secondAttribute="bottom" constant="20" id="POM-JE-AXc"/>
                             <constraint firstItem="wgh-9u-AXm" firstAttribute="trailing" secondItem="Yfz-Uf-6OQ" secondAttribute="trailing" id="QXn-vE-REC"/>
+                            <constraint firstItem="Cfy-uf-5pY" firstAttribute="leading" secondItem="Yfz-Uf-6OQ" secondAttribute="leading" id="aRv-iO-Zo9"/>
                             <constraint firstItem="wgh-9u-AXm" firstAttribute="top" secondItem="Yfz-Uf-6OQ" secondAttribute="top" id="aeY-kh-R2h"/>
                             <constraint firstItem="wgh-9u-AXm" firstAttribute="leading" secondItem="Yfz-Uf-6OQ" secondAttribute="leading" id="dEH-co-7iX"/>
+                            <constraint firstItem="Cfy-uf-5pY" firstAttribute="trailing" secondItem="Yfz-Uf-6OQ" secondAttribute="trailing" id="w8c-FS-gGt"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Profile" image="person" catalog="system" id="6DS-ih-HCJ"/>
@@ -155,6 +167,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b9H-iq-muG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="198.55072463768118" y="157.36607142857142"/>
+        </scene>
+        <!--Popular-->
+        <scene sceneID="Ied-z7-Xdi">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Popular" id="USh-9O-qr6" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NjF-ht-FQ1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="866" y="116"/>
         </scene>
     </scenes>
     <resources>

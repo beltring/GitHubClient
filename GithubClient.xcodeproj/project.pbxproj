@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2353639625E454FA00225412 /* Popular.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2353639525E454FA00225412 /* Popular.storyboard */; };
+		2353639925E4550600225412 /* PopularViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353639825E4550600225412 /* PopularViewController.swift */; };
+		2353639F25E4574800225412 /* PopularCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353639D25E4574800225412 /* PopularCollectionViewCell.swift */; };
+		235363A025E4574800225412 /* PopularCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2353639E25E4574800225412 /* PopularCollectionViewCell.xib */; };
 		23B1D42825E3EC61001E9570 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B1D42725E3EC61001E9570 /* AppDelegate.swift */; };
 		23B1D43225E3EC61001E9570 /* GithubClient.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 23B1D43025E3EC61001E9570 /* GithubClient.xcdatamodeld */; };
 		23B1D43425E3EC62001E9570 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23B1D43325E3EC62001E9570 /* Assets.xcassets */; };
@@ -31,6 +35,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2353639525E454FA00225412 /* Popular.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Popular.storyboard; sourceTree = "<group>"; };
+		2353639825E4550600225412 /* PopularViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularViewController.swift; sourceTree = "<group>"; };
+		2353639D25E4574800225412 /* PopularCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularCollectionViewCell.swift; sourceTree = "<group>"; };
+		2353639E25E4574800225412 /* PopularCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopularCollectionViewCell.xib; sourceTree = "<group>"; };
 		23B1D42425E3EC61001E9570 /* GithubClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GithubClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		23B1D42725E3EC61001E9570 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		23B1D43125E3EC61001E9570 /* GithubClient.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GithubClient.xcdatamodel; sourceTree = "<group>"; };
@@ -67,6 +75,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2353639425E454E800225412 /* Popular */ = {
+			isa = PBXGroup;
+			children = (
+				2353639B25E455E600225412 /* Cell */,
+				2353639525E454FA00225412 /* Popular.storyboard */,
+				2353639825E4550600225412 /* PopularViewController.swift */,
+			);
+			path = Popular;
+			sourceTree = "<group>";
+		};
+		2353639B25E455E600225412 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				2353639D25E4574800225412 /* PopularCollectionViewCell.swift */,
+				2353639E25E4574800225412 /* PopularCollectionViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		23B1D41B25E3EC61001E9570 = {
 			isa = PBXGroup;
 			children = (
@@ -250,6 +277,7 @@
 		23B1D4D025E43054001E9570 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				2353639425E454E800225412 /* Popular */,
 				23B1D4D425E430A4001E9570 /* Profile.storyboard */,
 				23B1D4D125E43093001E9570 /* ProfileViewController.swift */,
 			);
@@ -315,6 +343,7 @@
 			files = (
 				23B1D4AA25E4103C001E9570 /* Login.storyboard in Resources */,
 				23B1D4B025E411EB001E9570 /* Images.xcassets in Resources */,
+				2353639625E454FA00225412 /* Popular.storyboard in Resources */,
 				23B1D4C225E42140001E9570 /* Images.xcassets in Resources */,
 				23B1D49525E4076C001E9570 /* RootTabBar.storyboard in Resources */,
 				23B1D4BB25E41C3C001E9570 /* Home.storyboard in Resources */,
@@ -322,6 +351,7 @@
 				23B1D4D525E430A4001E9570 /* Profile.storyboard in Resources */,
 				23B1D4CB25E4225F001E9570 /* MenuTableViewCell.xib in Resources */,
 				23B1D43425E3EC62001E9570 /* Assets.xcassets in Resources */,
+				235363A025E4574800225412 /* PopularCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -332,9 +362,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2353639925E4550600225412 /* PopularViewController.swift in Sources */,
 				23B1D4AD25E41055001E9570 /* LoginViewController.swift in Sources */,
 				23B1D4A425E40C80001E9570 /* RootNavigationViewController.swift in Sources */,
 				23B1D49225E4075E001E9570 /* RootTabBarViewController.swift in Sources */,
+				2353639F25E4574800225412 /* PopularCollectionViewCell.swift in Sources */,
 				23B1D45D25E3F811001E9570 /* UITableViewCell+Table.swift in Sources */,
 				23B1D46425E3F88A001E9570 /* UIView+Instance.swift in Sources */,
 				23B1D4BE25E41C4D001E9570 /* HomeViewController.swift in Sources */,
