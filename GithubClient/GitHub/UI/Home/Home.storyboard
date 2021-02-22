@@ -9,23 +9,67 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Home View Controller-->
+        <!--Home-->
         <scene sceneID="b7A-Lg-XFa">
             <objects>
                 <viewController id="5Xf-zC-ogB" customClass="HomeViewController" customModule="GithubClient" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rrC-Xq-hI5">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Home" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CdU-9G-sdI">
+                                <rect key="frame" x="20" y="49" width="88" height="45"/>
+                                <fontDescription key="fontDescription" name="KohinoorDevanagari-Semibold" family="Kohinoor Devanagari" pointSize="32"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="crv-6w-hfu">
+                                <rect key="frame" x="20" y="220" width="374" height="130"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="130" id="3gV-iF-FfL"/>
+                                </constraints>
+                                <sections/>
+                            </tableView>
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search GitHub" translatesAutoresizingMaskIntoConstraints="NO" id="f35-Mb-Srq">
+                                <rect key="frame" x="20" y="99" width="374" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Work" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DLR-7Z-K0V">
+                                <rect key="frame" x="20" y="185" width="85" height="27"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="2px-iW-KyA"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="CdU-9G-sdI" firstAttribute="leading" secondItem="2px-iW-KyA" secondAttribute="leading" constant="20" id="5RK-tN-9Hp"/>
+                            <constraint firstItem="crv-6w-hfu" firstAttribute="top" secondItem="DLR-7Z-K0V" secondAttribute="bottom" constant="8" symbolic="YES" id="7WS-af-Fns"/>
+                            <constraint firstItem="crv-6w-hfu" firstAttribute="leading" secondItem="2px-iW-KyA" secondAttribute="leading" constant="20" id="CYZ-CL-nq2"/>
+                            <constraint firstItem="f35-Mb-Srq" firstAttribute="top" secondItem="CdU-9G-sdI" secondAttribute="bottom" constant="5" id="EAS-2R-hjO"/>
+                            <constraint firstItem="2px-iW-KyA" firstAttribute="trailing" secondItem="crv-6w-hfu" secondAttribute="trailing" constant="20" id="TKv-O1-m6o"/>
+                            <constraint firstItem="DLR-7Z-K0V" firstAttribute="leading" secondItem="2px-iW-KyA" secondAttribute="leading" constant="20" id="YI0-WP-g2v"/>
+                            <constraint firstItem="f35-Mb-Srq" firstAttribute="leading" secondItem="2px-iW-KyA" secondAttribute="leading" constant="20" id="k4x-C2-PIC"/>
+                            <constraint firstItem="DLR-7Z-K0V" firstAttribute="top" secondItem="f35-Mb-Srq" secondAttribute="bottom" constant="30" id="kGO-Xo-rhk"/>
+                            <constraint firstAttribute="trailing" secondItem="f35-Mb-Srq" secondAttribute="trailing" constant="20" id="ntb-e8-8Fi"/>
+                            <constraint firstItem="CdU-9G-sdI" firstAttribute="top" secondItem="2px-iW-KyA" secondAttribute="top" constant="5" id="tU9-P8-v2D"/>
+                        </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Home" image="house" catalog="system" id="Q2T-tK-QXa"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qQy-qa-eOs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-287" y="149"/>
+            <point key="canvasLocation" x="-288.40579710144931" y="148.66071428571428"/>
         </scene>
     </scenes>
     <resources>
+        <image name="house" catalog="system" width="128" height="106"/>
+        <systemColor name="secondarySystemBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

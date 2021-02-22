@@ -23,6 +23,7 @@
 		23B1D4B025E411EB001E9570 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23B1D4AF25E411EB001E9570 /* Images.xcassets */; };
 		23B1D4BB25E41C3C001E9570 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23B1D4BA25E41C3C001E9570 /* Home.storyboard */; };
 		23B1D4BE25E41C4D001E9570 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B1D4BD25E41C4D001E9570 /* HomeViewController.swift */; };
+		23B1D4C225E42140001E9570 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23B1D4C125E42140001E9570 /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		23B1D4AF25E411EB001E9570 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		23B1D4BA25E41C3C001E9570 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		23B1D4BD25E41C4D001E9570 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		23B1D4C125E42140001E9570 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -219,10 +221,19 @@
 		23B1D4B925E41C0D001E9570 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				23B1D4C025E4212F001E9570 /* Cell */,
 				23B1D4BA25E41C3C001E9570 /* Home.storyboard */,
 				23B1D4BD25E41C4D001E9570 /* HomeViewController.swift */,
+				23B1D4C125E42140001E9570 /* Images.xcassets */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		23B1D4C025E4212F001E9570 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -284,6 +295,7 @@
 			files = (
 				23B1D4AA25E4103C001E9570 /* Login.storyboard in Resources */,
 				23B1D4B025E411EB001E9570 /* Images.xcassets in Resources */,
+				23B1D4C225E42140001E9570 /* Images.xcassets in Resources */,
 				23B1D49525E4076C001E9570 /* RootTabBar.storyboard in Resources */,
 				23B1D4BB25E41C3C001E9570 /* Home.storyboard in Resources */,
 				23B1D43725E3EC62001E9570 /* LaunchScreen.storyboard in Resources */,
