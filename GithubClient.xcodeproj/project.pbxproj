@@ -14,6 +14,8 @@
 		235363A325E45B2200225412 /* UIColor+GithubClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235363A225E45B2200225412 /* UIColor+GithubClient.swift */; };
 		235363AF25E4641200225412 /* Repositories.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 235363AE25E4641200225412 /* Repositories.storyboard */; };
 		235363B225E4643800225412 /* RepositoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235363B125E4643800225412 /* RepositoriesViewController.swift */; };
+		235363B725E4676000225412 /* RepositoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235363B525E4676000225412 /* RepositoryTableViewCell.swift */; };
+		235363B825E4676000225412 /* RepositoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 235363B625E4676000225412 /* RepositoryTableViewCell.xib */; };
 		23B1D42825E3EC61001E9570 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B1D42725E3EC61001E9570 /* AppDelegate.swift */; };
 		23B1D43225E3EC61001E9570 /* GithubClient.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 23B1D43025E3EC61001E9570 /* GithubClient.xcdatamodeld */; };
 		23B1D43425E3EC62001E9570 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23B1D43325E3EC62001E9570 /* Assets.xcassets */; };
@@ -45,6 +47,8 @@
 		235363A225E45B2200225412 /* UIColor+GithubClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+GithubClient.swift"; sourceTree = "<group>"; };
 		235363AE25E4641200225412 /* Repositories.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Repositories.storyboard; sourceTree = "<group>"; };
 		235363B125E4643800225412 /* RepositoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesViewController.swift; sourceTree = "<group>"; };
+		235363B525E4676000225412 /* RepositoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryTableViewCell.swift; sourceTree = "<group>"; };
+		235363B625E4676000225412 /* RepositoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepositoryTableViewCell.xib; sourceTree = "<group>"; };
 		23B1D42425E3EC61001E9570 /* GithubClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GithubClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		23B1D42725E3EC61001E9570 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		23B1D43125E3EC61001E9570 /* GithubClient.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GithubClient.xcdatamodel; sourceTree = "<group>"; };
@@ -119,10 +123,20 @@
 		235363AD25E463B400225412 /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
+				235363B425E4672E00225412 /* Cell */,
 				235363AE25E4641200225412 /* Repositories.storyboard */,
 				235363B125E4643800225412 /* RepositoriesViewController.swift */,
 			);
 			path = Repositories;
+			sourceTree = "<group>";
+		};
+		235363B425E4672E00225412 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				235363B525E4676000225412 /* RepositoryTableViewCell.swift */,
+				235363B625E4676000225412 /* RepositoryTableViewCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		23B1D41B25E3EC61001E9570 = {
@@ -377,6 +391,7 @@
 				23B1D4AA25E4103C001E9570 /* Login.storyboard in Resources */,
 				23B1D4B025E411EB001E9570 /* Images.xcassets in Resources */,
 				2353639625E454FA00225412 /* Popular.storyboard in Resources */,
+				235363B825E4676000225412 /* RepositoryTableViewCell.xib in Resources */,
 				23B1D4C225E42140001E9570 /* Images.xcassets in Resources */,
 				23B1D49525E4076C001E9570 /* RootTabBar.storyboard in Resources */,
 				23B1D4BB25E41C3C001E9570 /* Home.storyboard in Resources */,
@@ -410,6 +425,7 @@
 				23B1D46125E3F861001E9570 /* UIViewController+Instance.swift in Sources */,
 				23B1D46725E3F90E001E9570 /* UICollectionViewCell+Collection.swift in Sources */,
 				23B1D42825E3EC61001E9570 /* AppDelegate.swift in Sources */,
+				235363B725E4676000225412 /* RepositoryTableViewCell.swift in Sources */,
 				23B1D43225E3EC61001E9570 /* GithubClient.xcdatamodeld in Sources */,
 				23B1D4CA25E4225F001E9570 /* MenuTableViewCell.swift in Sources */,
 			);
