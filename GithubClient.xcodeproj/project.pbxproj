@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2353639625E454FA00225412 /* Popular.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2353639525E454FA00225412 /* Popular.storyboard */; };
+		2353639925E4550600225412 /* PopularViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353639825E4550600225412 /* PopularViewController.swift */; };
+		2353639F25E4574800225412 /* PopularCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353639D25E4574800225412 /* PopularCollectionViewCell.swift */; };
+		235363A025E4574800225412 /* PopularCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2353639E25E4574800225412 /* PopularCollectionViewCell.xib */; };
+		235363A325E45B2200225412 /* UIColor+GithubClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235363A225E45B2200225412 /* UIColor+GithubClient.swift */; };
 		23B1D42825E3EC61001E9570 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B1D42725E3EC61001E9570 /* AppDelegate.swift */; };
 		23B1D43225E3EC61001E9570 /* GithubClient.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 23B1D43025E3EC61001E9570 /* GithubClient.xcdatamodeld */; };
 		23B1D43425E3EC62001E9570 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23B1D43325E3EC62001E9570 /* Assets.xcassets */; };
@@ -26,9 +31,16 @@
 		23B1D4C225E42140001E9570 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23B1D4C125E42140001E9570 /* Images.xcassets */; };
 		23B1D4CA25E4225F001E9570 /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B1D4C825E4225F001E9570 /* MenuTableViewCell.swift */; };
 		23B1D4CB25E4225F001E9570 /* MenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23B1D4C925E4225F001E9570 /* MenuTableViewCell.xib */; };
+		23B1D4D225E43093001E9570 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B1D4D125E43093001E9570 /* ProfileViewController.swift */; };
+		23B1D4D525E430A4001E9570 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23B1D4D425E430A4001E9570 /* Profile.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2353639525E454FA00225412 /* Popular.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Popular.storyboard; sourceTree = "<group>"; };
+		2353639825E4550600225412 /* PopularViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularViewController.swift; sourceTree = "<group>"; };
+		2353639D25E4574800225412 /* PopularCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularCollectionViewCell.swift; sourceTree = "<group>"; };
+		2353639E25E4574800225412 /* PopularCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopularCollectionViewCell.xib; sourceTree = "<group>"; };
+		235363A225E45B2200225412 /* UIColor+GithubClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+GithubClient.swift"; sourceTree = "<group>"; };
 		23B1D42425E3EC61001E9570 /* GithubClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GithubClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		23B1D42725E3EC61001E9570 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		23B1D43125E3EC61001E9570 /* GithubClient.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GithubClient.xcdatamodel; sourceTree = "<group>"; };
@@ -50,6 +62,8 @@
 		23B1D4C125E42140001E9570 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		23B1D4C825E4225F001E9570 /* MenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
 		23B1D4C925E4225F001E9570 /* MenuTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuTableViewCell.xib; sourceTree = "<group>"; };
+		23B1D4D125E43093001E9570 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		23B1D4D425E430A4001E9570 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +77,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2353639425E454E800225412 /* Popular */ = {
+			isa = PBXGroup;
+			children = (
+				2353639B25E455E600225412 /* Cell */,
+				2353639525E454FA00225412 /* Popular.storyboard */,
+				2353639825E4550600225412 /* PopularViewController.swift */,
+			);
+			path = Popular;
+			sourceTree = "<group>";
+		};
+		2353639B25E455E600225412 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				2353639D25E4574800225412 /* PopularCollectionViewCell.swift */,
+				2353639E25E4574800225412 /* PopularCollectionViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		235363A525E45B2C00225412 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				235363A625E45B3800225412 /* UIColor */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
+		235363A625E45B3800225412 /* UIColor */ = {
+			isa = PBXGroup;
+			children = (
+				235363A225E45B2200225412 /* UIColor+GithubClient.swift */,
+			);
+			path = UIColor;
+			sourceTree = "<group>";
+		};
 		23B1D41B25E3EC61001E9570 = {
 			isa = PBXGroup;
 			children = (
@@ -133,6 +182,7 @@
 			children = (
 				23B1D4A825E4102D001E9570 /* Login */,
 				23B1D4B925E41C0D001E9570 /* Home */,
+				23B1D4D025E43054001E9570 /* Profile */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -157,6 +207,7 @@
 		23B1D44A25E3F296001E9570 /* GitHubHelper */ = {
 			isa = PBXGroup;
 			children = (
+				235363A525E45B2C00225412 /* UIKit */,
 			);
 			path = GitHubHelper;
 			sourceTree = "<group>";
@@ -242,6 +293,16 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		23B1D4D025E43054001E9570 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				2353639425E454E800225412 /* Popular */,
+				23B1D4D425E430A4001E9570 /* Profile.storyboard */,
+				23B1D4D125E43093001E9570 /* ProfileViewController.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -301,12 +362,15 @@
 			files = (
 				23B1D4AA25E4103C001E9570 /* Login.storyboard in Resources */,
 				23B1D4B025E411EB001E9570 /* Images.xcassets in Resources */,
+				2353639625E454FA00225412 /* Popular.storyboard in Resources */,
 				23B1D4C225E42140001E9570 /* Images.xcassets in Resources */,
 				23B1D49525E4076C001E9570 /* RootTabBar.storyboard in Resources */,
 				23B1D4BB25E41C3C001E9570 /* Home.storyboard in Resources */,
 				23B1D43725E3EC62001E9570 /* LaunchScreen.storyboard in Resources */,
+				23B1D4D525E430A4001E9570 /* Profile.storyboard in Resources */,
 				23B1D4CB25E4225F001E9570 /* MenuTableViewCell.xib in Resources */,
 				23B1D43425E3EC62001E9570 /* Assets.xcassets in Resources */,
+				235363A025E4574800225412 /* PopularCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -317,12 +381,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2353639925E4550600225412 /* PopularViewController.swift in Sources */,
 				23B1D4AD25E41055001E9570 /* LoginViewController.swift in Sources */,
 				23B1D4A425E40C80001E9570 /* RootNavigationViewController.swift in Sources */,
+				235363A325E45B2200225412 /* UIColor+GithubClient.swift in Sources */,
 				23B1D49225E4075E001E9570 /* RootTabBarViewController.swift in Sources */,
+				2353639F25E4574800225412 /* PopularCollectionViewCell.swift in Sources */,
 				23B1D45D25E3F811001E9570 /* UITableViewCell+Table.swift in Sources */,
 				23B1D46425E3F88A001E9570 /* UIView+Instance.swift in Sources */,
 				23B1D4BE25E41C4D001E9570 /* HomeViewController.swift in Sources */,
+				23B1D4D225E43093001E9570 /* ProfileViewController.swift in Sources */,
 				23B1D46125E3F861001E9570 /* UIViewController+Instance.swift in Sources */,
 				23B1D46725E3F90E001E9570 /* UICollectionViewCell+Collection.swift in Sources */,
 				23B1D42825E3EC61001E9570 /* AppDelegate.swift in Sources */,
@@ -474,7 +542,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.vironit.boltromyuk.GithubClient;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vironit.boltromyuk.GitHubClient;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -494,7 +562,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.vironit.boltromyuk.GithubClient;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vironit.boltromyuk.GitHubClient;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
