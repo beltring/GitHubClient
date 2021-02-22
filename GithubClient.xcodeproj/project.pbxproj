@@ -24,6 +24,8 @@
 		23B1D4BB25E41C3C001E9570 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23B1D4BA25E41C3C001E9570 /* Home.storyboard */; };
 		23B1D4BE25E41C4D001E9570 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B1D4BD25E41C4D001E9570 /* HomeViewController.swift */; };
 		23B1D4C225E42140001E9570 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23B1D4C125E42140001E9570 /* Images.xcassets */; };
+		23B1D4CA25E4225F001E9570 /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B1D4C825E4225F001E9570 /* MenuTableViewCell.swift */; };
+		23B1D4CB25E4225F001E9570 /* MenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23B1D4C925E4225F001E9570 /* MenuTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +48,8 @@
 		23B1D4BA25E41C3C001E9570 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		23B1D4BD25E41C4D001E9570 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		23B1D4C125E42140001E9570 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		23B1D4C825E4225F001E9570 /* MenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
+		23B1D4C925E4225F001E9570 /* MenuTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -232,6 +236,8 @@
 		23B1D4C025E4212F001E9570 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				23B1D4C825E4225F001E9570 /* MenuTableViewCell.swift */,
+				23B1D4C925E4225F001E9570 /* MenuTableViewCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -299,6 +305,7 @@
 				23B1D49525E4076C001E9570 /* RootTabBar.storyboard in Resources */,
 				23B1D4BB25E41C3C001E9570 /* Home.storyboard in Resources */,
 				23B1D43725E3EC62001E9570 /* LaunchScreen.storyboard in Resources */,
+				23B1D4CB25E4225F001E9570 /* MenuTableViewCell.xib in Resources */,
 				23B1D43425E3EC62001E9570 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -320,6 +327,7 @@
 				23B1D46725E3F90E001E9570 /* UICollectionViewCell+Collection.swift in Sources */,
 				23B1D42825E3EC61001E9570 /* AppDelegate.swift in Sources */,
 				23B1D43225E3EC61001E9570 /* GithubClient.xcdatamodeld in Sources */,
+				23B1D4CA25E4225F001E9570 /* MenuTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,7 +9,7 @@ import UIKit
 
 class RootNavigationViewController: UINavigationController {
 
-    private var isLogin = false
+    private var isLogin = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
