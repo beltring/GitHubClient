@@ -26,6 +26,8 @@
 		23B1D4C225E42140001E9570 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23B1D4C125E42140001E9570 /* Images.xcassets */; };
 		23B1D4CA25E4225F001E9570 /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B1D4C825E4225F001E9570 /* MenuTableViewCell.swift */; };
 		23B1D4CB25E4225F001E9570 /* MenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23B1D4C925E4225F001E9570 /* MenuTableViewCell.xib */; };
+		23B1D4D225E43093001E9570 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B1D4D125E43093001E9570 /* ProfileViewController.swift */; };
+		23B1D4D525E430A4001E9570 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23B1D4D425E430A4001E9570 /* Profile.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +52,8 @@
 		23B1D4C125E42140001E9570 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		23B1D4C825E4225F001E9570 /* MenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
 		23B1D4C925E4225F001E9570 /* MenuTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuTableViewCell.xib; sourceTree = "<group>"; };
+		23B1D4D125E43093001E9570 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		23B1D4D425E430A4001E9570 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +137,7 @@
 			children = (
 				23B1D4A825E4102D001E9570 /* Login */,
 				23B1D4B925E41C0D001E9570 /* Home */,
+				23B1D4D025E43054001E9570 /* Profile */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -242,6 +247,15 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		23B1D4D025E43054001E9570 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				23B1D4D425E430A4001E9570 /* Profile.storyboard */,
+				23B1D4D125E43093001E9570 /* ProfileViewController.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -305,6 +319,7 @@
 				23B1D49525E4076C001E9570 /* RootTabBar.storyboard in Resources */,
 				23B1D4BB25E41C3C001E9570 /* Home.storyboard in Resources */,
 				23B1D43725E3EC62001E9570 /* LaunchScreen.storyboard in Resources */,
+				23B1D4D525E430A4001E9570 /* Profile.storyboard in Resources */,
 				23B1D4CB25E4225F001E9570 /* MenuTableViewCell.xib in Resources */,
 				23B1D43425E3EC62001E9570 /* Assets.xcassets in Resources */,
 			);
@@ -323,6 +338,7 @@
 				23B1D45D25E3F811001E9570 /* UITableViewCell+Table.swift in Sources */,
 				23B1D46425E3F88A001E9570 /* UIView+Instance.swift in Sources */,
 				23B1D4BE25E41C4D001E9570 /* HomeViewController.swift in Sources */,
+				23B1D4D225E43093001E9570 /* ProfileViewController.swift in Sources */,
 				23B1D46125E3F861001E9570 /* UIViewController+Instance.swift in Sources */,
 				23B1D46725E3F90E001E9570 /* UICollectionViewCell+Collection.swift in Sources */,
 				23B1D42825E3EC61001E9570 /* AppDelegate.swift in Sources */,
