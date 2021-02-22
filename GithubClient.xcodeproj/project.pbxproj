@@ -57,14 +57,86 @@
 			isa = PBXGroup;
 			children = (
 				23B1D42725E3EC61001E9570 /* AppDelegate.swift */,
+				23B1D44A25E3F296001E9570 /* GitHubHelper */,
+				23B1D44925E3F25B001E9570 /* Helpers */,
+				23B1D44225E3F0E3001E9570 /* DataStorage */,
+				23B1D44525E3F163001E9570 /* GitHub */,
 				23B1D42B25E3EC61001E9570 /* ViewController.swift */,
 				23B1D42D25E3EC61001E9570 /* Main.storyboard */,
-				23B1D43325E3EC62001E9570 /* Assets.xcassets */,
-				23B1D43525E3EC62001E9570 /* LaunchScreen.storyboard */,
+				23B1D44425E3F0F9001E9570 /* SupportingFiles */,
 				23B1D43825E3EC62001E9570 /* Info.plist */,
-				23B1D43025E3EC61001E9570 /* GithubClient.xcdatamodeld */,
 			);
 			path = GithubClient;
+			sourceTree = "<group>";
+		};
+		23B1D44225E3F0E3001E9570 /* DataStorage */ = {
+			isa = PBXGroup;
+			children = (
+				23B1D44325E3F0EE001E9570 /* Model */,
+			);
+			path = DataStorage;
+			sourceTree = "<group>";
+		};
+		23B1D44325E3F0EE001E9570 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				23B1D43025E3EC61001E9570 /* GithubClient.xcdatamodeld */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		23B1D44425E3F0F9001E9570 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				23B1D43525E3EC62001E9570 /* LaunchScreen.storyboard */,
+				23B1D43325E3EC62001E9570 /* Assets.xcassets */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		23B1D44525E3F163001E9570 /* GitHub */ = {
+			isa = PBXGroup;
+			children = (
+				23B1D44725E3F179001E9570 /* Root */,
+				23B1D44625E3F174001E9570 /* UI */,
+				23B1D44825E3F181001E9570 /* Core */,
+			);
+			path = GitHub;
+			sourceTree = "<group>";
+		};
+		23B1D44625E3F174001E9570 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		23B1D44725E3F179001E9570 /* Root */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Root;
+			sourceTree = "<group>";
+		};
+		23B1D44825E3F181001E9570 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		23B1D44925E3F25B001E9570 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
+		23B1D44A25E3F296001E9570 /* GitHubHelper */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = GitHubHelper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
