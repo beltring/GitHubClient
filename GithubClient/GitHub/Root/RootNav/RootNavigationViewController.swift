@@ -6,10 +6,11 @@
 //
 
 import UIKit
+import KeychainSwift
 
 class RootNavigationViewController: UINavigationController {
 
-    private var isLogin = true
+    private let keychain = KeychainSwift()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,7 +20,7 @@ class RootNavigationViewController: UINavigationController {
     func setRootController() {
         let vc: UIViewController
         
-        if isLogin {
+        if keychain.get("accessToken") != nil {
             vc = RootTabBarViewController.initial()
         }
         else {

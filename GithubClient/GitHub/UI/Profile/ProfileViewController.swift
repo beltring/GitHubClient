@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import SafariServices
+import KeychainSwift
 
 class ProfileViewController: UIViewController {
 
@@ -19,6 +21,24 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tabBarController?.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Sign out", style: .done, target: self, action: #selector(signOutTapped))
     }
+}
 
+// MARK: - SFSafariViewControllerDelegate
+extension ProfileViewController: SFSafariViewControllerDelegate {
+    
+    @IBAction func signOutTapped(){
+        let urlString = "https://github.com/logout"
+        if let url = URL(string: urlString) {
+            let vc = SFSafariViewController(url: url)
+            vc.delegate = self
+            // TODO: add processing for clicking the done button
+            present(vc, animated: true, completion: { [weak self] in
+                KeychainSwift().clear()
+                let nav = self?.navigationController as! RootNavigationViewController
+                nav.setRootController()
+            })
+        }
+    }
 }
