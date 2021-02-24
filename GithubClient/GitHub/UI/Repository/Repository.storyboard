@@ -132,13 +132,23 @@
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="253" id="wLh-Zc-61e"/>
                                 </constraints>
                             </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="r6i-Pn-NnB">
+                                <rect key="frame" x="0.0" y="337" width="414" height="112"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="112" id="kbK-ti-Xyx"/>
+                                </constraints>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="l9I-tp-8CH"/>
                         <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="BGa-k5-USw" firstAttribute="trailing" secondItem="l9I-tp-8CH" secondAttribute="trailing" id="5QR-SB-xt7"/>
                             <constraint firstItem="BGa-k5-USw" firstAttribute="leading" secondItem="l9I-tp-8CH" secondAttribute="leading" id="Gfl-et-Mc0"/>
+                            <constraint firstItem="r6i-Pn-NnB" firstAttribute="leading" secondItem="l9I-tp-8CH" secondAttribute="leading" id="JoF-sq-hJJ"/>
+                            <constraint firstItem="r6i-Pn-NnB" firstAttribute="trailing" secondItem="l9I-tp-8CH" secondAttribute="trailing" id="eAi-12-OMF"/>
                             <constraint firstItem="BGa-k5-USw" firstAttribute="top" secondItem="l9I-tp-8CH" secondAttribute="top" id="i3Y-qt-nqR"/>
+                            <constraint firstItem="r6i-Pn-NnB" firstAttribute="top" secondItem="BGa-k5-USw" secondAttribute="bottom" constant="40" id="zIQ-lq-0B8"/>
                         </constraints>
                     </view>
                     <connections>
@@ -147,6 +157,7 @@
                         <outlet property="nameLabel" destination="ZqA-IT-hQx" id="hfH-bp-8IM"/>
                         <outlet property="ownerImage" destination="oCg-6P-NMl" id="vab-qc-EHg"/>
                         <outlet property="starCountLabel" destination="65B-g6-YOy" id="j5i-xa-hCu"/>
+                        <outlet property="tableView" destination="r6i-Pn-NnB" id="Ien-1d-hzb"/>
                         <outlet property="userNameLabel" destination="Uto-uO-hOx" id="1vP-Lu-vsK"/>
                         <outlet property="watchersCountLabel" destination="t0h-35-svq" id="8Dd-4k-Fic"/>
                     </connections>

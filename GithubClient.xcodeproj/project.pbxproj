@@ -21,6 +21,8 @@
 		236CBC7825E6DFD2003B144A /* Repository.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 236CBC7725E6DFD2003B144A /* Repository.storyboard */; };
 		236CBC7B25E6DFF3003B144A /* RepositoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236CBC7A25E6DFF3003B144A /* RepositoryViewController.swift */; };
 		236CBC8125E6F6F7003B144A /* Owner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236CBC8025E6F6F7003B144A /* Owner.swift */; };
+		236CBC8A25E703CA003B144A /* RepositoryMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236CBC8825E703CA003B144A /* RepositoryMenuTableViewCell.swift */; };
+		236CBC8B25E703CA003B144A /* RepositoryMenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 236CBC8925E703CA003B144A /* RepositoryMenuTableViewCell.xib */; };
 		23B1D42825E3EC61001E9570 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B1D42725E3EC61001E9570 /* AppDelegate.swift */; };
 		23B1D43225E3EC61001E9570 /* GithubClient.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 23B1D43025E3EC61001E9570 /* GithubClient.xcdatamodeld */; };
 		23B1D43425E3EC62001E9570 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23B1D43325E3EC62001E9570 /* Assets.xcassets */; };
@@ -61,6 +63,8 @@
 		236CBC7725E6DFD2003B144A /* Repository.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Repository.storyboard; sourceTree = "<group>"; };
 		236CBC7A25E6DFF3003B144A /* RepositoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryViewController.swift; sourceTree = "<group>"; };
 		236CBC8025E6F6F7003B144A /* Owner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Owner.swift; sourceTree = "<group>"; };
+		236CBC8825E703CA003B144A /* RepositoryMenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryMenuTableViewCell.swift; sourceTree = "<group>"; };
+		236CBC8925E703CA003B144A /* RepositoryMenuTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepositoryMenuTableViewCell.xib; sourceTree = "<group>"; };
 		23B1D42425E3EC61001E9570 /* GithubClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GithubClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		23B1D42725E3EC61001E9570 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		23B1D43125E3EC61001E9570 /* GithubClient.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GithubClient.xcdatamodel; sourceTree = "<group>"; };
@@ -167,6 +171,7 @@
 		236CBC7625E6DFA8003B144A /* Repository */ = {
 			isa = PBXGroup;
 			children = (
+				236CBC8725E703A2003B144A /* Cell */,
 				236CBC7725E6DFD2003B144A /* Repository.storyboard */,
 				236CBC7A25E6DFF3003B144A /* RepositoryViewController.swift */,
 			);
@@ -180,6 +185,15 @@
 				236CBC8025E6F6F7003B144A /* Owner.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		236CBC8725E703A2003B144A /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				236CBC8825E703CA003B144A /* RepositoryMenuTableViewCell.swift */,
+				236CBC8925E703CA003B144A /* RepositoryMenuTableViewCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		23B1D41B25E3EC61001E9570 = {
@@ -474,6 +488,7 @@
 			files = (
 				23B1D4AA25E4103C001E9570 /* Login.storyboard in Resources */,
 				23B1D4B025E411EB001E9570 /* Images.xcassets in Resources */,
+				236CBC8B25E703CA003B144A /* RepositoryMenuTableViewCell.xib in Resources */,
 				2353639625E454FA00225412 /* Popular.storyboard in Resources */,
 				235363B825E4676000225412 /* RepositoryTableViewCell.xib in Resources */,
 				23B1D4C225E42140001E9570 /* Images.xcassets in Resources */,
@@ -547,6 +562,7 @@
 				23B1D49225E4075E001E9570 /* RootTabBarViewController.swift in Sources */,
 				2356717425E63538003EE8A1 /* Repository.swift in Sources */,
 				2353639F25E4574800225412 /* PopularCollectionViewCell.swift in Sources */,
+				236CBC8A25E703CA003B144A /* RepositoryMenuTableViewCell.swift in Sources */,
 				23B1D45D25E3F811001E9570 /* UITableViewCell+Table.swift in Sources */,
 				236CBC7B25E6DFF3003B144A /* RepositoryViewController.swift in Sources */,
 				23B1D46425E3F88A001E9570 /* UIView+Instance.swift in Sources */,
