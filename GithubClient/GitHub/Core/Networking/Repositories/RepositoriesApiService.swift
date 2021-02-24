@@ -6,20 +6,27 @@
 //
 
 import Foundation
+import KeychainSwift
 
 class RepositoriesApiService {
     
     private var dataTask: URLSessionDataTask?
+    private let keychain = KeychainSwift()
     
     func getRepositoriesForAuthUser(completion: @escaping (Result<[Repository], Error>) -> Void) {
         
         let urlComponents = NSURLComponents(string: "https://api.github.com/user/repos")!
 
         urlComponents.queryItems = [
-          URLQueryItem(name: "per_page", value: "100")
+            URLQueryItem(name: "per_page", value: "100"),
+            URLQueryItem(name: "sort", value: "created")
         ]
+        var request = URLRequest(url: urlComponents.url!)
+        let acessToken = keychain.get("accessToken")!
+        // Set headers
+        request.addValue("Bearer \(acessToken)", forHTTPHeaderField: "Authorization")
         
-        dataTask = URLSession.shared.dataTask(with: urlComponents.url!) { (data, response, error) in
+        dataTask = URLSession.shared.dataTask(with: request) { (data, response, error) in
             
             if let error = error {
                 completion(.failure(error))
