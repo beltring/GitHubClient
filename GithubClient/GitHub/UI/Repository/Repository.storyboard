@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -34,49 +35,50 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="GUs-TZ-8H9">
-                                        <rect key="frame" x="8" y="167.5" width="282.5" height="21"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="GUs-TZ-8H9">
+                                        <rect key="frame" x="8" y="167.5" width="279.5" height="21"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="RoD-Rl-87o" userLabel="Stars Stack View">
-                                                <rect key="frame" x="0.0" y="0.0" width="159" height="21"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="RoD-Rl-87o" userLabel="Stars Stack View">
+                                                <rect key="frame" x="0.0" y="0.0" width="149" height="21"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="16s-gm-aMM">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="16s-gm-aMM">
                                                         <rect key="frame" x="0.0" y="-0.5" width="22" height="21"/>
-                                                        <color key="tintColor" name="CustomGray"/>
+                                                        <color key="tintColor" systemColor="systemYellowColor"/>
+                                                        <imageReference key="image" image="star.fill" catalog="system" symbolScale="medium"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="234234" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="65B-g6-YOy">
-                                                        <rect key="frame" x="32" y="0.0" width="71.5" height="21"/>
+                                                        <rect key="frame" x="27" y="0.0" width="71.5" height="21"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                         <color key="textColor" name="CustomGray"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stars" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RyZ-sj-cMX">
-                                                        <rect key="frame" x="113.5" y="0.0" width="45.5" height="21"/>
+                                                        <rect key="frame" x="103.5" y="0.0" width="45.5" height="21"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                         <color key="textColor" name="CustomGray"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="wN1-Nd-PSa" userLabel="Forks Stack View">
-                                                <rect key="frame" x="194" y="0.0" width="88.5" height="21"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="wN1-Nd-PSa" userLabel="Forks Stack View">
+                                                <rect key="frame" x="189" y="0.0" width="90.5" height="21"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="opr-De-mxQ">
                                                         <rect key="frame" x="0.0" y="0.0" width="20" height="21"/>
-                                                        <color key="tintColor" name="CustomGray"/>
+                                                        <color key="tintColor" systemColor="systemIndigoColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="20" id="HBo-il-FQd"/>
                                                             <constraint firstAttribute="height" constant="21" id="OjY-vw-ENj"/>
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OZ8-4n-RUL">
-                                                        <rect key="frame" x="24" y="0.0" width="12" height="21"/>
+                                                        <rect key="frame" x="25" y="0.0" width="12" height="21"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                         <color key="textColor" name="CustomGray"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Forks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ro6-F9-jqG">
-                                                        <rect key="frame" x="40" y="0.0" width="48.5" height="21"/>
+                                                        <rect key="frame" x="42" y="0.0" width="48.5" height="21"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                         <color key="textColor" name="CustomGray"/>
                                                         <nil key="highlightedColor"/>
@@ -85,21 +87,21 @@
                                             </stackView>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="5zh-TM-14b" userLabel="Stars Stack View">
-                                        <rect key="frame" x="8" y="207.5" width="141" height="24"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="5zh-TM-14b" userLabel="Stars Stack View">
+                                        <rect key="frame" x="8" y="207.5" width="131" height="24"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="eye" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="nbf-Ew-vim">
                                                 <rect key="frame" x="0.0" y="1.5" width="26" height="20.5"/>
-                                                <color key="tintColor" name="CustomGray"/>
+                                                <color key="tintColor" systemColor="systemOrangeColor"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t0h-35-svq">
-                                                <rect key="frame" x="36" y="0.0" width="12" height="24"/>
+                                                <rect key="frame" x="31" y="0.0" width="12" height="24"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <color key="textColor" name="CustomGray"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Watchers" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="waF-fX-Rko">
-                                                <rect key="frame" x="58" y="0.0" width="83" height="24"/>
+                                                <rect key="frame" x="48" y="0.0" width="83" height="24"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <color key="textColor" name="CustomGray"/>
                                                 <nil key="highlightedColor"/>
@@ -115,6 +117,7 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="5zh-TM-14b" secondAttribute="bottom" constant="21.5" id="2GB-Th-ez9"/>
                                     <constraint firstItem="Uto-uO-hOx" firstAttribute="top" secondItem="BGa-k5-USw" secondAttribute="top" constant="24" id="7J9-AQ-ywo"/>
                                     <constraint firstItem="5zh-TM-14b" firstAttribute="leading" secondItem="BGa-k5-USw" secondAttribute="leading" constant="8" id="GYH-1q-orV"/>
                                     <constraint firstItem="Uto-uO-hOx" firstAttribute="leading" secondItem="oCg-6P-NMl" secondAttribute="trailing" constant="8" symbolic="YES" id="K1g-uN-vv0"/>
@@ -126,7 +129,7 @@
                                     <constraint firstItem="5zh-TM-14b" firstAttribute="top" secondItem="GUs-TZ-8H9" secondAttribute="bottom" constant="19" id="dAb-Hw-dsx"/>
                                     <constraint firstItem="oCg-6P-NMl" firstAttribute="top" secondItem="BGa-k5-USw" secondAttribute="top" constant="8" id="drw-Ye-nD2"/>
                                     <constraint firstItem="GUs-TZ-8H9" firstAttribute="leading" secondItem="BGa-k5-USw" secondAttribute="leading" constant="8" id="s6O-lI-c2L"/>
-                                    <constraint firstAttribute="height" constant="253" id="wLh-Zc-61e"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="253" id="wLh-Zc-61e"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -155,7 +158,7 @@
     </scenes>
     <resources>
         <image name="eye" catalog="system" width="128" height="81"/>
-        <image name="star" catalog="system" width="128" height="116"/>
+        <image name="star.fill" catalog="system" width="128" height="116"/>
         <namedColor name="CustomGray">
             <color red="0.43000000715255737" green="0.43000000715255737" blue="0.43000000715255737" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
@@ -167,6 +170,15 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

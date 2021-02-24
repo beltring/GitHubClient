@@ -26,11 +26,16 @@ class RepositoryViewController: UIViewController {
     }
     
     private func setupVC() {
+        ownerImage.layer.cornerRadius = 35
+        
+        userNameLabel.text = repository?.owner?.login
         nameLabel.text = repository?.name
         starCountLabel.text = String(repository?.stargazersCount ?? 0)
         forkCountLabel.text = String(repository?.forksCount ?? 0)
         watchersCountLabel.text = String(repository?.watchersCount ?? 0)
-        forkImage.image = UIImage(named: "arrow.branch")
+        forkImage.image = UIImage(systemName: "arrow.branch")
+        guard let url = URL(string: repository?.owner?.avatarUrl ?? "") else { return }
+        getImageDataFrom(url: url)
     }
     
     // MARK: - Get image data

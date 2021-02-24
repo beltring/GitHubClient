@@ -16,9 +16,10 @@ struct Repository: Decodable {
     let language: String?
     let defaultBranch: String?
     let commitsUrl: String?
+    let owner: Owner?
     
     private enum CodingKeys: String, CodingKey {
-        case id, name, language
+        case id, name, language, owner
         case stargazersCount = "stargazers_count"
         case watchersCount = "watchers_count"
         case forksCount = "forks_count"
