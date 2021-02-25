@@ -49,6 +49,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = MenuTableViewCell.dequeueReusableCell(in: tableView, for: indexPath)
+        cell.accessoryType = .disclosureIndicator
         
         cell.titleLabel.text = Row.allCases[indexPath.row].title
         cell.menuIconImageView.image = Row.allCases[indexPath.row].image

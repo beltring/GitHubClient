@@ -16,14 +16,17 @@ struct Repository: Decodable {
     let language: String?
     let defaultBranch: String?
     let commitsUrl: String?
+    let owner: Owner?
+    let url: String
     
     private enum CodingKeys: String, CodingKey {
-        case id, name, language
+        case id, name, language, owner
         case stargazersCount = "stargazers_count"
         case watchersCount = "watchers_count"
         case forksCount = "forks_count"
         case defaultBranch = "default_branch"
         case commitsUrl = "commits_url"
+        case url = "html_url"
     }
     
     func encode(to encoder: Encoder) throws {
