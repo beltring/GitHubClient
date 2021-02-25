@@ -9,12 +9,17 @@ import UIKit
 
 class CommitsViewController: UIViewController {
 
+    var commitsUrl: String?
+    private let commitsService = CommitsApiService()
+    private var commitsData = [CommitData]()
+    
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupTableView()
+        fetchCommits()
     }
     
     private func setupTableView() {
@@ -24,6 +29,7 @@ class CommitsViewController: UIViewController {
     }
 }
 
+// MARK: - UITableViewDelegate&UITableViewDataSource
 extension CommitsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         10
@@ -34,6 +40,21 @@ extension CommitsViewController: UITableViewDelegate, UITableViewDataSource {
         
         return cell
     }
-    
-    
+}
+
+extension CommitsViewController {
+    func fetchCommits() {
+        guard let url = URL(string: commitsUrl ?? "") else { return }
+        
+        commitsService.getCommitsForDefaultBranch(url: url) { [weak self] result in
+            switch result {
+            case .success(let commits):
+                self?.commitsData = commits
+                self?.tableView.reloadData()
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+            
+        }
+    }
 }

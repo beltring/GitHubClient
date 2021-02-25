@@ -82,6 +82,10 @@ extension RepositoryViewController {
     // MARK: - Show commits screen
     func showCommits() {
         let vc = CommitsViewController.initial()
+        
+        // api.github.com/repos/user/reposName/commits{/sha}
+        vc.commitsUrl = repository?.commitsUrl?.replacingOccurrences(of: "{/sha}", with: "")
+        
         navigationController?.pushViewController(vc, animated: true)
     }
 }
