@@ -9,11 +9,16 @@ import Foundation
 
 struct CommitData: Decodable {
     let commit: Commit?
-    let commiter: Owner?
+    let committer: Owner?
+    let url: String?
+    
+    private enum CodingKeys: String, CodingKey {
+        case commit, committer
+        case url = "html_url"
+    }
 }
 
 struct Commit: Decodable {
     let message: String?
-    let url: String?
     let author: Author?
 }

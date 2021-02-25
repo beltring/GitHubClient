@@ -13,9 +13,14 @@ class CommitsApiService {
     private var dataTask: URLSessionDataTask?
     private let keychain = KeychainSwift()
     
-    func getCommitsForDefaultBranch(url: URL, completion: @escaping (Result<[CommitData], Error>) -> Void) {
+    func getCommitsForDefaultBranch(url: String, completion: @escaping (Result<[CommitData], Error>) -> Void) {
         
-        var request = URLRequest(url: url)
+        let urlComponents = NSURLComponents(string: url)!
+        
+        urlComponents.queryItems = [
+            URLQueryItem(name: "per_page", value: "100"),
+        ]
+        var request = URLRequest(url: urlComponents.url!)
         let acessToken = keychain.get("accessToken")!
         request.addValue("Bearer \(acessToken)", forHTTPHeaderField: "Authorization")
         
