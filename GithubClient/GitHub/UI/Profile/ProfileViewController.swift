@@ -11,6 +11,10 @@ import KeychainSwift
 
 class ProfileViewController: UIViewController {
 
+    private let userService = UserApiService()
+    private var user: User?
+    private var activityIndicator = UIActivityIndicatorView(style: .large)
+    
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var userNameLabel: UILabel!
@@ -22,6 +26,59 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tabBarController?.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Sign out", style: .done, target: self, action: #selector(signOutTapped))
+    
+        setupActivityIndicator()
+        activityIndicator.startAnimating()
+        profileImage.layer.cornerRadius = 35
+        fetchUserInformation()
+    }
+    
+    private func setupActivityIndicator() {
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(activityIndicator)
+        activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+    }
+}
+
+// MARK: - Fetch data
+extension ProfileViewController {
+    
+    private func fetchUserInformation() {
+        userService.getUserInformation { [weak self] result in
+            switch result {
+            case .success(let user):
+                self?.user = user
+                self?.nameLabel.text = user.name
+                self?.userNameLabel.text = user.login
+                self?.locationLabel.text = user.location
+                self?.mailLabel.text = user.email
+                self?.followersCountLabel.text = String(user.followers ?? 0)
+                self?.followingCountLabel.text = String(user.following ?? 0)
+                self?.getImage(url: user.avatar)
+                self?.activityIndicator.stopAnimating()
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+
+    private func getImage(url: String?) {
+        guard let url = URL(string: url ?? "") else { return }
+        URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
+            
+            if let error = error {
+                print(error.localizedDescription)
+            }
+            
+            guard let data = data else { return }
+            
+            DispatchQueue.main.async {
+                if let image = UIImage(data: data) {
+                    self?.profileImage.image = image
+                }
+            }
+        }.resume()
     }
 }
 

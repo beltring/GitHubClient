@@ -14,4 +14,15 @@ struct User: Decodable {
     let email: String?
     let followers: Int?
     let following: Int?
+    let avatar: String?
+    
+    private enum CodingKeys: String, CodingKey {
+        case login
+        case name
+        case location
+        case email
+        case followers
+        case following
+        case avatar = "avatar_url"
+    }
 }
