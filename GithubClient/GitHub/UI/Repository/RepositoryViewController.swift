@@ -25,6 +25,7 @@ class RepositoryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.navigationItem.title = repository?.name
         setupVC()
         setupTableView()
     }
