@@ -14,6 +14,7 @@ class RepositoriesViewController: UIViewController {
     private let repositoryService = RepositoriesApiService()
     private var repositories = [Repository]()
     private weak var activityIndicatorView: UIActivityIndicatorView!
+    
     private let refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(refresh(sender:)), for: .valueChanged)
@@ -25,11 +26,6 @@ class RepositoriesViewController: UIViewController {
         
         setupTableView()
         setupActivityIndicator()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
         activityIndicatorView.startAnimating()
         fetchRepositories()
     }
