@@ -72,11 +72,17 @@ class RepositoryViewController: UIViewController {
     }
 }
 
-// MARK: - Get/Set methods
 extension RepositoryViewController {
     
+    // MARK: - Set method
     func setRepository(repository: Repository) {
         self.repository = repository
+    }
+    
+    // MARK: - Show commits screen
+    func showCommits() {
+        let vc = CommitsViewController.initial()
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 
@@ -101,7 +107,7 @@ extension RepositoryViewController: UITableViewDelegate, UITableViewDataSource {
         
         switch row {
         case .commits:
-            print("commits")
+            showCommits()
         case .code:
             showRepositoryInBrowser()
         }
