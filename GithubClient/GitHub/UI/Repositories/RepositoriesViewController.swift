@@ -41,7 +41,6 @@ class RepositoriesViewController: UIViewController {
     
     private func setupActivityIndicator() {
         let activityIndicatorView = UIActivityIndicatorView(style: .large)
-        tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
         tableView.backgroundView = activityIndicatorView
         self.activityIndicatorView = activityIndicatorView
     }
@@ -82,7 +81,6 @@ extension RepositoriesViewController {
             case .success(let repositories):
                 self?.repositories = repositories
                 self?.activityIndicatorView.stopAnimating()
-                self?.tableView.separatorStyle = UITableViewCell.SeparatorStyle.singleLine
                 self?.tableView.reloadData()
             case .failure(let error):
                 print(error.localizedDescription)

@@ -10,8 +10,10 @@ import UIKit
 class IssuesViewController: UIViewController {
     
     private let searchController = UISearchController(searchResultsController: nil)
+    private weak var activityIndicatorView: UIActivityIndicatorView!
     private let issuesService = IssuesApiService()
     private var issues = [Issue]()
+    private var filteredIssues = [Issue]()
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -21,6 +23,8 @@ class IssuesViewController: UIViewController {
         navigationItem.title = "Issues"
         setupTableView()
         setupSearchBar()
+        setupActivityIndicator()
+        activityIndicatorView.startAnimating()
         fetchIssues()
     }
     
@@ -37,45 +41,124 @@ class IssuesViewController: UIViewController {
         searchController.searchBar.placeholder = "Search"
         navigationItem.searchController = searchController
         definesPresentationContext = true
+        searchController.searchBar.scopeButtonTitles = Filter.allCases
+          .map { $0.rawValue }
+        searchController.searchBar.delegate = self
+    }
+    
+    private func setupActivityIndicator() {
+        let activityIndicatorView = UIActivityIndicatorView(style: .large)
+        //        tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
+        tableView.backgroundView = activityIndicatorView
+        self.activityIndicatorView = activityIndicatorView
     }
 }
 
+// MARK: - UITableViewDelegate&UITableViewDataSource
 extension IssuesViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        if isFiltering {
+            return filteredIssues.count
+        }
+        
         return issues.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = IssueTableViewCell.dequeueReusableCell(in: tableView, for: indexPath)
+        let issue: Issue
         
-        let issue = issues[indexPath.row]
+        if isFiltering {
+            issue = filteredIssues[indexPath.row]
+        } else {
+            issue = issues[indexPath.row]
+        }
+        
+        
         cell.configure(issue: issue)
         
         return cell
-    }
-    
-    
-}
-
-// MARK: - UISearchResultsUpdating
-extension IssuesViewController: UISearchResultsUpdating {
-    
-    func updateSearchResults(for searchController: UISearchController) {
-        // TODO
     }
 }
 
 // MARK: - Fetch issues
 extension IssuesViewController {
     func fetchIssues(filter: String = "all") {
-        issuesService.getIssues { [weak self] result in
+        issuesService.getIssues(filter: filter) { [weak self] result in
             switch result {
             case .success(let issues):
                 self?.issues = issues
+                self?.activityIndicatorView.stopAnimating()
                 self?.tableView.reloadData()
             case .failure(let error):
                 print(error.localizedDescription)
             }
         }
     }
+}
+
+// MARK: - UISearchResultsUpdating & UISearch configure
+extension IssuesViewController: UISearchResultsUpdating {
+    
+    private var isSearchBarEmpty: Bool {
+        return searchController.searchBar.text?.isEmpty ?? true
+    }
+    
+    private var isFiltering: Bool {
+        let searchBarScopeIsFiltering = searchController.searchBar.selectedScopeButtonIndex != 0
+          return searchController.isActive &&
+            (!isSearchBarEmpty || searchBarScopeIsFiltering)
+    }
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        let searchBar = searchController.searchBar
+          let filter = Filter(rawValue: searchBar.scopeButtonTitles![searchBar.selectedScopeButtonIndex])
+          filterContentForSearchText(searchBar.text!, filter: filter!)
+    }
+    
+    private func filterContentForSearchText(_ searchText: String, filter: Filter = .all) {
+        
+        switch filter {
+        case .all:
+            activityIndicatorView.startAnimating()
+            fetchIssues(filter: filter.rawValue)
+        case .created:
+            activityIndicatorView.startAnimating()
+            fetchIssues(filter: filter.rawValue)
+        case .assigned:
+            activityIndicatorView.startAnimating()
+            fetchIssues(filter: filter.rawValue)
+        case .mentioned:
+            activityIndicatorView.startAnimating()
+            fetchIssues(filter: filter.rawValue)
+        }
+        
+        filteredIssues = issues.filter { (issue: Issue) -> Bool in
+            return issue.title!.lowercased().contains(searchText.lowercased())
+        }
+        
+        if isSearchBarEmpty == false {
+            
+        }
+        
+        tableView.reloadData()
+    }
+}
+
+// MARK: - UISearchBarDelegate
+extension IssuesViewController: UISearchBarDelegate {
+  func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+    
+    guard let filter = Filter(rawValue: searchBar.scopeButtonTitles![selectedScope]) else { return }
+    filterContentForSearchText(searchBar.text!, filter: filter)
+  }
+}
+
+// MARK: - Filter
+private enum Filter: String, CaseIterable {
+    case all
+    case created
+    case assigned
+    case mentioned
 }
