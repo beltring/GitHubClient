@@ -36,6 +36,7 @@ class RepositoriesViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.refreshControl = refreshControl
+        tableView.tableFooterView = UIView()
     }
     
     private func setupActivityIndicator() {

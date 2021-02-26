@@ -25,6 +25,8 @@
 		2359CEBB25E9609500FA0F0E /* IssuesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2359CEBA25E9609500FA0F0E /* IssuesViewController.swift */; };
 		2359CEBE25E9700400FA0F0E /* Issue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2359CEBD25E9700400FA0F0E /* Issue.swift */; };
 		2359CEC225E9729B00FA0F0E /* IssuesApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2359CEC125E9729B00FA0F0E /* IssuesApiService.swift */; };
+		2359CEC825E97E7700FA0F0E /* IssueTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2359CEC625E97E7700FA0F0E /* IssueTableViewCell.swift */; };
+		2359CEC925E97E7700FA0F0E /* IssueTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2359CEC725E97E7700FA0F0E /* IssueTableViewCell.xib */; };
 		2364EBCF25E7E34300B9E44F /* Commits.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2364EBCE25E7E34300B9E44F /* Commits.storyboard */; };
 		2364EBD225E7E3F300B9E44F /* CommitsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2364EBD125E7E3F300B9E44F /* CommitsViewController.swift */; };
 		2364EBD625E7E45F00B9E44F /* CommitTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2364EBD425E7E45F00B9E44F /* CommitTableViewCell.swift */; };
@@ -80,6 +82,8 @@
 		2359CEBA25E9609500FA0F0E /* IssuesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuesViewController.swift; sourceTree = "<group>"; };
 		2359CEBD25E9700400FA0F0E /* Issue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Issue.swift; sourceTree = "<group>"; };
 		2359CEC125E9729B00FA0F0E /* IssuesApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuesApiService.swift; sourceTree = "<group>"; };
+		2359CEC625E97E7700FA0F0E /* IssueTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueTableViewCell.swift; sourceTree = "<group>"; };
+		2359CEC725E97E7700FA0F0E /* IssueTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IssueTableViewCell.xib; sourceTree = "<group>"; };
 		2364EBCE25E7E34300B9E44F /* Commits.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Commits.storyboard; sourceTree = "<group>"; };
 		2364EBD125E7E3F300B9E44F /* CommitsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitsViewController.swift; sourceTree = "<group>"; };
 		2364EBD425E7E45F00B9E44F /* CommitTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitTableViewCell.swift; sourceTree = "<group>"; };
@@ -205,6 +209,7 @@
 		2359CEB625E9605600FA0F0E /* Issues */ = {
 			isa = PBXGroup;
 			children = (
+				2359CEC525E97E5D00FA0F0E /* Cell */,
 				2359CEB725E9607200FA0F0E /* Issues.storyboard */,
 				2359CEBA25E9609500FA0F0E /* IssuesViewController.swift */,
 			);
@@ -217,6 +222,15 @@
 				2359CEC125E9729B00FA0F0E /* IssuesApiService.swift */,
 			);
 			path = Issues;
+			sourceTree = "<group>";
+		};
+		2359CEC525E97E5D00FA0F0E /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				2359CEC625E97E7700FA0F0E /* IssueTableViewCell.swift */,
+				2359CEC725E97E7700FA0F0E /* IssueTableViewCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		2364EBCC25E7E2C200B9E44F /* Commits */ = {
@@ -575,6 +589,7 @@
 			files = (
 				23B1D4AA25E4103C001E9570 /* Login.storyboard in Resources */,
 				23B1D4B025E411EB001E9570 /* Images.xcassets in Resources */,
+				2359CEC925E97E7700FA0F0E /* IssueTableViewCell.xib in Resources */,
 				2364EBD725E7E45F00B9E44F /* CommitTableViewCell.xib in Resources */,
 				236CBC8B25E703CA003B144A /* RepositoryMenuTableViewCell.xib in Resources */,
 				2353639625E454FA00225412 /* Popular.storyboard in Resources */,
@@ -648,6 +663,7 @@
 				2353639925E4550600225412 /* PopularViewController.swift in Sources */,
 				23B1D4AD25E41055001E9570 /* LoginViewController.swift in Sources */,
 				2359CEC225E9729B00FA0F0E /* IssuesApiService.swift in Sources */,
+				2359CEC825E97E7700FA0F0E /* IssueTableViewCell.swift in Sources */,
 				2353F58F25E80E500089818C /* Author.swift in Sources */,
 				23DD61BC25E59B9800996B45 /* GitHubAuthService.swift in Sources */,
 				23B1D4A425E40C80001E9570 /* RootNavigationViewController.swift in Sources */,

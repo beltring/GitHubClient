@@ -13,16 +13,48 @@ class IssuesViewController: UIViewController {
     private let issuesService = IssuesApiService()
     private var issues = [Issue]()
     
+    @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationItem.title = "Issues"
+        setupTableView()
+        setupSearchBar()
+        fetchIssues()
+    }
+    
+    private func setupTableView() {
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.tableFooterView = UIView()
+        IssueTableViewCell.registerCellNib(in: tableView)
+    }
+    
+    private func setupSearchBar() {
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Search"
         navigationItem.searchController = searchController
         definesPresentationContext = true
-        fetchIssues()
     }
+}
+
+extension IssuesViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return issues.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = IssueTableViewCell.dequeueReusableCell(in: tableView, for: indexPath)
+        
+        let issue = issues[indexPath.row]
+        cell.configure(issue: issue)
+        
+        return cell
+    }
+    
+    
 }
 
 // MARK: - UISearchResultsUpdating
@@ -40,7 +72,7 @@ extension IssuesViewController {
             switch result {
             case .success(let issues):
                 self?.issues = issues
-                print(issues.count)
+                self?.tableView.reloadData()
             case .failure(let error):
                 print(error.localizedDescription)
             }
