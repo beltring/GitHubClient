@@ -55,7 +55,7 @@ extension ProfileViewController {
                 self?.mailLabel.text = user.email
                 self?.followersCountLabel.text = String(user.followers ?? 0)
                 self?.followingCountLabel.text = String(user.following ?? 0)
-                self?.getImage(url: user.avatar)
+                self?.getImage(url: user.avatarUrl)
                 self?.activityIndicator.stopAnimating()
             case .failure(let error):
                 print(error.localizedDescription)

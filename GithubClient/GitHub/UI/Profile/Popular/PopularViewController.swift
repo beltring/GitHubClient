@@ -9,11 +9,15 @@ import UIKit
 
 class PopularViewController: UIViewController {
 
+    private var popularRepositories = [Repository]()
+    
     @IBOutlet weak var collectionView: UICollectionView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupCollectionView()
+        fetchPopularRepository()
     }
     
     private func setupCollectionView() {
@@ -27,7 +31,7 @@ class PopularViewController: UIViewController {
 // MARK: - UICollectionViewDataSource&UICollectionViewDelegate
 extension PopularViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return popularRepositories.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -35,6 +39,9 @@ extension PopularViewController: UICollectionViewDataSource, UICollectionViewDel
         cell.layer.borderColor = UIColor.Popular.cellFrame.cgColor
         cell.layer.borderWidth = 1
         cell.layer.cornerRadius = 10
+        
+        let repository = popularRepositories[indexPath.item]
+        cell.configure(repository: repository)
         
         return cell
     }
@@ -53,4 +60,22 @@ extension PopularViewController: UICollectionViewDelegateFlowLayout {
 //    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
 //        return 20
 //    }
+}
+
+extension PopularViewController {
+    func fetchPopularRepository(){ 
+        RepositoriesApiService().getRepositoriesForAuthUser{ [weak self] result in
+            switch result {
+            case .success(let repositories):
+                let repos = repositories.sorted(by: { (repos1, repos2) -> Bool in
+                    return repos1.stargazersCount > repos2.stargazersCount ? true : false
+                }).prefix(5)
+                self?.popularRepositories = Array(repos)
+                self?.collectionView.reloadData()
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+            
+        }
+    }
 }

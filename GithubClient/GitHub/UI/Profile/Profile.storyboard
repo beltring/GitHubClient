@@ -137,7 +137,7 @@
                                     <constraint firstAttribute="height" constant="245" id="aCn-s6-owW"/>
                                 </constraints>
                                 <connections>
-                                    <segue destination="USh-9O-qr6" kind="embed" id="eAX-Ow-rSY"/>
+                                    <segue destination="USh-9O-qr6" kind="embed" identifier="emdedSegue" id="F0d-Py-n3K"/>
                                 </connections>
                             </containerView>
                         </subviews>
@@ -171,7 +171,9 @@
         <!--Popular-->
         <scene sceneID="Ied-z7-Xdi">
             <objects>
-                <viewControllerPlaceholder storyboardName="Popular" id="USh-9O-qr6" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="Popular" id="USh-9O-qr6" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="cTD-Wi-Jlr"/>
+                </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NjF-ht-FQ1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="866" y="116"/>
