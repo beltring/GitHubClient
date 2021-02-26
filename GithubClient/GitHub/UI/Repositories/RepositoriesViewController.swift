@@ -24,6 +24,7 @@ class RepositoriesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationItem.title = "Repositories"
         setupTableView()
         setupActivityIndicator()
         activityIndicatorView.startAnimating()

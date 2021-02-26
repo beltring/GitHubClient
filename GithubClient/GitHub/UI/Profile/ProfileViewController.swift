@@ -48,19 +48,23 @@ extension ProfileViewController {
         userService.getUserInformation { [weak self] result in
             switch result {
             case .success(let user):
-                self?.user = user
-                self?.nameLabel.text = user.name
-                self?.userNameLabel.text = user.login
-                self?.locationLabel.text = user.location
-                self?.mailLabel.text = user.email
-                self?.followersCountLabel.text = String(user.followers ?? 0)
-                self?.followingCountLabel.text = String(user.following ?? 0)
-                self?.getImage(url: user.avatarUrl)
+                self?.success(user: user)
                 self?.activityIndicator.stopAnimating()
             case .failure(let error):
                 print(error.localizedDescription)
             }
         }
+    }
+    
+    private func success(user: User) {
+        self.user = user
+        self.nameLabel.text = user.name
+        self.userNameLabel.text = user.login
+        self.locationLabel.text = user.location
+        self.mailLabel.text = user.email
+        self.followersCountLabel.text = String(user.followers ?? 0)
+        self.followingCountLabel.text = String(user.following ?? 0)
+        self.getImage(url: user.avatarUrl)
     }
 
     private func getImage(url: String?) {

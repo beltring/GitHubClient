@@ -13,14 +13,15 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        tableView.delegate = self
-        tableView.dataSource = self
+        
+        tabBarController?.navigationItem.rightBarButtonItem = nil
         
         setupTableView()
     }
 
     private func setupTableView(){
+        tableView.delegate = self
+        tableView.dataSource = self
         MenuTableViewCell.registerCellNib(in: tableView)
         tableView.layer.cornerRadius = 10
         tableView.tableFooterView = UIView()
@@ -29,7 +30,6 @@ class HomeViewController: UIViewController {
     private func showRepositories(){
         let vc = RepositoriesViewController.initial()
         self.navigationController?.pushViewController(vc, animated: true)
-        self.navigationController?.viewControllers.last?.title = "Repositories"
     }
     
     private func showPullRequests(){

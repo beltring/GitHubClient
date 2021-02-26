@@ -34,6 +34,10 @@
                             <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search GitHub" translatesAutoresizingMaskIntoConstraints="NO" id="f35-Mb-Srq">
                                 <rect key="frame" x="20" y="99" width="374" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <scopeButtonTitles>
+                                    <string>Title</string>
+                                    <string>Title</string>
+                                </scopeButtonTitles>
                             </searchBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Work" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DLR-7Z-K0V">
                                 <rect key="frame" x="20" y="185" width="85" height="27"/>
