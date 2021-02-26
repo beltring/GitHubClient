@@ -37,7 +37,8 @@ class HomeViewController: UIViewController {
     }
     
     private func showIssues(){
-        
+        let vc = IssuesViewController.initial()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
 
@@ -66,7 +67,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
         case .pullRequests:
             showRepositories()
         case .issues:
-            showRepositories()
+            showIssues()
         }
     }
 }
