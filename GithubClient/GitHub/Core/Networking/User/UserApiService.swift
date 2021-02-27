@@ -6,18 +6,16 @@
 //
 
 import Foundation
-import KeychainSwift
 
 class UserApiService {
-    private let keychain = KeychainSwift()
     
     func getUserInformation(completion: @escaping (Result<User, Error>) -> Void) {
         guard let url = URL.github?.appendingPathComponent("user") else { return }
         
-        let acessToken = keychain.get("accessToken")!
+        let accessToken = AuthorizeData.shared.accessToken!
         
         var request = URLRequest(url: url)
-        request.addValue("Bearer \(acessToken)", forHTTPHeaderField: "Authorization")
+        request.addValue("Bearer " + accessToken, forHTTPHeaderField: "Authorization")
         
         URLSession.shared.dataTask(with: request){ data, _, error in
             

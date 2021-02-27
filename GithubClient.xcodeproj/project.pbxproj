@@ -62,6 +62,8 @@
 		23DD61BC25E59B9800996B45 /* GitHubAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DD61BB25E59B9800996B45 /* GitHubAuthService.swift */; };
 		23E0473525EAD28E00C22F06 /* LoadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E0473425EAD28E00C22F06 /* LoadService.swift */; };
 		23E0473925EADC7400C22F06 /* URL+GithubClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E0473825EADC7400C22F06 /* URL+GithubClient.swift */; };
+		23E0474025EAE33700C22F06 /* AuthorizeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E0473F25EAE33700C22F06 /* AuthorizeData.swift */; };
+		23E0474525EAE49A00C22F06 /* KeychainKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E0474425EAE49A00C22F06 /* KeychainKeys.swift */; };
 		79C6A859709A7780CBA8BAEA /* Pods_GithubClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B36522C541ECA6C7B65D6231 /* Pods_GithubClient.framework */; };
 /* End PBXBuildFile section */
 
@@ -123,6 +125,8 @@
 		23DD61BB25E59B9800996B45 /* GitHubAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubAuthService.swift; sourceTree = "<group>"; };
 		23E0473425EAD28E00C22F06 /* LoadService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadService.swift; sourceTree = "<group>"; };
 		23E0473825EADC7400C22F06 /* URL+GithubClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+GithubClient.swift"; sourceTree = "<group>"; };
+		23E0473F25EAE33700C22F06 /* AuthorizeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizeData.swift; sourceTree = "<group>"; };
+		23E0474425EAE49A00C22F06 /* KeychainKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainKeys.swift; sourceTree = "<group>"; };
 		474A1FBE3CE69A300D5AEFA2 /* Pods-GithubClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GithubClient.debug.xcconfig"; path = "Target Support Files/Pods-GithubClient/Pods-GithubClient.debug.xcconfig"; sourceTree = "<group>"; };
 		5DEE3E31816B4DB7CD7350F8 /* Pods-GithubClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GithubClient.release.xcconfig"; path = "Target Support Files/Pods-GithubClient/Pods-GithubClient.release.xcconfig"; sourceTree = "<group>"; };
 		B36522C541ECA6C7B65D6231 /* Pods_GithubClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GithubClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -390,6 +394,8 @@
 		23B1D44825E3F181001E9570 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				23E0474325EAE47300C22F06 /* KeyChain */,
+				23E0473E25EAE2F200C22F06 /* Authorization */,
 				23DD61B825E599DC00996B45 /* Networking */,
 			);
 			path = Core;
@@ -504,17 +510,8 @@
 				2353F59125E80FA80089818C /* Commits */,
 				2359CEC025E9728100FA0F0E /* Issues */,
 				2356716E25E632A9003EE8A1 /* Repositories */,
-				23DD61BA25E59B7000996B45 /* Auth */,
 			);
 			path = Networking;
-			sourceTree = "<group>";
-		};
-		23DD61BA25E59B7000996B45 /* Auth */ = {
-			isa = PBXGroup;
-			children = (
-				23DD61BB25E59B9800996B45 /* GitHubAuthService.swift */,
-			);
-			path = Auth;
 			sourceTree = "<group>";
 		};
 		23E0473C25EADCE300C22F06 /* Foundation */ = {
@@ -523,6 +520,23 @@
 				23E0473825EADC7400C22F06 /* URL+GithubClient.swift */,
 			);
 			path = Foundation;
+			sourceTree = "<group>";
+		};
+		23E0473E25EAE2F200C22F06 /* Authorization */ = {
+			isa = PBXGroup;
+			children = (
+				23DD61BB25E59B9800996B45 /* GitHubAuthService.swift */,
+				23E0473F25EAE33700C22F06 /* AuthorizeData.swift */,
+			);
+			path = Authorization;
+			sourceTree = "<group>";
+		};
+		23E0474325EAE47300C22F06 /* KeyChain */ = {
+			isa = PBXGroup;
+			children = (
+				23E0474425EAE49A00C22F06 /* KeychainKeys.swift */,
+			);
+			path = KeyChain;
 			sourceTree = "<group>";
 		};
 		242C0DB5F8679A89AB058890 /* Frameworks */ = {
@@ -691,6 +705,7 @@
 				236CBC8A25E703CA003B144A /* RepositoryMenuTableViewCell.swift in Sources */,
 				23B1D45D25E3F811001E9570 /* UITableViewCell+Table.swift in Sources */,
 				2359CEBE25E9700400FA0F0E /* Issue.swift in Sources */,
+				23E0474525EAE49A00C22F06 /* KeychainKeys.swift in Sources */,
 				236CBC7B25E6DFF3003B144A /* RepositoryViewController.swift in Sources */,
 				2364F94125E8478000CEDDD1 /* UserApiService.swift in Sources */,
 				23E0473925EADC7400C22F06 /* URL+GithubClient.swift in Sources */,
@@ -702,6 +717,7 @@
 				23B1D46725E3F90E001E9570 /* UICollectionViewCell+Collection.swift in Sources */,
 				2364EBD225E7E3F300B9E44F /* CommitsViewController.swift in Sources */,
 				23B1D42825E3EC61001E9570 /* AppDelegate.swift in Sources */,
+				23E0474025EAE33700C22F06 /* AuthorizeData.swift in Sources */,
 				235363B725E4676000225412 /* RepositoryTableViewCell.swift in Sources */,
 				23B1D43225E3EC61001E9570 /* GithubClient.xcdatamodeld in Sources */,
 				236CBC8125E6F6F7003B144A /* Owner.swift in Sources */,

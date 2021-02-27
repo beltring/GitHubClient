@@ -6,14 +6,12 @@
 //
 
 import Foundation
-import KeychainSwift
 import OAuthSwift
 
 final class GitHubAuthService {
     
     private var oauthswift: OAuthSwift?
     static let shared = GitHubAuthService()
-    private let keychain = KeychainSwift()
     
     private init() {}
     
@@ -29,10 +27,10 @@ final class GitHubAuthService {
         oauthswift.authorizeURLHandler = SafariURLHandler(viewController: vc, oauthSwift: oauthswift)
         let state = generateState(withLength: 20)
         let _ = oauthswift.authorize(
-            withCallbackURL: URL(string: "githubClient://oauth-callback")!, scope: "delete_repo,read:user,repo,user:email", state: state) { [weak self] result in
+            withCallbackURL: URL(string: "githubClient://oauth-callback")!, scope: "delete_repo,read:user,repo,user:email", state: state) { result in
             switch result {
             case .success(let (credential, _, _)):
-                self?.keychain.set(credential.oauthToken, forKey: "accessToken")
+                AuthorizeData.shared.accessToken = credential.oauthToken
                 let rootVC = RootTabBarViewController.initial()
                 vc.navigationController?.setViewControllers([rootVC], animated: true)
             case .failure(let error):

@@ -6,21 +6,17 @@
 //
 
 import UIKit
-import KeychainSwift
 
 class RootNavigationViewController: UINavigationController {
 
-    private let keychain = KeychainSwift()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    
 
     func setRootController() {
         let vc: UIViewController
         
-        if keychain.get("accessToken") != nil {
+        if AuthorizeData.shared.accessToken != nil {
             vc = RootTabBarViewController.initial()
         }
         else {

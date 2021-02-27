@@ -6,12 +6,10 @@
 //
 
 import Foundation
-import KeychainSwift
 
 class RepositoriesApiService {
     
     private var dataTask: URLSessionDataTask?
-    private let keychain = KeychainSwift()
     
     func getRepositoriesForAuthUser(completion: @escaping (Result<[Repository], Error>) -> Void) {
         
@@ -22,10 +20,11 @@ class RepositoriesApiService {
             URLQueryItem(name: "per_page", value: "100"),
             URLQueryItem(name: "sort", value: "created")
         ]
+        
+        let accessToken = AuthorizeData.shared.accessToken!
+        
         var request = URLRequest(url: urlComponents.url!)
-        let acessToken = keychain.get("accessToken")!
-        // Set headers
-        request.addValue("Bearer \(acessToken)", forHTTPHeaderField: "Authorization")
+        request.addValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
         
         URLSession.shared.dataTask(with: request) { (data, response, error) in
             

@@ -6,10 +6,8 @@
 //
 
 import Foundation
-import KeychainSwift
 
 class CommitsApiService {
-    private let keychain = KeychainSwift()
     
     func getCommitsForDefaultBranch(url: String, completion: @escaping (Result<[CommitData], Error>) -> Void) {
         
@@ -18,9 +16,11 @@ class CommitsApiService {
         urlComponents.queryItems = [
             URLQueryItem(name: "per_page", value: "100"),
         ]
+        
+        let accessToken = AuthorizeData.shared.accessToken!
+        
         var request = URLRequest(url: urlComponents.url!)
-        let acessToken = keychain.get("accessToken")!
-        request.addValue("Bearer \(acessToken)", forHTTPHeaderField: "Authorization")
+        request.addValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
         
         URLSession.shared.dataTask(with: request){ data, response, error in
             
