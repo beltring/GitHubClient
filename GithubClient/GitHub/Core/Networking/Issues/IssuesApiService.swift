@@ -13,8 +13,9 @@ class IssuesApiService {
     private let keychain = KeychainSwift()
     
     func getIssues(filter: String = "all", completion: @escaping (Result<[Issue], Error>) -> Void) {
-        let urlComponents = NSURLComponents(string: "https://api.github.com/user/issues")!
-
+        guard let url = URL.github?.appendingPathComponent("user/issues") else { return }
+        guard var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false) else { return }
+        
         urlComponents.queryItems = [
             URLQueryItem(name: "filter", value: filter)
         ]

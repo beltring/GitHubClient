@@ -15,7 +15,8 @@ class RepositoriesApiService {
     
     func getRepositoriesForAuthUser(completion: @escaping (Result<[Repository], Error>) -> Void) {
         
-        let urlComponents = NSURLComponents(string: "https://api.github.com/user/repos")!
+        guard let url = URL.github?.appendingPathComponent("user/repos") else { return }
+        guard var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false) else { return }
 
         urlComponents.queryItems = [
             URLQueryItem(name: "per_page", value: "100"),

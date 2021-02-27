@@ -12,8 +12,8 @@ class UserApiService {
     private let keychain = KeychainSwift()
     
     func getUserInformation(completion: @escaping (Result<User, Error>) -> Void) {
+        guard let url = URL.github?.appendingPathComponent("user") else { return }
         
-        guard let url = URL(string: "https://api.github.com/user") else { return }
         let acessToken = keychain.get("accessToken")!
         
         var request = URLRequest(url: url)
