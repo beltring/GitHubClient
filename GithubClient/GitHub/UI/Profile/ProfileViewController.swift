@@ -65,25 +65,16 @@ extension ProfileViewController {
         self.mailLabel.text = user.email
         self.followersCountLabel.text = String(user.followers ?? 0)
         self.followingCountLabel.text = String(user.following ?? 0)
-        self.getImage(url: user.avatarUrl)
-    }
-    
-    private func getImage(url: String?) {
-        guard let url = URL(string: url ?? "") else { return }
-        URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
-            
-            if let error = error {
+        
+        guard let url = URL(string: user.avatarUrl!) else { return }
+        LoadService().getImage(url: url) { [weak self] result in
+            switch result {
+            case .success(let image):
+                self?.profileImage.image = image
+            case .failure(let error):
                 self?.presentAlert(message: error.localizedDescription)
             }
-            
-            guard let data = data else { return }
-            
-            DispatchQueue.main.async {
-                if let image = UIImage(data: data) {
-                    self?.profileImage.image = image
-                }
-            }
-        }.resume()
+        }
     }
 }
 

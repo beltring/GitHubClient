@@ -39,35 +39,21 @@ class RepositoryViewController: UIViewController {
         watchersCountLabel.text = String(repository?.watchersCount ?? 0)
         forkImage.image = UIImage(systemName: "arrow.branch")
         guard let url = URL(string: repository?.owner?.avatarUrl ?? "") else { return }
-        getImageDataFrom(url: url)
+        
+        LoadService().getImage(url: url) { [weak self] result in
+            switch result {
+            case .success(let image):
+                self?.ownerImage.image = image
+            case .failure(let error):
+                self?.presentAlert(message: error.localizedDescription)
+            }
+        }
     }
     
     private func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
         RepositoryMenuTableViewCell.registerCellNib(in: tableView)
-    }
-    
-    // MARK: - Get image data
-    private func getImageDataFrom(url: URL) {
-        URLSession.shared.dataTask(with: url) { [weak self] (data, response, error) in
-            // Handle Error
-            if let error = error {
-                self?.presentAlert(message: "DataTask error: \(error.localizedDescription)")
-                return
-            }
-            
-            guard let data = data else {
-                print("Empty Data")
-                return
-            }
-            
-            DispatchQueue.main.async {
-                if let image = UIImage(data: data) {
-                    self?.ownerImage.image = image
-                }
-            }
-        }.resume()
     }
 }
 
@@ -117,6 +103,7 @@ extension RepositoryViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
+// MARK: - SFSafariViewControllerDelegate
 extension RepositoryViewController: SFSafariViewControllerDelegate {
     
     private func showRepositoryInBrowser() {

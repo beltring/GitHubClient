@@ -33,25 +33,17 @@ extension CommitTableViewCell {
         commitMessageLabel.text = commit.commit?.message
         userNameLabel.text = commit.committer?.login
         profileImage.image = nil
-        getImage(url: commit.committer?.avatarUrl)
-    }
-    
-    private func getImage(url: String?) {
-        guard let url = URL(string: url ?? "") else { return }
-        URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
-            
-            if let error = error {
+        
+        guard let url = URL(string: commit.committer?.avatarUrl ?? "") else { return }
+        
+        LoadService().getImage(url: url) { [weak self] result in
+            switch result {
+            case .success(let image):
+                self?.profileImage.image = image
+            case .failure(let error):
                 print(error.localizedDescription)
             }
-            
-            guard let data = data else { return }
-            
-            DispatchQueue.main.async {
-                if let image = UIImage(data: data) {
-                    self?.profileImage.image = image
-                }
-            }
-        }.resume()
+        }
     }
 }
 

@@ -40,7 +40,16 @@ extension PopularCollectionViewCell {
         userNameLabel.text = repository.owner?.login
         nameRepositoryLabel.text = repository.name
         starCountLabel.text = String (repository.stargazersCount)
-        getImage(url: repository.owner?.avatarUrl)
+        
+        guard let url = URL(string: repository.owner?.avatarUrl ?? "") else { return }
+        LoadService().getImage(url: url) { [weak self] result in
+            switch result {
+            case .success(let image):
+                self?.profileImage.image = image
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
         
         guard repository.language != nil else {
             colorLanguageImage.isHidden = true
@@ -49,28 +58,7 @@ extension PopularCollectionViewCell {
         
         languageLabel.text = repository.language
         let color = getLanguageColor(repository.language)
-        colorLanguageImage.tintColor = color
-        
-        
-        
-    }
-    
-    private func getImage(url: String?) {
-        guard let url = URL(string: url ?? "") else { return }
-        URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
-            
-            if let error = error {
-                print(error.localizedDescription)
-            }
-            
-            guard let data = data else { return }
-            
-            DispatchQueue.main.async {
-                if let image = UIImage(data: data) {
-                    self?.profileImage.image = image
-                }
-            }
-        }.resume()
+        colorLanguageImage.tintColor = color 
     }
     
     private func getLanguageColor(_ language: String?) -> UIColor {
