@@ -9,8 +9,6 @@ import Foundation
 import KeychainSwift
 
 class CommitsApiService {
-    
-    private var dataTask: URLSessionDataTask?
     private let keychain = KeychainSwift()
     
     func getCommitsForDefaultBranch(url: String, completion: @escaping (Result<[CommitData], Error>) -> Void) {
@@ -24,7 +22,7 @@ class CommitsApiService {
         let acessToken = keychain.get("accessToken")!
         request.addValue("Bearer \(acessToken)", forHTTPHeaderField: "Authorization")
         
-        dataTask = URLSession.shared.dataTask(with: request){ data, response, error in
+        URLSession.shared.dataTask(with: request){ data, response, error in
             
             if let error = error {
                 completion(.failure(error))
@@ -48,8 +46,6 @@ class CommitsApiService {
             catch {
                 completion(.failure(error))
             }
-        }
-        
-        dataTask?.resume()
+        }.resume()
     }
 }

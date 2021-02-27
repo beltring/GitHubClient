@@ -9,7 +9,6 @@ import Foundation
 import KeychainSwift
 
 class UserApiService {
-    private var dataTask: URLSessionDataTask?
     private let keychain = KeychainSwift()
     
     func getUserInformation(completion: @escaping (Result<User, Error>) -> Void) {
@@ -20,7 +19,7 @@ class UserApiService {
         var request = URLRequest(url: url)
         request.addValue("Bearer \(acessToken)", forHTTPHeaderField: "Authorization")
         
-        dataTask = URLSession.shared.dataTask(with: request){ data, _, error in
+        URLSession.shared.dataTask(with: request){ data, _, error in
             
             if let error = error {
                 completion(.failure(error))
@@ -44,8 +43,6 @@ class UserApiService {
             catch {
                 completion(.failure(error))
             }
-        }
-        
-        dataTask?.resume()
+        }.resume()
     }
 }

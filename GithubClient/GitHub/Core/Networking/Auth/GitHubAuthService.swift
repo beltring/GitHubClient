@@ -33,7 +33,6 @@ final class GitHubAuthService {
             switch result {
             case .success(let (credential, _, _)):
                 self?.keychain.set(credential.oauthToken, forKey: "accessToken")
-                print(credential.oauthToken)
                 let rootVC = RootTabBarViewController.initial()
                 vc.navigationController?.setViewControllers([rootVC], animated: true)
             case .failure(let error):

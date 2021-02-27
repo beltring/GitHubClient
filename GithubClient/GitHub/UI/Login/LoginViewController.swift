@@ -17,6 +17,7 @@ class LoginViewController: UIViewController {
 
         signInButton.layer.cornerRadius = 20
     }
+    
     @IBAction func signInTapped(_ sender: UIButton) {
         GitHubAuthService.shared.auth(viewController: self)
     }

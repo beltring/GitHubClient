@@ -9,13 +9,13 @@ import UIKit
 
 class IssuesViewController: UIViewController {
     
+    @IBOutlet weak var tableView: UITableView!
+    
     private let searchController = UISearchController(searchResultsController: nil)
     private weak var activityIndicatorView: UIActivityIndicatorView!
     private let issuesService = IssuesApiService()
     private var issues = [Issue]()
     private var filteredIssues = [Issue]()
-    
-    @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -84,14 +84,15 @@ extension IssuesViewController: UITableViewDelegate, UITableViewDataSource {
 extension IssuesViewController {
     func fetchIssues(filter: String = "all") {
         issuesService.getIssues(filter: filter) { [weak self] result in
+            self?.activityIndicatorView.stopAnimating()
+            
             switch result {
             case .success(let issues):
                 self?.issues = issues
                 self?.filteredIssues = issues
-                self?.activityIndicatorView.stopAnimating()
                 self?.tableView.reloadData()
             case .failure(let error):
-                print(error.localizedDescription)
+                self?.presentAlert(message: error.localizedDescription)
             }
         }
     }
@@ -117,19 +118,16 @@ extension IssuesViewController: UISearchResultsUpdating {
     }
     
     private func filterContentForSearchText(_ searchText: String, filter: Filter = .all) {
+        activityIndicatorView.startAnimating()
         
         switch filter {
         case .all:
-            activityIndicatorView.startAnimating()
             fetchIssues(filter: filter.rawValue)
         case .created:
-            activityIndicatorView.startAnimating()
             fetchIssues(filter: filter.rawValue)
         case .assigned:
-            activityIndicatorView.startAnimating()
             fetchIssues(filter: filter.rawValue)
         case .mentioned:
-            activityIndicatorView.startAnimating()
             fetchIssues(filter: filter.rawValue)
         }
         

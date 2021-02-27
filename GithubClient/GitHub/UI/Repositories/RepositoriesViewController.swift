@@ -76,16 +76,16 @@ extension RepositoriesViewController: UITableViewDelegate, UITableViewDataSource
 extension RepositoriesViewController {
     
     func fetchRepositories() {
-        repositoryService.getRepositoriesForAuthUser{ [weak self] result in
+        repositoryService.getRepositoriesForAuthUser { [weak self] result in
+            self?.activityIndicatorView.stopAnimating()
+            
             switch result {
             case .success(let repositories):
                 self?.repositories = repositories
-                self?.activityIndicatorView.stopAnimating()
                 self?.tableView.reloadData()
             case .failure(let error):
-                print(error.localizedDescription)
+                self?.presentAlert(message: error.localizedDescription)
             }
-            
         }
     }
 }

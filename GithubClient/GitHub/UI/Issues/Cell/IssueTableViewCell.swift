@@ -11,7 +11,12 @@ class IssueTableViewCell: UITableViewCell {
 
     @IBOutlet weak var issueLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var issueImage: UIImageView!
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        issueImage.tintColor = .issueTint
+    }
 }
 
 extension IssueTableViewCell {

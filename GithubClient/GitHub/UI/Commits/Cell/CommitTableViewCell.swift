@@ -13,6 +13,11 @@ class CommitTableViewCell: UITableViewCell {
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var profileImage: UIImageView!
 
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        profileImage.layer.cornerRadius = 15
+    }
+    
     override func prepareForReuse() {
         super.prepareForReuse()
         commitMessageLabel.text = nil
@@ -25,7 +30,6 @@ class CommitTableViewCell: UITableViewCell {
 extension CommitTableViewCell {
     
     func configure(commit: CommitData) {
-        profileImage.layer.cornerRadius = 15
         commitMessageLabel.text = commit.commit?.message
         userNameLabel.text = commit.committer?.login
         profileImage.image = nil

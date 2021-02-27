@@ -23,7 +23,7 @@ class IssuesApiService {
         // Set headers
         request.addValue("Bearer \(acessToken)", forHTTPHeaderField: "Authorization")
         
-        dataTask = URLSession.shared.dataTask(with: request) { data, _ , error in
+        URLSession.shared.dataTask(with: request) { data, _ , error in
          
             if let error = error {
                 completion(.failure(error))
@@ -49,7 +49,6 @@ class IssuesApiService {
                 completion(.failure(error))
             }
 
-        }
-        dataTask?.resume()
+        }.resume()
     }
 }

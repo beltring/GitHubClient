@@ -8,10 +8,10 @@
 import UIKit
 
 class PopularViewController: UIViewController {
-
-    private var popularRepositories = [Repository]()
     
     @IBOutlet weak var collectionView: UICollectionView!
+    
+    private var popularRepositories = [Repository]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,9 +36,6 @@ extension PopularViewController: UICollectionViewDataSource, UICollectionViewDel
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = PopularCollectionViewCell.dequeueReusableCell(in: collectionView, for: indexPath)
-        cell.layer.borderColor = UIColor.Popular.cellFrame.cgColor
-        cell.layer.borderWidth = 1
-        cell.layer.cornerRadius = 10
         
         let repository = popularRepositories[indexPath.item]
         cell.configure(repository: repository)
@@ -63,8 +60,8 @@ extension PopularViewController: UICollectionViewDelegateFlowLayout {
 }
 
 extension PopularViewController {
-    func fetchPopularRepository(){ 
-        RepositoriesApiService().getRepositoriesForAuthUser{ [weak self] result in
+    func fetchPopularRepository() { 
+        RepositoriesApiService().getRepositoriesForAuthUser { [weak self] result in
             switch result {
             case .success(let repositories):
                 let repos = repositories.sorted(by: { (repos1, repos2) -> Bool in
@@ -73,9 +70,8 @@ extension PopularViewController {
                 self?.popularRepositories = Array(repos)
                 self?.collectionView.reloadData()
             case .failure(let error):
-                print(error.localizedDescription)
+                self?.presentAlert(message: error.localizedDescription)
             }
-            
         }
     }
 }

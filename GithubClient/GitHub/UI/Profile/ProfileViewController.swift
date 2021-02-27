@@ -10,10 +10,6 @@ import SafariServices
 import KeychainSwift
 
 class ProfileViewController: UIViewController {
-
-    private let userService = UserApiService()
-    private var user: User?
-    private var activityIndicator = UIActivityIndicatorView(style: .large)
     
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
@@ -23,10 +19,14 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var followersCountLabel: UILabel!
     @IBOutlet weak var followingCountLabel: UILabel!
     
+    private let userService = UserApiService()
+    private var user: User?
+    private var activityIndicator = UIActivityIndicatorView(style: .large)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tabBarController?.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Sign out", style: .done, target: self, action: #selector(signOutTapped))
-    
+        
         setupActivityIndicator()
         activityIndicator.startAnimating()
         profileImage.layer.cornerRadius = 35
@@ -46,12 +46,13 @@ extension ProfileViewController {
     
     private func fetchUserInformation() {
         userService.getUserInformation { [weak self] result in
+            self?.activityIndicator.stopAnimating()
+            
             switch result {
             case .success(let user):
                 self?.success(user: user)
-                self?.activityIndicator.stopAnimating()
             case .failure(let error):
-                print(error.localizedDescription)
+                self?.presentAlert(message: error.localizedDescription)
             }
         }
     }
@@ -66,13 +67,13 @@ extension ProfileViewController {
         self.followingCountLabel.text = String(user.following ?? 0)
         self.getImage(url: user.avatarUrl)
     }
-
+    
     private func getImage(url: String?) {
         guard let url = URL(string: url ?? "") else { return }
         URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
             
             if let error = error {
-                print(error.localizedDescription)
+                self?.presentAlert(message: error.localizedDescription)
             }
             
             guard let data = data else { return }
@@ -89,7 +90,7 @@ extension ProfileViewController {
 // MARK: - SFSafariViewControllerDelegate
 extension ProfileViewController: SFSafariViewControllerDelegate {
     
-    @IBAction func signOutTapped(){
+    @IBAction func signOutTapped() {
         let urlString = "https://github.com/logout"
         if let url = URL(string: urlString) {
             let vc = SFSafariViewController(url: url)

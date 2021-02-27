@@ -193,6 +193,7 @@
 		2353F59125E80FA80089818C /* Commits */ = {
 			isa = PBXGroup;
 			children = (
+				2353F58B25E80C1F0089818C /* Commit.swift */,
 				2353F59325E810B40089818C /* CommitsApiService.swift */,
 			);
 			path = Commits;
@@ -201,6 +202,7 @@
 		2356716E25E632A9003EE8A1 /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
+				2356717325E63538003EE8A1 /* Repository.swift */,
 				2356716F25E632D8003EE8A1 /* RepositoriesApiService.swift */,
 			);
 			path = Repositories;
@@ -219,6 +221,7 @@
 		2359CEC025E9728100FA0F0E /* Issues */ = {
 			isa = PBXGroup;
 			children = (
+				2359CEBD25E9700400FA0F0E /* Issue.swift */,
 				2359CEC125E9729B00FA0F0E /* IssuesApiService.swift */,
 			);
 			path = Issues;
@@ -255,6 +258,7 @@
 		2364F93F25E8476100CEDDD1 /* User */ = {
 			isa = PBXGroup;
 			children = (
+				2364F94425E847D500CEDDD1 /* User.swift */,
 				2364F94025E8478000CEDDD1 /* UserApiService.swift */,
 			);
 			path = User;
@@ -273,12 +277,8 @@
 		236CBC7F25E6F6DD003B144A /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				2364F94425E847D500CEDDD1 /* User.swift */,
-				2356717325E63538003EE8A1 /* Repository.swift */,
 				236CBC8025E6F6F7003B144A /* Owner.swift */,
-				2353F58B25E80C1F0089818C /* Commit.swift */,
 				2353F58E25E80E500089818C /* Author.swift */,
-				2359CEBD25E9700400FA0F0E /* Issue.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";

@@ -19,6 +19,9 @@ class PopularCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         profileImage.layer.cornerRadius = 17
+        layer.borderColor = UIColor.cellFrame.cgColor
+        layer.borderWidth = 1
+        layer.cornerRadius = 10
     }
     
     override func prepareForReuse() {

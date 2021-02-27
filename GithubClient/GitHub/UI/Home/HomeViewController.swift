@@ -14,12 +14,10 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tabBarController?.navigationItem.rightBarButtonItem = nil
-        
         setupTableView()
     }
 
-    private func setupTableView(){
+    private func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
         MenuTableViewCell.registerCellNib(in: tableView)
@@ -27,23 +25,23 @@ class HomeViewController: UIViewController {
         tableView.tableFooterView = UIView()
     }
     
-    private func showRepositories(){
+    private func showRepositories() {
         let vc = RepositoriesViewController.initial()
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
-    private func showPullRequests(){
+    private func showPullRequests() {
         
     }
     
-    private func showIssues(){
+    private func showIssues() {
         let vc = IssuesViewController.initial()
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }
 
 // MARK: - UITableViewDataSource&UITableViewDelegate
-extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
+extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return Row.allCases.count
     }

@@ -10,12 +10,12 @@ import SafariServices
 
 class CommitsViewController: UIViewController {
     
+    @IBOutlet weak var tableView: UITableView!
+    
     var commitsUrl: String?
     private let commitsService = CommitsApiService()
     private var commitsData = [CommitData]()
     private weak var activityIndicatorView: UIActivityIndicatorView!
-    
-    @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,14 +66,15 @@ extension CommitsViewController {
     func fetchCommits() {
         guard let url = commitsUrl else { return }
         commitsService.getCommitsForDefaultBranch(url: url) { [weak self] result in
+            self?.activityIndicatorView.stopAnimating()
+            
             switch result {
             case .success(let commits):
                 self?.commitsData = commits
-                self?.activityIndicatorView.stopAnimating()
                 self?.tableView.separatorStyle = UITableViewCell.SeparatorStyle.singleLine
                 self?.tableView.reloadData()
             case .failure(let error):
-                print(error.localizedDescription)
+                self?.presentAlert(message: error.localizedDescription)
             }
         }
     }
