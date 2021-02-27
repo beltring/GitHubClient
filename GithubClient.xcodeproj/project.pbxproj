@@ -273,11 +273,11 @@
 		236CBC7F25E6F6DD003B144A /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				2364F94425E847D500CEDDD1 /* User.swift */,
 				2356717325E63538003EE8A1 /* Repository.swift */,
 				236CBC8025E6F6F7003B144A /* Owner.swift */,
 				2353F58B25E80C1F0089818C /* Commit.swift */,
 				2353F58E25E80E500089818C /* Author.swift */,
-				2364F94425E847D500CEDDD1 /* User.swift */,
 				2359CEBD25E9700400FA0F0E /* Issue.swift */,
 			);
 			path = Models;
