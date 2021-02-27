@@ -13,7 +13,9 @@ class RepositoriesViewController: UIViewController {
     
     private let repositoryService = RepositoriesApiService()
     private var repositories = [Repository]()
+    private var filteredRepositories = [Repository]()
     private weak var activityIndicatorView: UIActivityIndicatorView!
+    private let searchController = UISearchController(searchResultsController: nil)
     
     private let refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
@@ -27,8 +29,14 @@ class RepositoriesViewController: UIViewController {
         navigationItem.title = "Repositories"
         setupTableView()
         setupActivityIndicator()
+        setupSearchController()
         activityIndicatorView.startAnimating()
         fetchRepositories()
+    }
+    
+    @IBAction private func refresh(sender: UIRefreshControl) {
+        fetchRepositories()
+        sender.endRefreshing()
     }
     
     private func setupTableView() {
@@ -45,22 +53,39 @@ class RepositoriesViewController: UIViewController {
         self.activityIndicatorView = activityIndicatorView
     }
     
-    @IBAction private func refresh(sender: UIRefreshControl){
-        fetchRepositories()
-        sender.endRefreshing()
+    private func setupSearchController() {
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search"
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
     }
 }
 
 // MARK: - UITableViewDataSource&UITableViewDelegate
 extension RepositoriesViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        if isFiltering {
+            return filteredRepositories.count
+          }
+        
         return repositories.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = RepositoryTableViewCell.dequeueReusableCell(in: tableView, for: indexPath)
         
-        cell.configure(repository: repositories[indexPath.row])
+        let repos: Repository
+        
+        if isFiltering {
+            repos = filteredRepositories[indexPath.row]
+        }
+        else {
+            repos = repositories[indexPath.row]
+        }
+        
+        cell.configure(repository: repos)
         
         return cell
     }
@@ -75,7 +100,7 @@ extension RepositoriesViewController: UITableViewDelegate, UITableViewDataSource
 // MARK: - Fetch repositories
 extension RepositoriesViewController {
     
-    func fetchRepositories() {
+    private func fetchRepositories() {
         repositoryService.getRepositoriesForAuthUser { [weak self] result in
             self?.activityIndicatorView.stopAnimating()
             
@@ -87,5 +112,30 @@ extension RepositoriesViewController {
                 self?.presentAlert(message: error.localizedDescription)
             }
         }
+    }
+}
+
+// MARK: - UISearchResultsUpdating & Search repositories
+extension RepositoriesViewController: UISearchResultsUpdating {
+    
+    private var isSearchBarEmpty: Bool {
+        return searchController.searchBar.text?.isEmpty ?? true
+    }
+    
+    private var isFiltering: Bool {
+      return searchController.isActive && !isSearchBarEmpty
+    }
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        let searchBar = searchController.searchBar
+        filterContentForSearchText(searchBar.text!)
+    }
+    
+    private func filterContentForSearchText(_ searchText: String) {
+      filteredRepositories = repositories.filter { (repos: Repository) -> Bool in
+        return repos.name.lowercased().contains(searchText.lowercased())
+      }
+      
+      tableView.reloadData()
     }
 }
