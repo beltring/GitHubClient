@@ -41,14 +41,13 @@ class IssuesViewController: UIViewController {
         searchController.searchBar.placeholder = "Search"
         navigationItem.searchController = searchController
         definesPresentationContext = true
-        searchController.searchBar.scopeButtonTitles = Filter.allCases
-          .map { $0.rawValue }
+        searchController.searchBar.scopeButtonTitles = Filter.allCases.map { $0.rawValue }
         searchController.searchBar.delegate = self
+        searchController.resignFirstResponder()
     }
     
     private func setupActivityIndicator() {
         let activityIndicatorView = UIActivityIndicatorView(style: .large)
-        //        tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
         tableView.backgroundView = activityIndicatorView
         self.activityIndicatorView = activityIndicatorView
     }
@@ -75,7 +74,6 @@ extension IssuesViewController: UITableViewDelegate, UITableViewDataSource {
             issue = issues[indexPath.row]
         }
         
-        
         cell.configure(issue: issue)
         
         return cell
@@ -89,6 +87,7 @@ extension IssuesViewController {
             switch result {
             case .success(let issues):
                 self?.issues = issues
+                self?.filteredIssues = issues
                 self?.activityIndicatorView.stopAnimating()
                 self?.tableView.reloadData()
             case .failure(let error):
@@ -136,10 +135,6 @@ extension IssuesViewController: UISearchResultsUpdating {
         
         filteredIssues = issues.filter { (issue: Issue) -> Bool in
             return issue.title!.lowercased().contains(searchText.lowercased())
-        }
-        
-        if isSearchBarEmpty == false {
-            
         }
         
         tableView.reloadData()

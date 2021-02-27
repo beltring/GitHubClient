@@ -25,10 +25,10 @@
                         <viewLayoutGuide key="safeArea" id="WdF-oV-8Ai"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="dDC-tz-c1e" firstAttribute="leading" secondItem="WdF-oV-8Ai" secondAttribute="leading" id="AS5-nj-Crz"/>
-                            <constraint firstItem="dDC-tz-c1e" firstAttribute="top" secondItem="WdF-oV-8Ai" secondAttribute="top" id="Kel-8J-imH"/>
-                            <constraint firstItem="dDC-tz-c1e" firstAttribute="trailing" secondItem="WdF-oV-8Ai" secondAttribute="trailing" id="PSg-KL-QIe"/>
-                            <constraint firstItem="dDC-tz-c1e" firstAttribute="bottom" secondItem="WdF-oV-8Ai" secondAttribute="bottom" id="i54-Dm-6Px"/>
+                            <constraint firstItem="dDC-tz-c1e" firstAttribute="trailing" secondItem="WdF-oV-8Ai" secondAttribute="trailing" id="6YP-8e-wIQ"/>
+                            <constraint firstItem="dDC-tz-c1e" firstAttribute="leading" secondItem="WdF-oV-8Ai" secondAttribute="leading" id="JcF-Th-jyL"/>
+                            <constraint firstItem="dDC-tz-c1e" firstAttribute="bottom" secondItem="WdF-oV-8Ai" secondAttribute="bottom" id="OgB-nl-SPt"/>
+                            <constraint firstItem="dDC-tz-c1e" firstAttribute="top" secondItem="WdF-oV-8Ai" secondAttribute="top" id="rJb-de-Jbs"/>
                         </constraints>
                     </view>
                     <connections>
