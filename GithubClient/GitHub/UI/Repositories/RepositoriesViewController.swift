@@ -59,6 +59,7 @@ class RepositoriesViewController: UIViewController {
         searchController.searchBar.placeholder = "Search"
         navigationItem.searchController = searchController
         definesPresentationContext = true
+        navigationItem.hidesSearchBarWhenScrolling = false
     }
 }
 
@@ -92,7 +93,16 @@ extension RepositoriesViewController: UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = RepositoryViewController.initial()
-        vc.setRepository(repository: repositories[indexPath.row])
+        let repos: Repository
+        
+        if isFiltering {
+            repos = filteredRepositories[indexPath.row]
+        }
+        else {
+            repos = repositories[indexPath.row]
+        }
+        
+        vc.setRepository(repository: repos)
         navigationController?.pushViewController(vc, animated: true)
     }
 }
