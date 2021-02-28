@@ -64,6 +64,7 @@
                     <tabBarItem key="tabBarItem" title="Home" image="house" catalog="system" id="Q2T-tK-QXa"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="searchBar" destination="f35-Mb-Srq" id="cg4-gY-oMx"/>
                         <outlet property="tableView" destination="crv-6w-hfu" id="qN3-ds-k8k"/>
                     </connections>
                 </viewController>
