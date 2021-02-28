@@ -11,9 +11,13 @@ class HomeViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
+    private let repositoryService = RepositoriesApiService()
+    private var starredRepositories = [Repository]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        fetchStarredRepositories()
         setupTableView()
     }
 
@@ -30,8 +34,12 @@ class HomeViewController: UIViewController {
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
-    private func showPullRequests() {
-        
+    private func showStarred() {
+        let vc = RepositoriesViewController.initial()
+        vc.setRepositories(repositories: starredRepositories)
+        vc.setStarred()
+        vc.navigationItem.title = "Starred Repositories"
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     private func showIssues() {
@@ -62,10 +70,25 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         switch row {
         case .repositories:
             showRepositories()
-        case .pullRequests:
-            showRepositories()
+        case .starred:
+            showStarred()
         case .issues:
             showIssues()
+        }
+    }
+}
+
+// MARK: - Fetch starred repositories
+extension HomeViewController {
+    func fetchStarredRepositories() {
+        repositoryService.getStarredRepositories { [weak self] result in
+            switch result {
+            case .success(let repositories):
+                self?.starredRepositories = repositories
+                self?.tableView.reloadData()
+            case .failure(let error):
+                self?.presentAlert(message: error.localizedDescription)
+            }
         }
     }
 }
@@ -73,15 +96,15 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 // MARK: ROWS
 fileprivate enum Row: Int, CaseIterable {
     case repositories
-    case pullRequests
+    case starred
     case issues
 
     var image: UIImage? {
         switch self {
         case .repositories:
             return UIImage(named: "repositories")
-        case .pullRequests:
-            return UIImage(named: "pullRequests")
+        case .starred:
+            return UIImage(named: "starred")
         case .issues:
             return UIImage(named: "issue")
         }
@@ -91,8 +114,8 @@ fileprivate enum Row: Int, CaseIterable {
         switch self {
         case .repositories:
             return "Repositories"
-        case .pullRequests:
-            return "Pull Requests"
+        case .starred:
+            return "Starred"
         case .issues:
             return "Issues"
         }

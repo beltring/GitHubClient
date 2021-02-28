@@ -16,6 +16,7 @@ class RepositoriesViewController: UIViewController {
     private var filteredRepositories = [Repository]()
     private weak var activityIndicatorView: UIActivityIndicatorView!
     private let searchController = UISearchController(searchResultsController: nil)
+    private var isStarred = false
     
     private let refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
@@ -26,12 +27,19 @@ class RepositoriesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.title = "Repositories"
         setupTableView()
         setupActivityIndicator()
         setupSearchController()
-        activityIndicatorView.startAnimating()
-        fetchRepositories()
+        
+        // setup for repositories screen
+        if !isStarred {
+            navigationItem.title = "Repositories"
+            activityIndicatorView.startAnimating()
+            fetchRepositories()
+            tableView.refreshControl = refreshControl
+            navigationItem.hidesSearchBarWhenScrolling = false
+        }
+        
     }
     
     @IBAction private func refresh(sender: UIRefreshControl) {
@@ -43,7 +51,6 @@ class RepositoriesViewController: UIViewController {
         RepositoryTableViewCell.registerCellNib(in: tableView)
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.refreshControl = refreshControl
         tableView.tableFooterView = UIView()
     }
     
@@ -59,7 +66,17 @@ class RepositoriesViewController: UIViewController {
         searchController.searchBar.placeholder = "Search"
         navigationItem.searchController = searchController
         definesPresentationContext = true
-        navigationItem.hidesSearchBarWhenScrolling = false
+    }
+}
+
+// MARK: - Get/Set methods
+extension RepositoriesViewController {
+    func setRepositories(repositories: [Repository]) {
+        self.repositories = repositories
+    }
+    
+    func setStarred() {
+        self.isStarred.toggle()
     }
 }
 
@@ -67,11 +84,9 @@ class RepositoriesViewController: UIViewController {
 extension RepositoriesViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        if isFiltering {
-            return filteredRepositories.count
-          }
+        let count = isFiltering ? filteredRepositories.count : repositories.count
         
-        return repositories.count
+        return count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
