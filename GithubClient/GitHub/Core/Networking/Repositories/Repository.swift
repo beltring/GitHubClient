@@ -18,6 +18,7 @@ struct Repository: Decodable {
     let commitsUrl: String?
     let owner: Owner?
     let url: String
+    let pullUrl: String?
     
     private enum CodingKeys: String, CodingKey {
         case id, name, language, owner
@@ -27,18 +28,7 @@ struct Repository: Decodable {
         case defaultBranch = "default_branch"
         case commitsUrl = "commits_url"
         case url = "html_url"
+        case pullUrl = "pulls_url"
     }
-    
-    func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(id, forKey: .id)
-        try container.encode(name, forKey: .name)
-        try container.encode(stargazersCount, forKey: .stargazersCount)
-        try container.encode(forksCount, forKey: .forksCount)
-        try container.encode(watchersCount, forKey: .watchersCount)
-        try container.encode(language, forKey: .language)
-        try container.encode(defaultBranch, forKey: .defaultBranch)
-        try container.encode(commitsUrl, forKey: .commitsUrl)
-      }
 }
 
