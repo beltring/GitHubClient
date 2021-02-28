@@ -11,7 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="74" id="KGk-i7-Jjw" customClass="PullRequestTableViewCell" customModule="GithubClient" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="PullRequestTableViewCell" customModule="GithubClient" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="320" height="74"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
@@ -27,27 +27,27 @@
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2z9-IK-dpw">
                         <rect key="frame" x="54" y="43.5" width="250" height="21.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Feh-yk-KfS">
-                        <rect key="frame" x="54" y="15" width="250" height="20.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <rect key="frame" x="54" y="15" width="250" height="21.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
                         <color key="textColor" name="CustomGray"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="2z9-IK-dpw" firstAttribute="top" secondItem="Feh-yk-KfS" secondAttribute="bottom" constant="8" symbolic="YES" id="5Eo-YA-EiQ"/>
-                    <constraint firstAttribute="trailing" secondItem="2z9-IK-dpw" secondAttribute="trailing" constant="16" id="M9v-QQ-8pH"/>
-                    <constraint firstItem="2z9-IK-dpw" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="54" id="MkW-Xr-55H"/>
-                    <constraint firstAttribute="trailing" secondItem="Feh-yk-KfS" secondAttribute="trailing" constant="16" id="OKS-pp-YSM"/>
+                    <constraint firstAttribute="trailing" secondItem="Feh-yk-KfS" secondAttribute="trailing" constant="16" id="48x-Dk-DEA"/>
+                    <constraint firstAttribute="bottom" secondItem="2z9-IK-dpw" secondAttribute="bottom" constant="9" id="EJO-Sx-HZg"/>
+                    <constraint firstItem="2z9-IK-dpw" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="54" id="Mpx-Jq-s9n"/>
+                    <constraint firstAttribute="trailing" secondItem="2z9-IK-dpw" secondAttribute="trailing" constant="16" id="NCe-4A-qaR"/>
                     <constraint firstItem="1FY-Cl-ckl" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="PhT-AM-Lrr"/>
                     <constraint firstItem="1FY-Cl-ckl" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="bVt-7D-CvE"/>
-                    <constraint firstAttribute="bottom" secondItem="2z9-IK-dpw" secondAttribute="bottom" constant="9" id="eLs-vu-XSv"/>
-                    <constraint firstItem="Feh-yk-KfS" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="hwf-3N-EzU"/>
-                    <constraint firstItem="Feh-yk-KfS" firstAttribute="leading" secondItem="1FY-Cl-ckl" secondAttribute="trailing" constant="8" symbolic="YES" id="iH6-lA-A9A"/>
+                    <constraint firstItem="Feh-yk-KfS" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="kd5-Jz-N9X"/>
+                    <constraint firstItem="Feh-yk-KfS" firstAttribute="leading" secondItem="1FY-Cl-ckl" secondAttribute="trailing" constant="8" symbolic="YES" id="tF6-FM-kzA"/>
+                    <constraint firstItem="2z9-IK-dpw" firstAttribute="top" secondItem="Feh-yk-KfS" secondAttribute="bottom" constant="7" id="vW6-g0-fXd"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

@@ -57,29 +57,12 @@ class RepositoryViewController: UIViewController {
     }
 }
 
-extension RepositoryViewController {
-    
-    // MARK: - Set method
-    func setRepository(repository: Repository) {
-        self.repository = repository
-    }
-    
-    // MARK: - Show commits screen
-    func showCommits() {
-        let vc = CommitsViewController.initial()
-        
-        // api.github.com/repos/user/reposName/commits{/sha}
-        vc.commitsUrl = repository?.commitsUrl?.replacingOccurrences(of: "{/sha}", with: "")
-        
-        navigationController?.pushViewController(vc, animated: true)
-    }
-}
-
 // MARK: - UITableViewDelegate&UITableViewDataSource
 extension RepositoryViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        Rows.allCases.count
+        print(Rows.allCases.count)
+        return Rows.allCases.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -99,7 +82,38 @@ extension RepositoryViewController: UITableViewDelegate, UITableViewDataSource {
             showCommits()
         case .code:
             showRepositoryInBrowser()
+        case .pullRequests:
+            showPullRequests()
         }
+    }
+}
+
+extension RepositoryViewController {
+    
+    // MARK: - Set method
+    func setRepository(repository: Repository) {
+        self.repository = repository
+    }
+    
+    // MARK: - Show commits screen
+    func showCommits() {
+        let vc = CommitsViewController.initial()
+        
+        // api.github.com/repos/user/reposName/commits{/sha}
+        vc.commitsUrl = repository?.commitsUrl?.replacingOccurrences(of: "{/sha}", with: "")
+        
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func showPullRequests() {
+        let vc = PullRequestsViewController.initial()
+        
+        // https://api.github.com/repos/user/reposName/pulls{/number}
+        let strUrl = repository?.pullUrl?.replacingOccurrences(of: "{/number}", with: "")
+        guard let url = URL(string: strUrl!) else { return }
+        vc.pullRequestsUrl = url
+        
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 
@@ -117,6 +131,7 @@ extension RepositoryViewController: SFSafariViewControllerDelegate {
 fileprivate enum Rows: Int, CaseIterable {
     case commits
     case code
+    case pullRequests
     
     var title: String {
         switch self {
@@ -124,6 +139,8 @@ fileprivate enum Rows: Int, CaseIterable {
             return "Commits"
         case .code:
             return "Browse code"
+        case .pullRequests:
+            return "Pull Requests"
         }
     }
 }

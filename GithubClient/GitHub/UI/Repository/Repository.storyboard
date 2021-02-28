@@ -133,10 +133,10 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="r6i-Pn-NnB">
-                                <rect key="frame" x="0.0" y="337" width="414" height="112"/>
+                                <rect key="frame" x="0.0" y="337" width="414" height="168"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="112" id="kbK-ti-Xyx"/>
+                                    <constraint firstAttribute="height" constant="168" id="kbK-ti-Xyx"/>
                                 </constraints>
                             </tableView>
                         </subviews>
