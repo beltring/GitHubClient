@@ -39,8 +39,7 @@ class HomeViewController: UIViewController {
     private func showStarred() {
         let vc = RepositoriesViewController.initial()
         vc.setRepositories(repositories: starredRepositories)
-        vc.setStarred()
-        vc.navigationItem.title = "Starred Repositories"
+        vc.screen = .starred
         self.navigationController?.pushViewController(vc, animated: true)
     }
     

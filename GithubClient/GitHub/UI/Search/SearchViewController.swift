@@ -23,6 +23,12 @@ class SearchViewController: UIViewController {
         tableView.tableFooterView = UIView()
         SearchTableViewCell.registerCellNib(in: tableView)
     }
+    
+    private func showRepositories() {
+        let vc = RepositoriesViewController.initial()
+        vc.screen = .search
+        navigationController?.pushViewController(vc, animated: true)
+    }
 }
 
 // MARK: - UITableViewDelegate&UITableViewDataSource
@@ -45,7 +51,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         
         switch row {
         case .repositories:
-            print("repos")
+            showRepositories()
         case .users:
             print("users")
         }
