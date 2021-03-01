@@ -33,6 +33,7 @@
 		23580B8F25EC2EBB006E94E0 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23580B8E25EC2EBB006E94E0 /* Search.storyboard */; };
 		23580B9625EC43ED006E94E0 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23580B9425EC43ED006E94E0 /* SearchTableViewCell.swift */; };
 		23580B9725EC43ED006E94E0 /* SearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23580B9525EC43ED006E94E0 /* SearchTableViewCell.xib */; };
+		2359C40D25ECE3EC00EB2FF8 /* SearchApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2359C40C25ECE3EC00EB2FF8 /* SearchApiService.swift */; };
 		2359CEB825E9607200FA0F0E /* Issues.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2359CEB725E9607200FA0F0E /* Issues.storyboard */; };
 		2359CEBB25E9609500FA0F0E /* IssuesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2359CEBA25E9609500FA0F0E /* IssuesViewController.swift */; };
 		2359CEBE25E9700400FA0F0E /* Issue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2359CEBD25E9700400FA0F0E /* Issue.swift */; };
@@ -106,6 +107,7 @@
 		23580B8E25EC2EBB006E94E0 /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		23580B9425EC43ED006E94E0 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		23580B9525EC43ED006E94E0 /* SearchTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchTableViewCell.xib; sourceTree = "<group>"; };
+		2359C40C25ECE3EC00EB2FF8 /* SearchApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchApiService.swift; sourceTree = "<group>"; };
 		2359CEB725E9607200FA0F0E /* Issues.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Issues.storyboard; sourceTree = "<group>"; };
 		2359CEBA25E9609500FA0F0E /* IssuesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuesViewController.swift; sourceTree = "<group>"; };
 		2359CEBD25E9700400FA0F0E /* Issue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Issue.swift; sourceTree = "<group>"; };
@@ -286,6 +288,14 @@
 				23580B9525EC43ED006E94E0 /* SearchTableViewCell.xib */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		2359C40B25ECE3B200EB2FF8 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				2359C40C25ECE3EC00EB2FF8 /* SearchApiService.swift */,
+			);
+			path = Search;
 			sourceTree = "<group>";
 		};
 		2359CEB625E9605600FA0F0E /* Issues */ = {
@@ -586,6 +596,7 @@
 				2359CEC025E9728100FA0F0E /* Issues */,
 				2356716E25E632A9003EE8A1 /* Repositories */,
 				23578CC825EBF2F600F9090C /* PullRequest */,
+				2359C40B25ECE3B200EB2FF8 /* Search */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -799,6 +810,7 @@
 				23B1D4D225E43093001E9570 /* ProfileViewController.swift in Sources */,
 				2353F58C25E80C1F0089818C /* Commit.swift in Sources */,
 				23B1D46125E3F861001E9570 /* UIViewController+Instance.swift in Sources */,
+				2359C40D25ECE3EC00EB2FF8 /* SearchApiService.swift in Sources */,
 				23B1D46725E3F90E001E9570 /* UICollectionViewCell+Collection.swift in Sources */,
 				2364EBD225E7E3F300B9E44F /* CommitsViewController.swift in Sources */,
 				23B1D42825E3EC61001E9570 /* AppDelegate.swift in Sources */,
