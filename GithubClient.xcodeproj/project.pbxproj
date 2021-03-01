@@ -19,6 +19,7 @@
 		2353F58C25E80C1F0089818C /* Commit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353F58B25E80C1F0089818C /* Commit.swift */; };
 		2353F58F25E80E500089818C /* Author.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353F58E25E80E500089818C /* Author.swift */; };
 		2353F59425E810B40089818C /* CommitsApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353F59325E810B40089818C /* CommitsApiService.swift */; };
+		2355126E25ED2F610057C593 /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2355126D25ED2F610057C593 /* Search.swift */; };
 		2356717025E632D8003EE8A1 /* RepositoriesApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2356716F25E632D8003EE8A1 /* RepositoriesApiService.swift */; };
 		2356717425E63538003EE8A1 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2356717325E63538003EE8A1 /* Repository.swift */; };
 		23578CC525EBD70300F9090C /* UITableView+Instance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23578CC425EBD70300F9090C /* UITableView+Instance.swift */; };
@@ -93,6 +94,7 @@
 		2353F58B25E80C1F0089818C /* Commit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Commit.swift; sourceTree = "<group>"; };
 		2353F58E25E80E500089818C /* Author.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Author.swift; sourceTree = "<group>"; };
 		2353F59325E810B40089818C /* CommitsApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitsApiService.swift; sourceTree = "<group>"; };
+		2355126D25ED2F610057C593 /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
 		2356716F25E632D8003EE8A1 /* RepositoriesApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesApiService.swift; sourceTree = "<group>"; };
 		2356717325E63538003EE8A1 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		23578CC425EBD70300F9090C /* UITableView+Instance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Instance.swift"; sourceTree = "<group>"; };
@@ -293,6 +295,7 @@
 		2359C40B25ECE3B200EB2FF8 /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				2355126D25ED2F610057C593 /* Search.swift */,
 				2359C40C25ECE3EC00EB2FF8 /* SearchApiService.swift */,
 			);
 			path = Search;
@@ -788,6 +791,7 @@
 				2353F58F25E80E500089818C /* Author.swift in Sources */,
 				23DD61BC25E59B9800996B45 /* GitHubAuthService.swift in Sources */,
 				23580B9625EC43ED006E94E0 /* SearchTableViewCell.swift in Sources */,
+				2355126E25ED2F610057C593 /* Search.swift in Sources */,
 				23B1D4A425E40C80001E9570 /* RootNavigationViewController.swift in Sources */,
 				23578CDA25EC085B00F9090C /* PullRequestTableViewCell.swift in Sources */,
 				235363A325E45B2200225412 /* UIColor+GithubClient.swift in Sources */,

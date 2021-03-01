@@ -12,10 +12,12 @@ class RepositoriesViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     private let repositoryService = RepositoriesApiService()
+    private let searchService = SearchApiService()
     private var repositories = [Repository]()
     private var filteredRepositories = [Repository]()
     private weak var activityIndicatorView: UIActivityIndicatorView!
     private let searchController = UISearchController(searchResultsController: nil)
+    private var searchText = ""
     var screen: Screen = .repositories
     
     private let refreshControl: UIRefreshControl = {
@@ -68,6 +70,8 @@ class RepositoriesViewController: UIViewController {
             navigationItem.hidesSearchBarWhenScrolling = false
             setupSearchController()
         case .search:
+            fetchSearchRepositories(searchText: searchText)
+            activityIndicatorView.startAnimating()
             navigationItem.title = screen.title
         case .starred:
             navigationItem.title = screen.title
@@ -80,6 +84,10 @@ class RepositoriesViewController: UIViewController {
 extension RepositoriesViewController {
     func setRepositories(repositories: [Repository]) {
         self.repositories = repositories
+    }
+    
+    func setSearchText(searchText: String) {
+        self.searchText = searchText
     }
 }
 
@@ -143,7 +151,17 @@ extension RepositoriesViewController {
     }
     
     private func fetchSearchRepositories(searchText: String) {
-        
+        searchService.getRepositoriesBySearchText(searchText: searchText) { [weak self] result in
+            self?.activityIndicatorView.stopAnimating()
+            
+            switch result {
+            case .success(let repositoriesData):
+                self?.repositories = repositoriesData.repositories ?? [Repository]()
+                self?.tableView.reloadData()
+            case .failure(let error):
+                self?.presentAlert(message: error.localizedDescription)
+            }
+        }
     }
 }
 

@@ -16,8 +16,17 @@ class SearchViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        setupSearchBar()
+        setupTableView()
+    }
+    
+    private func setupSearchBar() {
         searchBar.delegate = self
+        searchBar.placeholder = "Search GitHub"
+    }
+    
+    private func setupTableView() {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.tableFooterView = UIView()
@@ -27,19 +36,31 @@ class SearchViewController: UIViewController {
     private func showRepositories() {
         let vc = RepositoriesViewController.initial()
         vc.screen = .search
+        vc.setSearchText(searchText: searchText)
         navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        tableView.backgroundView?.endEditing(true)
     }
 }
 
 // MARK: - UITableViewDelegate&UITableViewDataSource
 extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if searchText.isEmpty {
+            tableView.setEmptyView(title: "Enter the text", message: "")
+            return 0
+        }
+        
+        tableView.restore()
         return Rows.allCases.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = SearchTableViewCell.dequeueReusableCell(in: tableView, for: indexPath)
         
+        let searchText = #""\#(self.searchText)""#
         cell.searchLabel.text = Rows.allCases[indexPath.row].title + searchText
         cell.menuImage.image = Rows.allCases[indexPath.row].image
         
@@ -61,7 +82,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
 // MARK: - UISearchBarDelegate
 extension SearchViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        self.searchText = #""\#(searchText)""#
+        self.searchText = searchText
         
         tableView.reloadData()
     }

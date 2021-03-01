@@ -8,7 +8,7 @@
 import Foundation
 
 class SearchApiService {
-    func getRepositoriesBySearchText(searchText: String, completion: @escaping (Result<[Repository], Error>) -> Void) {
+    func getRepositoriesBySearchText(searchText: String, completion: @escaping (Result<RepositoriesData, Error>) -> Void) {
         guard let url = URL.github?.appendingPathComponent("/search/repositories") else { return }
         guard var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false) else { return }
         
@@ -33,7 +33,7 @@ class SearchApiService {
             
             do {
                 let decoder = JSONDecoder()
-                let repositories = try decoder.decode([Repository].self, from: data)
+                let repositories = try decoder.decode(RepositoriesData.self, from: data)
                 
                 DispatchQueue.main.async {
                     completion(.success(repositories))
