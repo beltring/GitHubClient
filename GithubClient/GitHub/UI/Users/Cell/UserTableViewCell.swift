@@ -9,18 +9,31 @@ import UIKit
 
 class UserTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var profileImage: NSLayoutConstraint!
+    @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var loginLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        profileImage.layer.cornerRadius = 20
     }
     
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        profileImage.image = nil
     }
     
+    func configure(user: User) {
+        loginLabel.text = user.login
+        
+        guard let url = URL(string: user.avatarUrl ?? "") else { return }
+        
+        LoadService().getImage(url: url) { [weak self] result in
+            switch result {
+            case .success(let image):
+                self?.profileImage.image = image
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
 }

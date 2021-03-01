@@ -40,8 +40,10 @@ class SearchViewController: UIViewController {
         navigationController?.pushViewController(vc, animated: true)
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        tableView.backgroundView?.endEditing(true)
+    private func showUsers() {
+        let vc = UsersViewController.initial()
+        vc.setSearchText(searchText: searchText)
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 
@@ -74,7 +76,7 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         case .repositories:
             showRepositories()
         case .users:
-            print("users")
+            showUsers()
         }
     }
 }

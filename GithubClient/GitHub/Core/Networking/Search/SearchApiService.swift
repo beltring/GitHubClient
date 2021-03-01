@@ -47,7 +47,7 @@ class SearchApiService {
     }
     
     func getUsersBySearchText(searchText: String, completion: @escaping (Result<UsersData, Error>) -> Void) {
-        guard let url = URL.github?.appendingPathComponent("/search/repositories") else { return }
+        guard let url = URL.github?.appendingPathComponent("/search/users") else { return }
         guard var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false) else { return }
         
         urlComponents.queryItems = [
@@ -79,6 +79,6 @@ class SearchApiService {
             catch {
                 completion(.failure(error))
             }
-        }
+        }.resume()
     }
 }
