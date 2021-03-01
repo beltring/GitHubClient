@@ -15,6 +15,7 @@ struct User: Decodable {
     let followers: Int?
     let following: Int?
     let avatarUrl: String?
+    let url: String?
     
     private enum CodingKeys: String, CodingKey {
         case login
@@ -24,5 +25,6 @@ struct User: Decodable {
         case followers
         case following
         case avatarUrl = "avatar_url"
+        case url = "html_url"
     }
 }

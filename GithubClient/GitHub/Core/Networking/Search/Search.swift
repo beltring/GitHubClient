@@ -16,3 +16,13 @@ struct RepositoriesData: Decodable {
         case repositories = "items"
     }
 }
+
+struct UsersData: Decodable {
+    let count: Int?
+    let users: [User]?
+    
+    private enum CodingKeys: String, CodingKey {
+        case count = "total_count"
+        case users = "items"
+    }
+}
