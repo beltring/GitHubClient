@@ -12,11 +12,13 @@ class RepositoriesViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     private let repositoryService = RepositoriesApiService()
+    private let searchService = SearchApiService()
     private var repositories = [Repository]()
     private var filteredRepositories = [Repository]()
     private weak var activityIndicatorView: UIActivityIndicatorView!
     private let searchController = UISearchController(searchResultsController: nil)
-    private var isStarred = false
+    private var searchText = ""
+    var screen: Screen = .repositories
     
     private let refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
@@ -29,17 +31,7 @@ class RepositoriesViewController: UIViewController {
         
         setupTableView()
         setupActivityIndicator()
-        setupSearchController()
-        
-        // setup for repositories screen
-        if !isStarred {
-            navigationItem.title = "Repositories"
-            activityIndicatorView.startAnimating()
-            fetchRepositories()
-            tableView.refreshControl = refreshControl
-            navigationItem.hidesSearchBarWhenScrolling = false
-        }
-        
+        setupScreen()
     }
     
     @IBAction private func refresh(sender: UIRefreshControl) {
@@ -67,6 +59,25 @@ class RepositoriesViewController: UIViewController {
         navigationItem.searchController = searchController
         definesPresentationContext = true
     }
+    
+    private func setupScreen() {
+        switch screen {
+        case .repositories:
+            navigationItem.title = screen.title
+            activityIndicatorView.startAnimating()
+            fetchRepositories()
+            tableView.refreshControl = refreshControl
+            navigationItem.hidesSearchBarWhenScrolling = false
+            setupSearchController()
+        case .search:
+            fetchSearchRepositories(searchText: searchText)
+            activityIndicatorView.startAnimating()
+            navigationItem.title = screen.title
+        case .starred:
+            navigationItem.title = screen.title
+            setupSearchController()
+        }
+    }
 }
 
 // MARK: - Get/Set methods
@@ -75,8 +86,8 @@ extension RepositoriesViewController {
         self.repositories = repositories
     }
     
-    func setStarred() {
-        self.isStarred.toggle()
+    func setSearchText(searchText: String) {
+        self.searchText = searchText
     }
 }
 
@@ -138,6 +149,20 @@ extension RepositoriesViewController {
             }
         }
     }
+    
+    private func fetchSearchRepositories(searchText: String) {
+        searchService.getRepositoriesBySearchText(searchText: searchText) { [weak self] result in
+            self?.activityIndicatorView.stopAnimating()
+            
+            switch result {
+            case .success(let repositoriesData):
+                self?.repositories = repositoriesData.repositories ?? [Repository]()
+                self?.tableView.reloadData()
+            case .failure(let error):
+                self?.presentAlert(message: error.localizedDescription)
+            }
+        }
+    }
 }
 
 // MARK: - UISearchResultsUpdating & Search repositories
@@ -162,5 +187,23 @@ extension RepositoriesViewController: UISearchResultsUpdating {
       }
       
       tableView.reloadData()
+    }
+}
+
+
+enum Screen {
+    case repositories
+    case starred
+    case search
+    
+    var title: String {
+        switch self {
+        case .repositories:
+            return "Repositories"
+        case .search:
+            return "Search results"
+        case .starred:
+            return "Starred Repositories"
+        }
     }
 }

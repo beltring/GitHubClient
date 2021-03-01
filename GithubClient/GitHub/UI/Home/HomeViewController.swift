@@ -10,6 +10,7 @@ import UIKit
 class HomeViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var searchBar: UISearchBar!
     
     private let repositoryService = RepositoriesApiService()
     private var starredRepositories = [Repository]()
@@ -17,6 +18,7 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        searchBar.delegate = self
         fetchStarredRepositories()
         setupTableView()
     }
@@ -37,8 +39,7 @@ class HomeViewController: UIViewController {
     private func showStarred() {
         let vc = RepositoriesViewController.initial()
         vc.setRepositories(repositories: starredRepositories)
-        vc.setStarred()
-        vc.navigationItem.title = "Starred Repositories"
+        vc.screen = .starred
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -93,7 +94,17 @@ extension HomeViewController {
     }
 }
 
-// MARK: ROWS
+// MARK: - UISearchBarDelegate
+extension HomeViewController: UISearchBarDelegate {
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        view.endEditing(true)
+        let vc = SearchViewController.initial()
+        vc.navigationItem.title = "Search"
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+}
+
+// MARK: - ROWS
 fileprivate enum Row: Int, CaseIterable {
     case repositories
     case starred

@@ -19,6 +19,11 @@
 		2353F58C25E80C1F0089818C /* Commit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353F58B25E80C1F0089818C /* Commit.swift */; };
 		2353F58F25E80E500089818C /* Author.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353F58E25E80E500089818C /* Author.swift */; };
 		2353F59425E810B40089818C /* CommitsApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353F59325E810B40089818C /* CommitsApiService.swift */; };
+		2355126E25ED2F610057C593 /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2355126D25ED2F610057C593 /* Search.swift */; };
+		2355127325ED37030057C593 /* Users.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2355127225ED37030057C593 /* Users.storyboard */; };
+		2355127625ED37440057C593 /* UsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2355127525ED37440057C593 /* UsersViewController.swift */; };
+		2355127B25ED393B0057C593 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2355127925ED393B0057C593 /* UserTableViewCell.swift */; };
+		2355127C25ED393B0057C593 /* UserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2355127A25ED393B0057C593 /* UserTableViewCell.xib */; };
 		2356717025E632D8003EE8A1 /* RepositoriesApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2356716F25E632D8003EE8A1 /* RepositoriesApiService.swift */; };
 		2356717425E63538003EE8A1 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2356717325E63538003EE8A1 /* Repository.swift */; };
 		23578CC525EBD70300F9090C /* UITableView+Instance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23578CC425EBD70300F9090C /* UITableView+Instance.swift */; };
@@ -29,6 +34,11 @@
 		23578CDA25EC085B00F9090C /* PullRequestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23578CD825EC085B00F9090C /* PullRequestTableViewCell.swift */; };
 		23578CDB25EC085B00F9090C /* PullRequestTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23578CD925EC085B00F9090C /* PullRequestTableViewCell.xib */; };
 		23578CE025EC088600F9090C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23578CDF25EC088600F9090C /* Images.xcassets */; };
+		23580B8B25EC2EB2006E94E0 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23580B8A25EC2EB2006E94E0 /* SearchViewController.swift */; };
+		23580B8F25EC2EBB006E94E0 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23580B8E25EC2EBB006E94E0 /* Search.storyboard */; };
+		23580B9625EC43ED006E94E0 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23580B9425EC43ED006E94E0 /* SearchTableViewCell.swift */; };
+		23580B9725EC43ED006E94E0 /* SearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23580B9525EC43ED006E94E0 /* SearchTableViewCell.xib */; };
+		2359C40D25ECE3EC00EB2FF8 /* SearchApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2359C40C25ECE3EC00EB2FF8 /* SearchApiService.swift */; };
 		2359CEB825E9607200FA0F0E /* Issues.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2359CEB725E9607200FA0F0E /* Issues.storyboard */; };
 		2359CEBB25E9609500FA0F0E /* IssuesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2359CEBA25E9609500FA0F0E /* IssuesViewController.swift */; };
 		2359CEBE25E9700400FA0F0E /* Issue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2359CEBD25E9700400FA0F0E /* Issue.swift */; };
@@ -88,6 +98,11 @@
 		2353F58B25E80C1F0089818C /* Commit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Commit.swift; sourceTree = "<group>"; };
 		2353F58E25E80E500089818C /* Author.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Author.swift; sourceTree = "<group>"; };
 		2353F59325E810B40089818C /* CommitsApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitsApiService.swift; sourceTree = "<group>"; };
+		2355126D25ED2F610057C593 /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
+		2355127225ED37030057C593 /* Users.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Users.storyboard; sourceTree = "<group>"; };
+		2355127525ED37440057C593 /* UsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewController.swift; sourceTree = "<group>"; };
+		2355127925ED393B0057C593 /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
+		2355127A25ED393B0057C593 /* UserTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserTableViewCell.xib; sourceTree = "<group>"; };
 		2356716F25E632D8003EE8A1 /* RepositoriesApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesApiService.swift; sourceTree = "<group>"; };
 		2356717325E63538003EE8A1 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		23578CC425EBD70300F9090C /* UITableView+Instance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Instance.swift"; sourceTree = "<group>"; };
@@ -98,6 +113,11 @@
 		23578CD825EC085B00F9090C /* PullRequestTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestTableViewCell.swift; sourceTree = "<group>"; };
 		23578CD925EC085B00F9090C /* PullRequestTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PullRequestTableViewCell.xib; sourceTree = "<group>"; };
 		23578CDF25EC088600F9090C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		23580B8A25EC2EB2006E94E0 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		23580B8E25EC2EBB006E94E0 /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
+		23580B9425EC43ED006E94E0 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
+		23580B9525EC43ED006E94E0 /* SearchTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchTableViewCell.xib; sourceTree = "<group>"; };
+		2359C40C25ECE3EC00EB2FF8 /* SearchApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchApiService.swift; sourceTree = "<group>"; };
 		2359CEB725E9607200FA0F0E /* Issues.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Issues.storyboard; sourceTree = "<group>"; };
 		2359CEBA25E9609500FA0F0E /* IssuesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuesViewController.swift; sourceTree = "<group>"; };
 		2359CEBD25E9700400FA0F0E /* Issue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Issue.swift; sourceTree = "<group>"; };
@@ -223,6 +243,25 @@
 			path = Commits;
 			sourceTree = "<group>";
 		};
+		2355127125ED36D80057C593 /* Users */ = {
+			isa = PBXGroup;
+			children = (
+				2355127825ED37470057C593 /* Cell */,
+				2355127225ED37030057C593 /* Users.storyboard */,
+				2355127525ED37440057C593 /* UsersViewController.swift */,
+			);
+			path = Users;
+			sourceTree = "<group>";
+		};
+		2355127825ED37470057C593 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				2355127925ED393B0057C593 /* UserTableViewCell.swift */,
+				2355127A25ED393B0057C593 /* UserTableViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		2356716E25E632A9003EE8A1 /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
@@ -259,6 +298,34 @@
 				23578CD925EC085B00F9090C /* PullRequestTableViewCell.xib */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		23580B8925EC2E5A006E94E0 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				23580B9325EC43CA006E94E0 /* Cell */,
+				23580B8E25EC2EBB006E94E0 /* Search.storyboard */,
+				23580B8A25EC2EB2006E94E0 /* SearchViewController.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		23580B9325EC43CA006E94E0 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				23580B9425EC43ED006E94E0 /* SearchTableViewCell.swift */,
+				23580B9525EC43ED006E94E0 /* SearchTableViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		2359C40B25ECE3B200EB2FF8 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				2355126D25ED2F610057C593 /* Search.swift */,
+				2359C40C25ECE3EC00EB2FF8 /* SearchApiService.swift */,
+			);
+			path = Search;
 			sourceTree = "<group>";
 		};
 		2359CEB625E9605600FA0F0E /* Issues */ = {
@@ -423,6 +490,8 @@
 				2364EBCC25E7E2C200B9E44F /* Commits */,
 				2359CEB625E9605600FA0F0E /* Issues */,
 				23578CD025EC061A00F9090C /* PullRequests */,
+				23580B8925EC2E5A006E94E0 /* Search */,
+				2355127125ED36D80057C593 /* Users */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -558,6 +627,7 @@
 				2359CEC025E9728100FA0F0E /* Issues */,
 				2356716E25E632A9003EE8A1 /* Repositories */,
 				23578CC825EBF2F600F9090C /* PullRequest */,
+				2359C40B25ECE3B200EB2FF8 /* Search */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -665,6 +735,7 @@
 			files = (
 				23B1D4AA25E4103C001E9570 /* Login.storyboard in Resources */,
 				23B1D4B025E411EB001E9570 /* Images.xcassets in Resources */,
+				2355127C25ED393B0057C593 /* UserTableViewCell.xib in Resources */,
 				2359CEC925E97E7700FA0F0E /* IssueTableViewCell.xib in Resources */,
 				2364EBD725E7E45F00B9E44F /* CommitTableViewCell.xib in Resources */,
 				236CBC8B25E703CA003B144A /* RepositoryMenuTableViewCell.xib in Resources */,
@@ -674,17 +745,20 @@
 				2364EBCF25E7E34300B9E44F /* Commits.storyboard in Resources */,
 				23B1D4C225E42140001E9570 /* Images.xcassets in Resources */,
 				23B1D49525E4076C001E9570 /* RootTabBar.storyboard in Resources */,
+				2355127325ED37030057C593 /* Users.storyboard in Resources */,
 				23B1D4BB25E41C3C001E9570 /* Home.storyboard in Resources */,
 				23578CDB25EC085B00F9090C /* PullRequestTableViewCell.xib in Resources */,
 				23B1D43725E3EC62001E9570 /* LaunchScreen.storyboard in Resources */,
 				23B1D4D525E430A4001E9570 /* Profile.storyboard in Resources */,
 				23578CE025EC088600F9090C /* Images.xcassets in Resources */,
 				23B1D4CB25E4225F001E9570 /* MenuTableViewCell.xib in Resources */,
+				23580B9725EC43ED006E94E0 /* SearchTableViewCell.xib in Resources */,
 				23B1D43425E3EC62001E9570 /* Assets.xcassets in Resources */,
 				2359CEB825E9607200FA0F0E /* Issues.storyboard in Resources */,
 				235363AF25E4641200225412 /* Repositories.storyboard in Resources */,
 				236CBC7825E6DFD2003B144A /* Repository.storyboard in Resources */,
 				235363A025E4574800225412 /* PopularCollectionViewCell.xib in Resources */,
+				23580B8F25EC2EBB006E94E0 /* Search.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -739,6 +813,7 @@
 			files = (
 				2364EBD625E7E45F00B9E44F /* CommitTableViewCell.swift in Sources */,
 				2353F59425E810B40089818C /* CommitsApiService.swift in Sources */,
+				2355127B25ED393B0057C593 /* UserTableViewCell.swift in Sources */,
 				2353639925E4550600225412 /* PopularViewController.swift in Sources */,
 				23B1D4AD25E41055001E9570 /* LoginViewController.swift in Sources */,
 				2359CEC225E9729B00FA0F0E /* IssuesApiService.swift in Sources */,
@@ -746,6 +821,8 @@
 				2359CEC825E97E7700FA0F0E /* IssueTableViewCell.swift in Sources */,
 				2353F58F25E80E500089818C /* Author.swift in Sources */,
 				23DD61BC25E59B9800996B45 /* GitHubAuthService.swift in Sources */,
+				23580B9625EC43ED006E94E0 /* SearchTableViewCell.swift in Sources */,
+				2355126E25ED2F610057C593 /* Search.swift in Sources */,
 				23B1D4A425E40C80001E9570 /* RootNavigationViewController.swift in Sources */,
 				23578CDA25EC085B00F9090C /* PullRequestTableViewCell.swift in Sources */,
 				235363A325E45B2200225412 /* UIColor+GithubClient.swift in Sources */,
@@ -768,9 +845,12 @@
 				23B1D4D225E43093001E9570 /* ProfileViewController.swift in Sources */,
 				2353F58C25E80C1F0089818C /* Commit.swift in Sources */,
 				23B1D46125E3F861001E9570 /* UIViewController+Instance.swift in Sources */,
+				2359C40D25ECE3EC00EB2FF8 /* SearchApiService.swift in Sources */,
 				23B1D46725E3F90E001E9570 /* UICollectionViewCell+Collection.swift in Sources */,
 				2364EBD225E7E3F300B9E44F /* CommitsViewController.swift in Sources */,
 				23B1D42825E3EC61001E9570 /* AppDelegate.swift in Sources */,
+				2355127625ED37440057C593 /* UsersViewController.swift in Sources */,
+				23580B8B25EC2EB2006E94E0 /* SearchViewController.swift in Sources */,
 				23E0474025EAE33700C22F06 /* AuthorizeData.swift in Sources */,
 				235363B725E4676000225412 /* RepositoryTableViewCell.swift in Sources */,
 				23578CCE25EBF83B00F9090C /* PullRequestApiService.swift in Sources */,
