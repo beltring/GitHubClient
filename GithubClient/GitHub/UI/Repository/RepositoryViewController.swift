@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import SafariServices
 
 class RepositoryViewController: UIViewController {
 
@@ -54,6 +53,11 @@ class RepositoryViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         RepositoryMenuTableViewCell.registerCellNib(in: tableView)
+    }
+    
+    private func showRepositoryInBrowser() {
+        guard let url = URL(string: repository?.url ?? "") else { return }
+        presentSafariViewController(url: url)
     }
 }
 
@@ -105,6 +109,7 @@ extension RepositoryViewController {
         navigationController?.pushViewController(vc, animated: true)
     }
     
+    // MARK: - Show pullRequests screen
     func showPullRequests() {
         let vc = PullRequestsViewController.initial()
         
@@ -114,16 +119,6 @@ extension RepositoryViewController {
         vc.pullRequestsUrl = url
         
         navigationController?.pushViewController(vc, animated: true)
-    }
-}
-
-// MARK: - SFSafariViewControllerDelegate
-extension RepositoryViewController: SFSafariViewControllerDelegate {
-    
-    private func showRepositoryInBrowser() {
-        guard let url = URL(string: repository?.url ?? "") else { return }
-        let safariVC = SFSafariViewController(url: url)
-        present(safariVC, animated: true, completion: nil)
     }
 }
 

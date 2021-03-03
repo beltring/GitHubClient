@@ -67,7 +67,8 @@ extension UsersViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let user = users[indexPath.row]
         
-        showUserInBrowser(user: user)
+        guard let url = URL(string: user.url ?? "") else { return }
+        presentSafariViewController(url: url)
     }
 }
 
@@ -86,15 +87,5 @@ extension UsersViewController {
             
             self?.activityIndicatorView.stopAnimating()
         }
-    }
-}
-
-// MARK: - SFSafariViewControllerDelegate
-extension UsersViewController: SFSafariViewControllerDelegate {
-    func showUserInBrowser(user: User) {
-        guard let url = URL(string: user.url ?? "") else { return }
-        let vc = SFSafariViewController(url: url)
-        
-        present(vc, animated: true, completion: nil)
     }
 }

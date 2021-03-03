@@ -94,7 +94,7 @@ extension IssuesViewController: UITableViewDelegate, UITableViewDataSource {
         }
         
         guard let url = URL(string: issue.url ?? "") else { return }
-        showIssueInBrowser(url: url)
+        presentSafariViewController(url: url)
     }
 }
 
@@ -170,14 +170,6 @@ extension IssuesViewController: UISearchBarDelegate {
     guard let filter = Filter(rawValue: searchBar.scopeButtonTitles![selectedScope]) else { return }
     filterContentForSearchText(searchBar.text!, filter: filter)
   }
-}
-
-// MARK: - SFSafariViewControllerDelegate
-extension IssuesViewController: SFSafariViewControllerDelegate {
-    func showIssueInBrowser(url: URL) {
-        let vc = SFSafariViewController(url: url)
-        present(vc, animated: true, completion: nil)
-    }
 }
 
 // MARK: - Filter

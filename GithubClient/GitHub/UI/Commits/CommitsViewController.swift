@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import SafariServices
 
 class CommitsViewController: UIViewController {
     
@@ -39,6 +38,11 @@ class CommitsViewController: UIViewController {
         tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
         tableView.backgroundView = activityIndicatorView
         self.activityIndicatorView = activityIndicatorView
+    }
+    
+    private func showCommitInBrowser(_ index: Int) {
+        guard let url = URL(string: commitsData[index].url ?? "") else { return }
+        presentSafariViewController(url: url)
     }
 }
 
@@ -77,15 +81,5 @@ extension CommitsViewController {
                 self?.presentAlert(message: error.localizedDescription)
             }
         }
-    }
-}
-
-// MARK: - SFSafariViewControllerDelegate
-extension CommitsViewController: SFSafariViewControllerDelegate {
-    
-    func showCommitInBrowser(_ index: Int) {
-        guard let url = URL(string: commitsData[index].url ?? "") else { return }
-        let safariVC = SFSafariViewController(url: url)
-        present(safariVC, animated: true, completion: nil)
     }
 }
