@@ -17,6 +17,7 @@ class IssuesViewController: UIViewController {
     private let issuesService = IssuesApiService()
     private var issues = [Issue]()
     private var filteredIssues = [Issue]()
+    private var filter: Filter = .all
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,6 +60,9 @@ extension IssuesViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if isFiltering {
+            if isSearchBarEmpty {
+                filteredIssues = issues
+            }
             return filteredIssues.count
         }
         
@@ -132,21 +136,27 @@ extension IssuesViewController: UISearchResultsUpdating {
     }
     
     private func filterContentForSearchText(_ searchText: String, filter: Filter = .all) {
-        activityIndicatorView.startAnimating()
         
-        switch filter {
-        case .all:
-            fetchIssues(filter: filter.rawValue)
-        case .created:
-            fetchIssues(filter: filter.rawValue)
-        case .assigned:
-            fetchIssues(filter: filter.rawValue)
-        case .mentioned:
-            fetchIssues(filter: filter.rawValue)
+        if self.filter != filter {
+            activityIndicatorView.startAnimating()
+            self.filter = filter
+            
+            switch filter {
+            case .all:
+                fetchIssues(filter: filter.rawValue)
+            case .created:
+                fetchIssues(filter: filter.rawValue)
+            case .assigned:
+                fetchIssues(filter: filter.rawValue)
+            case .mentioned:
+                fetchIssues(filter: filter.rawValue)
+            }
         }
         
-        filteredIssues = issues.filter { (issue: Issue) -> Bool in
-            return issue.title!.lowercased().contains(searchText.lowercased())
+        if !isSearchBarEmpty {
+            filteredIssues = issues.filter { (issue: Issue) -> Bool in
+                return issue.title!.lowercased().contains(searchText.lowercased())
+            }
         }
         
         tableView.reloadData()

@@ -33,7 +33,16 @@ class PullRequestsViewController: UIViewController {
 // MARK: - UITableViewDelegate&UITableViewDataSource
 extension PullRequestsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return pullRequests.count
+        let count = pullRequests.count
+        
+        if count == 0 {
+            tableView.setEmptyView(title: "There are no pull requests in this repository", message: "")
+        }
+        else{
+            tableView.restore()
+        }
+        
+        return count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
