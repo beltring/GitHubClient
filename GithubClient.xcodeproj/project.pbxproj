@@ -57,7 +57,7 @@
 		236CBC8125E6F6F7003B144A /* Owner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236CBC8025E6F6F7003B144A /* Owner.swift */; };
 		236CBC8A25E703CA003B144A /* RepositoryMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236CBC8825E703CA003B144A /* RepositoryMenuTableViewCell.swift */; };
 		236CBC8B25E703CA003B144A /* RepositoryMenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 236CBC8925E703CA003B144A /* RepositoryMenuTableViewCell.xib */; };
-		2372BD8425F0C79A00F7A5C4 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2372BD8325F0C79A00F7A5C4 /* Reachability.swift */; };
+		2372BD8D25F0D50400F7A5C4 /* NetworkReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2372BD8C25F0D50400F7A5C4 /* NetworkReachabilityManager.swift */; };
 		23B1D42825E3EC61001E9570 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B1D42725E3EC61001E9570 /* AppDelegate.swift */; };
 		23B1D43225E3EC61001E9570 /* GithubClient.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 23B1D43025E3EC61001E9570 /* GithubClient.xcdatamodeld */; };
 		23B1D43425E3EC62001E9570 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23B1D43325E3EC62001E9570 /* Assets.xcassets */; };
@@ -138,7 +138,7 @@
 		236CBC8025E6F6F7003B144A /* Owner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Owner.swift; sourceTree = "<group>"; };
 		236CBC8825E703CA003B144A /* RepositoryMenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryMenuTableViewCell.swift; sourceTree = "<group>"; };
 		236CBC8925E703CA003B144A /* RepositoryMenuTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepositoryMenuTableViewCell.xib; sourceTree = "<group>"; };
-		2372BD8325F0C79A00F7A5C4 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		2372BD8C25F0D50400F7A5C4 /* NetworkReachabilityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkReachabilityManager.swift; sourceTree = "<group>"; };
 		23B1D42425E3EC61001E9570 /* GithubClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GithubClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		23B1D42725E3EC61001E9570 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		23B1D43125E3EC61001E9570 /* GithubClient.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GithubClient.xcdatamodel; sourceTree = "<group>"; };
@@ -424,12 +424,12 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
-		2372BD8225F0C73500F7A5C4 /* Reachability */ = {
+		2372BD8225F0C73500F7A5C4 /* Reachability Manager */ = {
 			isa = PBXGroup;
 			children = (
-				2372BD8325F0C79A00F7A5C4 /* Reachability.swift */,
+				2372BD8C25F0D50400F7A5C4 /* NetworkReachabilityManager.swift */,
 			);
-			path = Reachability;
+			path = "Reachability Manager";
 			sourceTree = "<group>";
 		};
 		23B1D41B25E3EC61001E9570 = {
@@ -529,7 +529,7 @@
 		23B1D44825E3F181001E9570 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				2372BD8225F0C73500F7A5C4 /* Reachability */,
+				2372BD8225F0C73500F7A5C4 /* Reachability Manager */,
 				23E0474325EAE47300C22F06 /* Keychain */,
 				23E0473E25EAE2F200C22F06 /* Authorization */,
 				23DD61B825E599DC00996B45 /* Networking */,
@@ -834,6 +834,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2364EBD625E7E45F00B9E44F /* CommitTableViewCell.swift in Sources */,
+				2372BD8D25F0D50400F7A5C4 /* NetworkReachabilityManager.swift in Sources */,
 				2353F59425E810B40089818C /* CommitsApiService.swift in Sources */,
 				2355127B25ED393B0057C593 /* UserTableViewCell.swift in Sources */,
 				2353639925E4550600225412 /* PopularViewController.swift in Sources */,
@@ -856,7 +857,6 @@
 				2353639F25E4574800225412 /* PopularCollectionViewCell.swift in Sources */,
 				236CBC8A25E703CA003B144A /* RepositoryMenuTableViewCell.swift in Sources */,
 				23B1D45D25E3F811001E9570 /* UITableViewCell+Table.swift in Sources */,
-				2372BD8425F0C79A00F7A5C4 /* Reachability.swift in Sources */,
 				23578CCA25EBF37F00F9090C /* PullRequest.swift in Sources */,
 				2359CEBE25E9700400FA0F0E /* Issue.swift in Sources */,
 				23E0474525EAE49A00C22F06 /* KeychainKeys.swift in Sources */,
