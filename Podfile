@@ -7,5 +7,6 @@ target 'GithubClient' do
 
   pod 'KeychainSwift', '~> 19.0'
   pod 'OAuthSwift', '~> 2.0.0'
+  pod 'ReachabilitySwift'
 
 end
