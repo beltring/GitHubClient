@@ -14,9 +14,18 @@ class HomeViewController: UIViewController {
     
     private let repositoryService = RepositoriesApiService()
     private var starredRepositories = [Repository]()
+    private let network = NetworkReachabilityManager.sharedInstance
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        network.reachability.whenUnreachable = { _ in
+            DispatchQueue.main.async {
+                let vc = OfflineViewController.initial()
+                vc.modalPresentationStyle = .fullScreen
+                self.present(vc, animated: true, completion: nil)
+            }
+        }
         
         searchBar.delegate = self
         fetchStarredRepositories()

@@ -46,6 +46,8 @@
 		2359CEC225E9729B00FA0F0E /* IssuesApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2359CEC125E9729B00FA0F0E /* IssuesApiService.swift */; };
 		2359CEC825E97E7700FA0F0E /* IssueTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2359CEC625E97E7700FA0F0E /* IssueTableViewCell.swift */; };
 		2359CEC925E97E7700FA0F0E /* IssueTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2359CEC725E97E7700FA0F0E /* IssueTableViewCell.xib */; };
+		235DFB2325F0F87100AE523D /* Offline.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 235DFB2225F0F87100AE523D /* Offline.storyboard */; };
+		235DFB2625F0F89400AE523D /* OfflineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235DFB2525F0F89400AE523D /* OfflineViewController.swift */; };
 		2364EBCF25E7E34300B9E44F /* Commits.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2364EBCE25E7E34300B9E44F /* Commits.storyboard */; };
 		2364EBD225E7E3F300B9E44F /* CommitsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2364EBD125E7E3F300B9E44F /* CommitsViewController.swift */; };
 		2364EBD625E7E45F00B9E44F /* CommitTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2364EBD425E7E45F00B9E44F /* CommitTableViewCell.swift */; };
@@ -127,6 +129,8 @@
 		2359CEC125E9729B00FA0F0E /* IssuesApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuesApiService.swift; sourceTree = "<group>"; };
 		2359CEC625E97E7700FA0F0E /* IssueTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueTableViewCell.swift; sourceTree = "<group>"; };
 		2359CEC725E97E7700FA0F0E /* IssueTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IssueTableViewCell.xib; sourceTree = "<group>"; };
+		235DFB2225F0F87100AE523D /* Offline.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Offline.storyboard; sourceTree = "<group>"; };
+		235DFB2525F0F89400AE523D /* OfflineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfflineViewController.swift; sourceTree = "<group>"; };
 		2364EBCE25E7E34300B9E44F /* Commits.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Commits.storyboard; sourceTree = "<group>"; };
 		2364EBD125E7E3F300B9E44F /* CommitsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitsViewController.swift; sourceTree = "<group>"; };
 		2364EBD425E7E45F00B9E44F /* CommitTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitTableViewCell.swift; sourceTree = "<group>"; };
@@ -368,6 +372,15 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		235DFB2125F0F85600AE523D /* Offline */ = {
+			isa = PBXGroup;
+			children = (
+				235DFB2225F0F87100AE523D /* Offline.storyboard */,
+				235DFB2525F0F89400AE523D /* OfflineViewController.swift */,
+			);
+			path = Offline;
+			sourceTree = "<group>";
+		};
 		2364EBCC25E7E2C200B9E44F /* Commits */ = {
 			isa = PBXGroup;
 			children = (
@@ -512,6 +525,7 @@
 				23578CD025EC061A00F9090C /* PullRequests */,
 				23580B8925EC2E5A006E94E0 /* Search */,
 				2355127125ED36D80057C593 /* Users */,
+				235DFB2125F0F85600AE523D /* Offline */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -769,6 +783,7 @@
 				23B1D49525E4076C001E9570 /* RootTabBar.storyboard in Resources */,
 				2355127325ED37030057C593 /* Users.storyboard in Resources */,
 				23B1D4BB25E41C3C001E9570 /* Home.storyboard in Resources */,
+				235DFB2325F0F87100AE523D /* Offline.storyboard in Resources */,
 				23578CDB25EC085B00F9090C /* PullRequestTableViewCell.xib in Resources */,
 				23B1D43725E3EC62001E9570 /* LaunchScreen.storyboard in Resources */,
 				23B1D4D525E430A4001E9570 /* Profile.storyboard in Resources */,
@@ -873,6 +888,7 @@
 				2364EBD225E7E3F300B9E44F /* CommitsViewController.swift in Sources */,
 				23B1D42825E3EC61001E9570 /* AppDelegate.swift in Sources */,
 				2355127625ED37440057C593 /* UsersViewController.swift in Sources */,
+				235DFB2625F0F89400AE523D /* OfflineViewController.swift in Sources */,
 				23580B8B25EC2EB2006E94E0 /* SearchViewController.swift in Sources */,
 				23E0474025EAE33700C22F06 /* AuthorizeData.swift in Sources */,
 				235363B725E4676000225412 /* RepositoryTableViewCell.swift in Sources */,
