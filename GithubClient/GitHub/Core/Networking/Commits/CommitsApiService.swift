@@ -11,7 +11,7 @@ class CommitsApiService {
     
     func getCommitsForDefaultBranch(url: String, completion: @escaping (Result<[CommitData], Error>) -> Void) {
         
-        let urlComponents = NSURLComponents(string: url)!
+        guard var urlComponents = URLComponents(string: url) else { return }
         
         urlComponents.queryItems = [
             URLQueryItem(name: "per_page", value: "100"),
@@ -22,7 +22,7 @@ class CommitsApiService {
         var request = URLRequest(url: urlComponents.url!)
         request.addValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
         
-        URLSession.shared.dataTask(with: request){ data, response, error in
+        URLSession.shared.dataTask(with: request){ data, _, error in
             
             if let error = error {
                 completion(.failure(error))

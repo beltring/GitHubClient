@@ -26,7 +26,7 @@ class RepositoriesApiService {
         var request = URLRequest(url: urlComponents.url!)
         request.addValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
         
-        URLSession.shared.dataTask(with: request) { (data, response, error) in
+        URLSession.shared.dataTask(with: request) { (data, _, error) in
             
             if let error = error {
                 completion(.failure(error))
@@ -34,15 +34,7 @@ class RepositoriesApiService {
                 return
             }
             
-            guard let response = response as? HTTPURLResponse else {
-                // Handle Empty Response
-                print("Empty Response")
-                return
-            }
-            print("Response status code: \(response.statusCode)")
-            
             guard let data = data else {
-                // Handle Empty Data
                 print("Empty Data")
                 return
             }

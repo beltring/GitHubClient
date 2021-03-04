@@ -65,21 +65,21 @@ class RepositoryViewController: UIViewController {
 extension RepositoryViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(Rows.allCases.count)
-        return Rows.allCases.count
+        print(Row.allCases.count)
+        return Row.allCases.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = RepositoryMenuTableViewCell.dequeueReusableCell(in: tableView, for: indexPath)
         
         cell.accessoryType = .disclosureIndicator
-        cell.titleLabel.text = Rows.allCases[indexPath.row].title
+        cell.titleLabel.text = Row.allCases[indexPath.row].title
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let row = Rows.allCases[indexPath.row]
+        let row = Row.allCases[indexPath.row]
         
         switch row {
         case .commits:
@@ -123,7 +123,7 @@ extension RepositoryViewController {
 }
 
 // MARK: - ROWS
-fileprivate enum Rows: Int, CaseIterable {
+fileprivate enum Row: Int, CaseIterable {
     case commits
     case code
     case pullRequests

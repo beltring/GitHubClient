@@ -12,11 +12,14 @@ class PopularViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
     private var popularRepositories = [Repository]()
+    private weak var activityIndicatorView: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setupActivityIndicator()
         setupCollectionView()
+        activityIndicatorView.startAnimating()
         fetchPopularRepository()
     }
     
@@ -26,6 +29,11 @@ class PopularViewController: UIViewController {
         collectionView.dataSource = self
     }
 
+    private func setupActivityIndicator() {
+        let activityIndicatorView = UIActivityIndicatorView(style: .medium)
+        collectionView.backgroundView = activityIndicatorView
+        self.activityIndicatorView = activityIndicatorView
+    }
 }
 
 // MARK: - UICollectionViewDataSource&UICollectionViewDelegate
@@ -62,6 +70,8 @@ extension PopularViewController: UICollectionViewDelegateFlowLayout {
 extension PopularViewController {
     func fetchPopularRepository() { 
         RepositoriesApiService().getRepositoriesForAuthUser { [weak self] result in
+            self?.activityIndicatorView.stopAnimating()
+            
             switch result {
             case .success(let repositories):
                 let repos = repositories.sorted(by: { (repos1, repos2) -> Bool in

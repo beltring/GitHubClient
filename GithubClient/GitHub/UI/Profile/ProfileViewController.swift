@@ -18,6 +18,8 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var mailLabel: UILabel!
     @IBOutlet weak var followersCountLabel: UILabel!
     @IBOutlet weak var followingCountLabel: UILabel!
+    @IBOutlet weak var locationStackView: UIStackView!
+    @IBOutlet weak var mailStackView: UIStackView!
     
     private let userService = UserApiService()
     private var user: User?
@@ -58,14 +60,6 @@ extension ProfileViewController {
     }
     
     private func success(user: User) {
-        self.user = user
-        self.nameLabel.text = user.name
-        self.userNameLabel.text = user.login
-        self.locationLabel.text = user.location
-        self.mailLabel.text = user.email
-        self.followersCountLabel.text = String(user.followers ?? 0)
-        self.followingCountLabel.text = String(user.following ?? 0)
-        
         guard let url = URL(string: user.avatarUrl!) else { return }
         LoadService().getImage(url: url) { [weak self] result in
             switch result {
@@ -74,6 +68,26 @@ extension ProfileViewController {
             case .failure(let error):
                 self?.presentAlert(message: error.localizedDescription)
             }
+        }
+        
+        self.user = user
+        self.nameLabel.text = user.name
+        self.userNameLabel.text = user.login
+        self.followersCountLabel.text = String(user.followers ?? 0)
+        self.followingCountLabel.text = String(user.following ?? 0)
+        
+        if let location = user.location {
+            self.locationLabel.text = location
+        }
+        else {
+            locationStackView.isHidden.toggle()
+        }
+        
+        if let email = user.email {
+            self.mailLabel.text = email
+        }
+        else {
+            mailStackView.isHidden.toggle()
         }
     }
 }

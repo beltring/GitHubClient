@@ -56,21 +56,21 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         }
         
         tableView.restore()
-        return Rows.allCases.count
+        return Row.allCases.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = SearchTableViewCell.dequeueReusableCell(in: tableView, for: indexPath)
         
         let searchText = #""\#(self.searchText)""#
-        cell.searchLabel.text = Rows.allCases[indexPath.row].title + searchText
-        cell.menuImage.image = Rows.allCases[indexPath.row].image
+        cell.searchLabel.text = Row.allCases[indexPath.row].title + searchText
+        cell.menuImage.image = Row.allCases[indexPath.row].image
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let row = Rows.allCases[indexPath.row]
+        let row = Row.allCases[indexPath.row]
         
         switch row {
         case .repositories:
@@ -90,7 +90,8 @@ extension SearchViewController: UISearchBarDelegate {
     }
 }
 
-fileprivate enum Rows: Int, CaseIterable {
+// MARK: - Rows
+fileprivate enum Row: Int, CaseIterable {
     case repositories
     case users
     

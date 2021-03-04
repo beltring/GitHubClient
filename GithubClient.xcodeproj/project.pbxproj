@@ -321,6 +321,14 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		2359713A25F02394006AAE09 /* Load */ = {
+			isa = PBXGroup;
+			children = (
+				23E0473425EAD28E00C22F06 /* LoadService.swift */,
+			);
+			path = Load;
+			sourceTree = "<group>";
+		};
 		2359C40B25ECE3B200EB2FF8 /* Search */ = {
 			isa = PBXGroup;
 			children = (
@@ -623,13 +631,13 @@
 		23DD61B825E599DC00996B45 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				23E0473425EAD28E00C22F06 /* LoadService.swift */,
 				236CBC7F25E6F6DD003B144A /* Models */,
 				2364F93F25E8476100CEDDD1 /* User */,
 				2353F59125E80FA80089818C /* Commits */,
 				2359CEC025E9728100FA0F0E /* Issues */,
 				2356716E25E632A9003EE8A1 /* Repositories */,
 				23578CC825EBF2F600F9090C /* PullRequest */,
+				2359713A25F02394006AAE09 /* Load */,
 				2359C40B25ECE3B200EB2FF8 /* Search */,
 			);
 			path = Networking;
