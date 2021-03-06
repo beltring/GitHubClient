@@ -15,7 +15,7 @@
             <objects>
                 <viewController id="fIQ-92-Pcm" customClass="PopularViewController" customModule="GithubClient" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KwI-e3-vvn">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="245"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="UHU-WQ-bWq">
@@ -32,9 +32,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="WVm-dQ-o8l">
-                                <rect key="frame" x="0.0" y="60.5" width="414" height="184.5"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="WVm-dQ-o8l">
+                                <rect key="frame" x="0.0" y="61" width="414" height="835"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="GkZ-8F-w9e">
                                     <size key="itemSize" width="332" height="155"/>
@@ -51,17 +50,20 @@
                             <constraint firstItem="89y-4S-abc" firstAttribute="top" secondItem="KwI-e3-vvn" secondAttribute="top" constant="24" id="5dW-vu-xSj"/>
                             <constraint firstItem="UHU-WQ-bWq" firstAttribute="top" secondItem="KwI-e3-vvn" secondAttribute="top" constant="20.5" id="70e-nu-fwk"/>
                             <constraint firstItem="89y-4S-abc" firstAttribute="leading" secondItem="UHU-WQ-bWq" secondAttribute="trailing" constant="8" symbolic="YES" id="9De-v6-gO6"/>
+                            <constraint firstItem="WVm-dQ-o8l" firstAttribute="trailing" secondItem="tX5-pU-Fte" secondAttribute="trailing" id="YdN-zS-paO"/>
+                            <constraint firstItem="WVm-dQ-o8l" firstAttribute="leading" secondItem="tX5-pU-Fte" secondAttribute="leading" id="aDZ-Vm-qub"/>
+                            <constraint firstItem="WVm-dQ-o8l" firstAttribute="top" secondItem="UHU-WQ-bWq" secondAttribute="bottom" constant="10.5" id="uH4-NV-dKh"/>
                             <constraint firstItem="UHU-WQ-bWq" firstAttribute="leading" secondItem="tX5-pU-Fte" secondAttribute="leading" constant="20" id="w5G-b3-Kfo"/>
+                            <constraint firstAttribute="bottom" secondItem="WVm-dQ-o8l" secondAttribute="bottom" id="waI-qP-L5D"/>
                         </constraints>
                     </view>
-                    <size key="freeformSize" width="414" height="245"/>
                     <connections>
                         <outlet property="collectionView" destination="WVm-dQ-o8l" id="m74-w4-Qct"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j8p-LY-eld" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-355" y="119"/>
+            <point key="canvasLocation" x="-355.07246376811599" y="118.52678571428571"/>
         </scene>
     </scenes>
     <resources>

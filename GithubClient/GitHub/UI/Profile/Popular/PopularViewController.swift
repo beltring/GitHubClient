@@ -12,7 +12,7 @@ class PopularViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
     private var popularRepositories = [Repository]()
-    private weak var activityIndicatorView: UIActivityIndicatorView!
+    private var activityIndicatorView: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,16 +55,12 @@ extension PopularViewController: UICollectionViewDataSource, UICollectionViewDel
 // MARK: - UICollectionViewDelegateFlowLayout
 extension PopularViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: UIScreen.main.bounds.width - 90, height: 170)
+        return CGSize(width: collectionView.bounds.width * 0.7, height: 170)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 5)
+        return UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 10)
     }
-    
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-//        return 20
-//    }
 }
 
 extension PopularViewController {

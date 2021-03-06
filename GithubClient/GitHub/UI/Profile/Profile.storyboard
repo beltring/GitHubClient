@@ -152,7 +152,8 @@
                             <constraint firstItem="Cfy-uf-5pY" firstAttribute="trailing" secondItem="Yfz-Uf-6OQ" secondAttribute="trailing" id="w8c-FS-gGt"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Profile" image="person" catalog="system" id="6DS-ih-HCJ"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="person" catalog="system" id="zDI-vg-fla"/>
+                    <navigationItem key="navigationItem" id="nZ8-ED-eje"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="followersCountLabel" destination="Xts-Uf-kax" id="Fvk-NK-mOj"/>
@@ -168,7 +169,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b9H-iq-muG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="198.55072463768118" y="157.36607142857142"/>
+            <point key="canvasLocation" x="1108.6956521739132" y="157.36607142857142"/>
         </scene>
         <!--Popular-->
         <scene sceneID="Ied-z7-Xdi">
@@ -178,7 +179,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NjF-ht-FQ1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="866" y="116"/>
+            <point key="canvasLocation" x="1776.0869565217392" y="115.84821428571428"/>
         </scene>
     </scenes>
     <resources>

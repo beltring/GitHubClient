@@ -15,7 +15,7 @@ class RepositoriesViewController: UIViewController {
     private let searchService = SearchApiService()
     private var repositories = [Repository]()
     private var filteredRepositories = [Repository]()
-    private weak var activityIndicatorView: UIActivityIndicatorView!
+    private var activityIndicatorView: UIActivityIndicatorView!
     private let searchController = UISearchController(searchResultsController: nil)
     private var searchText = ""
     var screen: Screen = .repositories

@@ -14,7 +14,7 @@ class CommitsViewController: UIViewController {
     var commitsUrl: String?
     private let commitsService = CommitsApiService()
     private var commitsData = [CommitData]()
-    private weak var activityIndicatorView: UIActivityIndicatorView!
+    private var activityIndicatorView: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()

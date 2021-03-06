@@ -15,7 +15,7 @@ class UsersViewController: UIViewController {
     private let searchService = SearchApiService()
     private var users = [User]()
     private var searchText = ""
-    private weak var activityIndicatorView: UIActivityIndicatorView!
+    private var activityIndicatorView: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
