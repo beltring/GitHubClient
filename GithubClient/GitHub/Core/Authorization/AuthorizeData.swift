@@ -24,4 +24,8 @@ class AuthorizeData {
             }
         }
     }
+    
+    var isAuthorized: Bool {
+        return accessToken != nil
+    }
 }

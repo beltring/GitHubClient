@@ -16,7 +16,7 @@ class RootNavigationViewController: UINavigationController {
     func setRootController() {
         let vc: UIViewController
         
-        if AuthorizeData.shared.accessToken != nil {
+        if AuthorizeData.shared.isAuthorized {
             vc = RootTabBarViewController.initial()
         }
         else {
