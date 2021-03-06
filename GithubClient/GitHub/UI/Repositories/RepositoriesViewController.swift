@@ -29,6 +29,7 @@ class RepositoriesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Create", style: .done, target: self, action: #selector(showAddRepositoryScreen))
         setupTableView()
         setupActivityIndicator()
         setupScreen()
@@ -77,6 +78,11 @@ class RepositoriesViewController: UIViewController {
             navigationItem.title = screen.title
             setupSearchController()
         }
+    }
+    
+    @objc private func showAddRepositoryScreen() {
+        let vc = AddRepositoryViewController.initial()
+        present(vc, animated: true, completion: nil)
     }
 }
 
