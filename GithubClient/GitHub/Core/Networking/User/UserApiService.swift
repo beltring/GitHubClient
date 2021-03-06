@@ -10,12 +10,8 @@ import Foundation
 class UserApiService {
     
     func getUserInformation(completion: @escaping (Result<User, Error>) -> Void) {
-        guard let url = URL.github?.appendingPathComponent("user") else { return }
         
-        let accessToken = AuthorizeData.shared.accessToken!
-        
-        var request = URLRequest(url: url)
-        request.addValue("Bearer " + accessToken, forHTTPHeaderField: "Authorization")
+        guard let request = URLRequest(queryItem: [], path: "user") else { return }
         
         URLSession.shared.dataTask(with: request){ data, _, error in
             

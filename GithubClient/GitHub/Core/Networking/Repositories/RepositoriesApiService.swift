@@ -9,22 +9,14 @@ import Foundation
 
 class RepositoriesApiService {
     
-    private var dataTask: URLSessionDataTask?
-    
     func getRepositoriesForAuthUser(completion: @escaping (Result<[Repository], Error>) -> Void) {
         
-        guard let url = URL.github?.appendingPathComponent("user/repos") else { return }
-        guard var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false) else { return }
-
-        urlComponents.queryItems = [
+        let queryItems = [
             URLQueryItem(name: "per_page", value: "100"),
             URLQueryItem(name: "sort", value: "created")
         ]
         
-        let accessToken = AuthorizeData.shared.accessToken!
-        
-        var request = URLRequest(url: urlComponents.url!)
-        request.addValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
+        guard let request = URLRequest(queryItem: queryItems, path: "user/repos") else { return }
         
         URLSession.shared.dataTask(with: request) { (data, _, error) in
             
@@ -57,17 +49,9 @@ class RepositoriesApiService {
     
     func getStarredRepositories(completion: @escaping (Result<[Repository], Error>) -> Void) {
         
-        guard let url = URL.github?.appendingPathComponent("user/starred") else { return }
-        guard var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false) else { return }
-
-        urlComponents.queryItems = [
-            URLQueryItem(name: "per_page", value: "100")
-        ]
+        let queryItems = [URLQueryItem(name: "per_page", value: "100")]
         
-        let accessToken = AuthorizeData.shared.accessToken!
-        
-        var request = URLRequest(url: urlComponents.url!)
-        request.addValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
+        guard let request = URLRequest(queryItem: queryItems, path: "user/starred") else { return }
         
         URLSession.shared.dataTask(with: request) { data, _, error in
             

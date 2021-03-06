@@ -9,18 +9,13 @@ import Foundation
 
 class SearchApiService {
     func getRepositoriesBySearchText(searchText: String, completion: @escaping (Result<RepositoriesData, Error>) -> Void) {
-        guard let url = URL.github?.appendingPathComponent("/search/repositories") else { return }
-        guard var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false) else { return }
         
-        urlComponents.queryItems = [
+        let queryItems = [
             URLQueryItem(name: "q", value: searchText),
             URLQueryItem(name: "per_page", value: "100")
         ]
         
-        let accessToken = AuthorizeData.shared.accessToken!
-        
-        var request = URLRequest(url: urlComponents.url!)
-        request.addValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
+        guard let request = URLRequest(queryItem: queryItems, path: "/search/repositories") else { return }
         
         URLSession.shared.dataTask(with: request) { data, _, error in
             if let error = error {
@@ -47,17 +42,12 @@ class SearchApiService {
     }
     
     func getUsersBySearchText(searchText: String, completion: @escaping (Result<UsersData, Error>) -> Void) {
-        guard let url = URL.github?.appendingPathComponent("/search/users") else { return }
-        guard var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false) else { return }
-        
-        urlComponents.queryItems = [
+        let queryItems = [
             URLQueryItem(name: "q", value: searchText),
             URLQueryItem(name: "per_page", value: "100")
         ]
         
-        let accessToken = AuthorizeData.shared.accessToken!
-        var request = URLRequest(url: urlComponents.url!)
-        request.addValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
+        guard let request = URLRequest(queryItem: queryItems, path: "/search/users") else { return }
         
         URLSession.shared.dataTask(with: request) { data, _, error in
             if let error = error {

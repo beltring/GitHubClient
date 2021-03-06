@@ -10,18 +10,10 @@ import Foundation
 class IssuesApiService {
     
     func getIssues(filter: String = "all", completion: @escaping (Result<[Issue], Error>) -> Void) {
+    
+        let queryItems = [URLQueryItem(name: "filter", value: filter)]
         
-        guard let url = URL.github?.appendingPathComponent("user/issues") else { return }
-        guard var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false) else { return }
-
-        urlComponents.queryItems = [
-            URLQueryItem(name: "filter", value: filter)
-        ]
-        
-        let accessToken = AuthorizeData.shared.accessToken!
-        
-        var request = URLRequest(url: urlComponents.url!)
-        request.addValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
+        guard let request = URLRequest(queryItem: queryItems, path: "user/issues") else { return }
         
         URLSession.shared.dataTask(with: request) { data, _ , error in
          
