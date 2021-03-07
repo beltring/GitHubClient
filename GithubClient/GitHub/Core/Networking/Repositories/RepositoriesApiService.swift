@@ -85,8 +85,7 @@ class RepositoriesApiService {
     func addRepository(name: String, description: String, isPrivate: Bool, isReadme: Bool,
                        completion: @escaping (Result<Int, Error>) -> Void) {
         
-        guard var request = URLRequest(queryItem: [], path: "/user/repos") else { return }
-        request.httpMethod = "POST"
+        guard var request = URLRequest(path: "/user/repos", httpMethod: "POST") else { return }
         
         let body: [String: Any] = [
             "name": name,

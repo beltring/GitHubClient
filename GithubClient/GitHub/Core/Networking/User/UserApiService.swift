@@ -11,7 +11,7 @@ class UserApiService {
     
     func getUserInformation(completion: @escaping (Result<User, Error>) -> Void) {
         
-        guard let request = URLRequest(queryItem: [], path: "user") else { return }
+        guard let request = URLRequest(path: "user") else { return }
         
         URLSession.shared.dataTask(with: request){ data, _, error in
             
