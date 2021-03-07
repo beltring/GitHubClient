@@ -24,6 +24,8 @@
 		2355127625ED37440057C593 /* UsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2355127525ED37440057C593 /* UsersViewController.swift */; };
 		2355127B25ED393B0057C593 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2355127925ED393B0057C593 /* UserTableViewCell.swift */; };
 		2355127C25ED393B0057C593 /* UserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2355127A25ED393B0057C593 /* UserTableViewCell.xib */; };
+		2355BC8B25F3EA1900A90464 /* AddRepository.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2355BC8A25F3EA1900A90464 /* AddRepository.storyboard */; };
+		2355BC8F25F3EA3400A90464 /* AddRepositoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2355BC8E25F3EA3400A90464 /* AddRepositoryViewController.swift */; };
 		2356717025E632D8003EE8A1 /* RepositoriesApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2356716F25E632D8003EE8A1 /* RepositoriesApiService.swift */; };
 		2356717425E63538003EE8A1 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2356717325E63538003EE8A1 /* Repository.swift */; };
 		23578CC525EBD70300F9090C /* UITableView+Instance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23578CC425EBD70300F9090C /* UITableView+Instance.swift */; };
@@ -108,6 +110,8 @@
 		2355127525ED37440057C593 /* UsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewController.swift; sourceTree = "<group>"; };
 		2355127925ED393B0057C593 /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
 		2355127A25ED393B0057C593 /* UserTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserTableViewCell.xib; sourceTree = "<group>"; };
+		2355BC8A25F3EA1900A90464 /* AddRepository.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddRepository.storyboard; sourceTree = "<group>"; };
+		2355BC8E25F3EA3400A90464 /* AddRepositoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRepositoryViewController.swift; sourceTree = "<group>"; };
 		2356716F25E632D8003EE8A1 /* RepositoriesApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesApiService.swift; sourceTree = "<group>"; };
 		2356717325E63538003EE8A1 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		23578CC425EBD70300F9090C /* UITableView+Instance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Instance.swift"; sourceTree = "<group>"; };
@@ -270,6 +274,15 @@
 				2355127A25ED393B0057C593 /* UserTableViewCell.xib */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		2355BC8D25F3EA1E00A90464 /* AddRepository */ = {
+			isa = PBXGroup;
+			children = (
+				2355BC8A25F3EA1900A90464 /* AddRepository.storyboard */,
+				2355BC8E25F3EA3400A90464 /* AddRepositoryViewController.swift */,
+			);
+			path = AddRepository;
 			sourceTree = "<group>";
 		};
 		2356716E25E632A9003EE8A1 /* Repositories */ = {
@@ -521,6 +534,7 @@
 				23B1D4B925E41C0D001E9570 /* Home */,
 				23B1D4D025E43054001E9570 /* Profile */,
 				235363AD25E463B400225412 /* Repositories */,
+				2355BC8D25F3EA1E00A90464 /* AddRepository */,
 				236CBC7625E6DFA8003B144A /* Repository */,
 				2364EBCC25E7E2C200B9E44F /* Commits */,
 				2359CEB625E9605600FA0F0E /* Issues */,
@@ -788,6 +802,7 @@
 				23B1D4BB25E41C3C001E9570 /* Home.storyboard in Resources */,
 				235DFB2325F0F87100AE523D /* Offline.storyboard in Resources */,
 				23578CDB25EC085B00F9090C /* PullRequestTableViewCell.xib in Resources */,
+				2355BC8B25F3EA1900A90464 /* AddRepository.storyboard in Resources */,
 				23B1D43725E3EC62001E9570 /* LaunchScreen.storyboard in Resources */,
 				23B1D4D525E430A4001E9570 /* Profile.storyboard in Resources */,
 				23578CE025EC088600F9090C /* Images.xcassets in Resources */,
@@ -891,6 +906,7 @@
 				23B1D46725E3F90E001E9570 /* UICollectionViewCell+Collection.swift in Sources */,
 				2364EBD225E7E3F300B9E44F /* CommitsViewController.swift in Sources */,
 				23B1D42825E3EC61001E9570 /* AppDelegate.swift in Sources */,
+				2355BC8F25F3EA3400A90464 /* AddRepositoryViewController.swift in Sources */,
 				2355127625ED37440057C593 /* UsersViewController.swift in Sources */,
 				235DFB2625F0F89400AE523D /* OfflineViewController.swift in Sources */,
 				23580B8B25EC2EB2006E94E0 /* SearchViewController.swift in Sources */,
