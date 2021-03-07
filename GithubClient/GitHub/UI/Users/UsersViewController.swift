@@ -67,7 +67,7 @@ extension UsersViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let user = users[indexPath.row]
         
-        guard let url = URL(string: user.url ?? "") else { return }
+        let url = URL(string: user.url ?? "")
         presentSafariViewController(url: url)
     }
 }

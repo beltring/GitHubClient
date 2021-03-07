@@ -16,9 +16,7 @@ class NetworkReachabilityManager: NSObject {
         }()
         override init() {
             super.init()
-            // Initialise reachability
             reachability = try! Reachability()
-            // Register an observer for the network status
             NotificationCenter.default.addObserver(
                 self,
                 selector: #selector(networkStatusChanged(_:)),
@@ -26,7 +24,6 @@ class NetworkReachabilityManager: NSObject {
                 object: reachability
             )
             do {
-                // Start the network status notifier
                 try reachability.startNotifier()
             } catch {
                 print("Unable to start notifier")
@@ -37,7 +34,6 @@ class NetworkReachabilityManager: NSObject {
         }
         static func stopNotifier() -> Void {
             do {
-                // Stop the network status notifier
                 try (NetworkReachabilityManager.sharedInstance.reachability).startNotifier()
             } catch {
                 print("Error stopping notifier")

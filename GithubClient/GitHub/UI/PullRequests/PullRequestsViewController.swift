@@ -56,7 +56,7 @@ extension PullRequestsViewController: UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let pullRequest = pullRequests[indexPath.row]
-        guard let url = URL(string: pullRequest.url ?? "") else { return }
+        let url = URL(string: pullRequest.url ?? "")
         presentSafariViewController(url: url)
     }
 }

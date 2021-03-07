@@ -93,7 +93,7 @@ extension IssuesViewController: UITableViewDelegate, UITableViewDataSource {
             issue = issues[indexPath.row]
         }
         
-        guard let url = URL(string: issue.url ?? "") else { return }
+        let url = URL(string: issue.url ?? "")
         presentSafariViewController(url: url)
     }
 }

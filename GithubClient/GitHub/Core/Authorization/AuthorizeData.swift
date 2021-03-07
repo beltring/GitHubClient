@@ -28,4 +28,8 @@ class AuthorizeData {
     var isAuthorized: Bool {
         return accessToken != nil
     }
+    
+    func resetData() {
+        keychain.clear()
+    }
 }

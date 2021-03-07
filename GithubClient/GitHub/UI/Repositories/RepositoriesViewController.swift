@@ -37,7 +37,6 @@ class RepositoriesViewController: UIViewController {
     
     @IBAction private func refresh(sender: UIRefreshControl) {
         fetchRepositories()
-        sender.endRefreshing()
     }
     
     private func setupTableView() {
@@ -145,6 +144,7 @@ extension RepositoriesViewController {
     private func fetchRepositories() {
         repositoryService.getRepositoriesForAuthUser { [weak self] result in
             self?.activityIndicatorView.stopAnimating()
+            self?.refreshControl.endRefreshing()
             
             switch result {
             case .success(let repositories):

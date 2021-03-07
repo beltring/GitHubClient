@@ -39,11 +39,6 @@ class CommitsViewController: UIViewController {
         tableView.backgroundView = activityIndicatorView
         self.activityIndicatorView = activityIndicatorView
     }
-    
-    private func showCommitInBrowser(_ index: Int) {
-        guard let url = URL(string: commitsData[index].url ?? "") else { return }
-        presentSafariViewController(url: url)
-    }
 }
 
 // MARK: - UITableViewDelegate&UITableViewDataSource
@@ -61,7 +56,8 @@ extension CommitsViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        showCommitInBrowser(indexPath.row)
+        let url = URL(string: commitsData[indexPath.row].url ?? "")
+        presentSafariViewController(url: url)
     }
 }
 

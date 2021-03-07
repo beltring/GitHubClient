@@ -20,6 +20,4 @@ extension URLRequest {
         addValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
         self.httpMethod = httpMethod
     }
-    
-    
 }

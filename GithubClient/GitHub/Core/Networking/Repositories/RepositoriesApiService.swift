@@ -32,13 +32,11 @@ class RepositoriesApiService {
             }
             
             do {
-                // Parse the data
                 let decoder = JSONDecoder()
-                let jsonData = try decoder.decode([Repository].self, from: data)
+                let repositories = try decoder.decode([Repository].self, from: data)
                 
-                // Back to the main thread
                 DispatchQueue.main.async {
-                    completion(.success(jsonData))
+                    completion(.success(repositories))
                 }
             } catch let error {
                 completion(.failure(error))
@@ -67,13 +65,11 @@ class RepositoriesApiService {
             }
             
             do {
-                // Parse the data
                 let decoder = JSONDecoder()
-                let jsonData = try decoder.decode([Repository].self, from: data)
+                let starredRepositories = try decoder.decode([Repository].self, from: data)
                 
-                // Back to the main thread
                 DispatchQueue.main.async {
-                    completion(.success(jsonData))
+                    completion(.success(starredRepositories))
                 }
             } catch let error {
                 completion(.failure(error))

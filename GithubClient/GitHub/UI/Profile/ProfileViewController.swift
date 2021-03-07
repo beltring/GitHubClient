@@ -96,13 +96,12 @@ extension ProfileViewController {
 extension ProfileViewController: SFSafariViewControllerDelegate {
     
     @IBAction func signOutTapped() {
-        let urlString = "https://github.com/logout"
-        if let url = URL(string: urlString) {
+        if let url = URL(string: "https://github.com/logout") {
             let vc = SFSafariViewController(url: url)
             vc.delegate = self
             // TODO: add processing for clicking the done button
             present(vc, animated: true, completion: { [weak self] in
-                KeychainSwift().clear()
+                AuthorizeData.shared.resetData()
                 let nav = self?.navigationController as! RootNavigationViewController
                 nav.setRootController()
             })
