@@ -19,9 +19,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fRL-Xe-U4s">
-                                <rect key="frame" x="0.0" y="44" width="438" height="44"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                                 <items>
-                                    <navigationItem title="Create a new repository" id="gR4-oF-6mP"/>
+                                    <navigationItem title="Create a new repository" id="40X-g0-cXN"/>
                                 </items>
                             </navigationBar>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="bcw-mI-4H5">
@@ -127,6 +127,13 @@
                     <navigationItem key="navigationItem" title="Create a new repository" id="Md1-Za-8R2">
                         <barButtonItem key="backBarButtonItem" title="Cancel" id="4kO-Ps-0aj"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="addReadmeSwitch" destination="XBq-dI-i4X" id="3HL-0B-clL"/>
+                        <outlet property="descriptionTextField" destination="OYu-9W-2cq" id="CYb-zp-3Xd"/>
+                        <outlet property="nameRepositoryTextField" destination="ZzI-5m-tgx" id="724-EZ-Ccd"/>
+                        <outlet property="navItem" destination="40X-g0-cXN" id="QgR-v9-JiW"/>
+                        <outlet property="segmentControl" destination="3Bd-7Y-HOW" id="jQT-fM-ngd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Udc-9j-sfb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

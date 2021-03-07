@@ -81,4 +81,37 @@ class RepositoriesApiService {
             
         }.resume()
     }
+    
+    func addRepository(name: String, description: String, isPrivate: Bool, isReadme: Bool,
+                       completion: @escaping (Result<Int, Error>) -> Void) {
+        
+        guard var request = URLRequest(queryItem: [], path: "/user/repos") else { return }
+        request.httpMethod = "POST"
+        
+        let body: [String: Any] = [
+            "name": name,
+            "description": description,
+            "private": isPrivate,
+            "auto_init": isReadme
+        ]
+        let bodyData = try? JSONSerialization.data(withJSONObject: body, options: [])
+        request.httpBody = bodyData
+        
+        URLSession.shared.dataTask(with: request){ _, response, error in
+            
+            if let error = error {
+                DispatchQueue.main.async {
+                    completion(.failure(error))
+                }
+                return
+            }
+            
+            guard let response = response as? HTTPURLResponse else { return }
+            
+            DispatchQueue.main.async {
+                completion(.success(response.statusCode))
+            }
+
+        }.resume()
+    }
 }
