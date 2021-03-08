@@ -17,8 +17,15 @@ class IssueTableViewCell: UITableViewCell {
         super.awakeFromNib()
         issueImage.tintColor = .issueTint
     }
+    
+    override func prepareForReuse() {
+        issueLabel.text = nil
+        titleLabel.text = nil
+        super.prepareForReuse()
+    }
 }
 
+// MARK: - Configure cell
 extension IssueTableViewCell {
     func configure(issue: Issue) {
         let number = issue.number ?? 0

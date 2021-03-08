@@ -12,6 +12,11 @@ class PullRequestTableViewCell: UITableViewCell {
     @IBOutlet weak var pullLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     
+    override func prepareForReuse() {
+        pullLabel.text = nil
+        titleLabel.text = nil
+        super.prepareForReuse()
+    }
 }
 
 // MARK: - Configure cell

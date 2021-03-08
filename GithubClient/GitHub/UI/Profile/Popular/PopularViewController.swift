@@ -55,7 +55,7 @@ extension PopularViewController: UICollectionViewDataSource, UICollectionViewDel
 // MARK: - UICollectionViewDelegateFlowLayout
 extension PopularViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.bounds.width * 0.7, height: 170)
+        return CGSize(width: collectionView.bounds.width * Constants.cellWidthCoefficient, height: Constants.cellHeight)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
@@ -63,8 +63,9 @@ extension PopularViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
+// MARK: - Fetch popular repository
 extension PopularViewController {
-    func fetchPopularRepository() { 
+    private func fetchPopularRepository() {
         RepositoriesApiService().getRepositoriesForAuthUser { [weak self] result in
             self?.activityIndicatorView.stopAnimating()
             
@@ -80,4 +81,9 @@ extension PopularViewController {
             }
         }
     }
+}
+
+fileprivate struct Constants {
+    static let cellHeight: CGFloat = 170
+    static let cellWidthCoefficient: CGFloat = 0.8
 }

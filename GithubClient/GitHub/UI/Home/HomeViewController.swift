@@ -28,7 +28,6 @@ class HomeViewController: UIViewController {
         }
         
         searchBar.delegate = self
-        fetchStarredRepositories()
         setupTableView()
     }
 
@@ -47,7 +46,6 @@ class HomeViewController: UIViewController {
     
     private func showStarred() {
         let vc = RepositoriesViewController.initial()
-        vc.setRepositories(repositories: starredRepositories)
         vc.screen = .starred
         self.navigationController?.pushViewController(vc, animated: true)
     }
@@ -84,21 +82,6 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             showStarred()
         case .issues:
             showIssues()
-        }
-    }
-}
-
-// MARK: - Fetch starred repositories
-extension HomeViewController {
-    func fetchStarredRepositories() {
-        repositoryService.getStarredRepositories { [weak self] result in
-            switch result {
-            case .success(let repositories):
-                self?.starredRepositories = repositories
-                self?.tableView.reloadData()
-            case .failure(let error):
-                self?.presentAlert(message: error.localizedDescription)
-            }
         }
     }
 }

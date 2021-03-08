@@ -16,8 +16,9 @@ class UserApiService {
         URLSession.shared.dataTask(with: request){ data, _, error in
             
             if let error = error {
-                completion(.failure(error))
-                print("DataTask error: \(error.localizedDescription)")
+                DispatchQueue.main.async {
+                    completion(.failure(error))
+                }
                 return
             }
             
@@ -35,7 +36,9 @@ class UserApiService {
                 }
             }
             catch {
-                completion(.failure(error))
+                DispatchQueue.main.async {
+                    completion(.failure(error))
+                }
             }
         }.resume()
     }

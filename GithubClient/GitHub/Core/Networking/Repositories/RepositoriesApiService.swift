@@ -21,7 +21,9 @@ class RepositoriesApiService {
         URLSession.shared.dataTask(with: request) { (data, _, error) in
             
             if let error = error {
-                completion(.failure(error))
+                DispatchQueue.main.async {
+                    completion(.failure(error))
+                }
                 print("DataTask error: \(error.localizedDescription)")
                 return
             }
@@ -39,7 +41,9 @@ class RepositoriesApiService {
                     completion(.success(repositories))
                 }
             } catch let error {
-                completion(.failure(error))
+                DispatchQueue.main.async {
+                    completion(.failure(error))
+                }
             }
             
         }.resume()
@@ -54,7 +58,9 @@ class RepositoriesApiService {
         URLSession.shared.dataTask(with: request) { data, _, error in
             
             if let error = error {
-                completion(.failure(error))
+                DispatchQueue.main.async {
+                    completion(.failure(error))
+                }
                 print("DataTask error: \(error.localizedDescription)")
                 return
             }
@@ -72,22 +78,24 @@ class RepositoriesApiService {
                     completion(.success(starredRepositories))
                 }
             } catch let error {
-                completion(.failure(error))
+                DispatchQueue.main.async {
+                    completion(.failure(error))
+                }
             }
             
         }.resume()
     }
     
-    func addRepository(name: String, description: String, isPrivate: Bool, isReadme: Bool,
+    func addRepository(data: RepositoryData,
                        completion: @escaping (Result<Int, Error>) -> Void) {
         
         guard var request = URLRequest(path: "/user/repos", httpMethod: "POST") else { return }
         
         let body: [String: Any] = [
-            "name": name,
-            "description": description,
-            "private": isPrivate,
-            "auto_init": isReadme
+            "name": data.name,
+            "description": data.description,
+            "private": data.isPrivate,
+            "auto_init": data.IsReadme
         ]
         let bodyData = try? JSONSerialization.data(withJSONObject: body, options: [])
         request.httpBody = bodyData

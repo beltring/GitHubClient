@@ -19,8 +19,9 @@ class SearchApiService {
         
         URLSession.shared.dataTask(with: request) { data, _, error in
             if let error = error {
-                completion(.failure(error))
-                print(error.localizedDescription)
+                DispatchQueue.main.async {
+                    completion(.failure(error))
+                }
                 return
             }
             
@@ -35,7 +36,9 @@ class SearchApiService {
                 }
             }
             catch {
-                completion(.failure(error))
+                DispatchQueue.main.async {
+                    completion(.failure(error))
+                }
             }
             
         }.resume()
@@ -51,8 +54,9 @@ class SearchApiService {
         
         URLSession.shared.dataTask(with: request) { data, _, error in
             if let error = error {
-                completion(.failure(error))
-                print(error.localizedDescription)
+                DispatchQueue.main.async {
+                    completion(.failure(error))
+                }
                 return
             }
             
@@ -67,7 +71,9 @@ class SearchApiService {
                 }
             }
             catch {
-                completion(.failure(error))
+                DispatchQueue.main.async {
+                    completion(.failure(error))
+                }
             }
         }.resume()
     }

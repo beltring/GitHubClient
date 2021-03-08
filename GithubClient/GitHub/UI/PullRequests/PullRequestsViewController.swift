@@ -56,14 +56,14 @@ extension PullRequestsViewController: UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let pullRequest = pullRequests[indexPath.row]
-        let url = URL(string: pullRequest.url ?? "")
+        let url = URL(string: pullRequest.url!)
         presentSafariViewController(url: url)
     }
 }
 
 // MARK: - Fetch pull requests
 extension PullRequestsViewController {
-    func fetchPullRequests(url: URL) {
+    private func fetchPullRequests(url: URL) {
         service.getPullRequest(url: url) { [weak self] result in
             switch result {
             case .success(let pulls):

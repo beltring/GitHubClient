@@ -17,7 +17,9 @@ class PullRequestApiService {
         
         URLSession.shared.dataTask(with: request) { data, _, error in
             if let error = error {
-                print(error.localizedDescription)
+                DispatchQueue.main.async {
+                    completion(.failure(error))
+                }
             }
             
             guard let data = data else { return }
@@ -31,7 +33,9 @@ class PullRequestApiService {
                 }
             }
             catch {
-                completion(.failure(error))
+                DispatchQueue.main.async {
+                    completion(.failure(error))
+                }
             }
         }.resume()
     }

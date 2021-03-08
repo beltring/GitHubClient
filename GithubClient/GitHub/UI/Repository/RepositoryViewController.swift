@@ -56,7 +56,7 @@ class RepositoryViewController: UIViewController {
     }
     
     private func showRepositoryInBrowser() {
-        let url = URL(string: repository?.url ?? "")
+        let url = URL(string: repository!.url)
         presentSafariViewController(url: url)
     }
 }

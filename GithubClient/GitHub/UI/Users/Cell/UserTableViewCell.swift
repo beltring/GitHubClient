@@ -18,10 +18,14 @@ class UserTableViewCell: UITableViewCell {
     }
     
     override func prepareForReuse() {
-        super.prepareForReuse()
         profileImage.image = nil
+        loginLabel.text = nil
+        super.prepareForReuse()
     }
-    
+}
+
+// MARK: - Configure cell
+extension UserTableViewCell {
     func configure(user: User) {
         loginLabel.text = user.login
         

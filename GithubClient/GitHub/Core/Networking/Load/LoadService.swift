@@ -12,8 +12,9 @@ class LoadService {
     func getImage(url: URL, completion: @escaping (Result<UIImage, Error>) -> Void) {
         URLSession.shared.dataTask(with: url) { data, _, error in
             if let error = error {
-                completion(.failure(error))
-                print("DataTask error: \(error.localizedDescription)")
+                DispatchQueue.main.async {
+                    completion(.failure(error))
+                }
                 return
             }
             

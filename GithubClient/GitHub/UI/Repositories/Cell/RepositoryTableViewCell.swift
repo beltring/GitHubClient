@@ -15,11 +15,11 @@ class RepositoryTableViewCell: UITableViewCell {
     @IBOutlet weak var colorLanguageImage: UIImageView!
     
     override func prepareForReuse() {
-        super.prepareForReuse()
         colorLanguageImage.isHidden = false
         starCountLabel.text = nil
         languageLabel.text = nil
         nameLabel.text = nil
+        super.prepareForReuse()
     }
 }
 
@@ -51,6 +51,8 @@ extension RepositoryTableViewCell {
             return UIColor.red
         case "JavaScript":
             return UIColor.yellow
+        case "Python":
+            return UIColor.magenta
         default:
             return UIColor.blue
         }

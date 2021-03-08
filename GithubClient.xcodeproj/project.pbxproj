@@ -19,6 +19,7 @@
 		2353F58C25E80C1F0089818C /* Commit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353F58B25E80C1F0089818C /* Commit.swift */; };
 		2353F58F25E80E500089818C /* Author.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353F58E25E80E500089818C /* Author.swift */; };
 		2353F59425E810B40089818C /* CommitsApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353F59325E810B40089818C /* CommitsApiService.swift */; };
+		2354A49A25F6D99500EE560C /* RepositoryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2354A49925F6D99500EE560C /* RepositoryData.swift */; };
 		2355126E25ED2F610057C593 /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2355126D25ED2F610057C593 /* Search.swift */; };
 		2355127325ED37030057C593 /* Users.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2355127225ED37030057C593 /* Users.storyboard */; };
 		2355127625ED37440057C593 /* UsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2355127525ED37440057C593 /* UsersViewController.swift */; };
@@ -105,6 +106,7 @@
 		2353F58B25E80C1F0089818C /* Commit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Commit.swift; sourceTree = "<group>"; };
 		2353F58E25E80E500089818C /* Author.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Author.swift; sourceTree = "<group>"; };
 		2353F59325E810B40089818C /* CommitsApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitsApiService.swift; sourceTree = "<group>"; };
+		2354A49925F6D99500EE560C /* RepositoryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryData.swift; sourceTree = "<group>"; };
 		2355126D25ED2F610057C593 /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
 		2355127225ED37030057C593 /* Users.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Users.storyboard; sourceTree = "<group>"; };
 		2355127525ED37440057C593 /* UsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewController.swift; sourceTree = "<group>"; };
@@ -289,6 +291,7 @@
 			isa = PBXGroup;
 			children = (
 				2356717325E63538003EE8A1 /* Repository.swift */,
+				2354A49925F6D99500EE560C /* RepositoryData.swift */,
 				2356716F25E632D8003EE8A1 /* RepositoriesApiService.swift */,
 			);
 			path = Repositories;
@@ -550,8 +553,8 @@
 			isa = PBXGroup;
 			children = (
 				23B1D49725E40770001E9570 /* RootNav */,
-				23B1D49125E4075E001E9570 /* RootTabBarViewController.swift */,
 				23B1D49425E4076C001E9570 /* RootTabBar.storyboard */,
+				23B1D49125E4075E001E9570 /* RootTabBarViewController.swift */,
 			);
 			path = Root;
 			sourceTree = "<group>";
@@ -912,6 +915,7 @@
 				23580B8B25EC2EB2006E94E0 /* SearchViewController.swift in Sources */,
 				23E0474025EAE33700C22F06 /* AuthorizeData.swift in Sources */,
 				235363B725E4676000225412 /* RepositoryTableViewCell.swift in Sources */,
+				2354A49A25F6D99500EE560C /* RepositoryData.swift in Sources */,
 				23578CCE25EBF83B00F9090C /* PullRequestApiService.swift in Sources */,
 				23B1D43225E3EC61001E9570 /* GithubClient.xcdatamodeld in Sources */,
 				236CBC8125E6F6F7003B144A /* Owner.swift in Sources */,

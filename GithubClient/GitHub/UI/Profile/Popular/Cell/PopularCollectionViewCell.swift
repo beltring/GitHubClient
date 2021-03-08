@@ -18,19 +18,20 @@ class PopularCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        profileImage.layer.cornerRadius = 17
+        profileImage.layer.cornerRadius = Constant.imageCornerRadius
         layer.borderColor = UIColor.cellFrame.cgColor
-        layer.borderWidth = 1
-        layer.cornerRadius = 10
+        layer.borderWidth = Constant.cellBorderWidth
+        layer.cornerRadius = Constant.cellCornerRadius
     }
     
     override func prepareForReuse() {
-        super.prepareForReuse()
         colorLanguageImage.isHidden = false
         starCountLabel.text = nil
         languageLabel.text = nil
         nameRepositoryLabel.text = nil
         profileImage.image = nil
+        userNameLabel.text = nil
+        super.prepareForReuse()
     }
 }
 
@@ -73,8 +74,16 @@ extension PopularCollectionViewCell {
             return UIColor.red
         case "JavaScript":
             return UIColor.yellow
+        case "Python":
+            return UIColor.magenta
         default:
             return UIColor.blue
         }
     }
+}
+
+fileprivate struct Constant {
+    static let cellBorderWidth: CGFloat = 1
+    static let cellCornerRadius: CGFloat  = 10
+    static let imageCornerRadius: CGFloat  = 17
 }

@@ -74,7 +74,7 @@ extension UsersViewController: UITableViewDelegate, UITableViewDataSource {
 
 // MARK: - Fetch users
 extension UsersViewController {
-    func fetchUsers(searchText: String) {
+    private func fetchUsers(searchText: String) {
         searchService.getUsersBySearchText(searchText: searchText) { [weak self] result in
     
             switch result {

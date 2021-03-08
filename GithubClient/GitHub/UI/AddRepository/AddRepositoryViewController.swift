@@ -51,8 +51,7 @@ class AddRepositoryViewController: UIViewController {
 // MARK: - Send data
 extension AddRepositoryViewController {
     private func sendData(data: RepositoryData) {
-        service.addRepository(name: data.name, description: data.description,
-                              isPrivate: data.isPrivate, isReadme: data.IsReadme) { [weak self] result in
+        service.addRepository(data: data) { [weak self] result in
             switch result {
             case .success(let statusCode):
                 if statusCode == 201 {
@@ -66,12 +65,4 @@ extension AddRepositoryViewController {
             }
         }
     }
-}
-
-// MARK: - Create repository data
-fileprivate struct RepositoryData {
-    let name: String
-    let description: String
-    let isPrivate: Bool
-    let IsReadme: Bool
 }

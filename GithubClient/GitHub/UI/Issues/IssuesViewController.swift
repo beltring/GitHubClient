@@ -100,7 +100,7 @@ extension IssuesViewController: UITableViewDelegate, UITableViewDataSource {
 
 // MARK: - Fetch issues
 extension IssuesViewController {
-    func fetchIssues(filter: String = "all") {
+    private func fetchIssues(filter: String = "all") {
         issuesService.getIssues(filter: filter) { [weak self] result in
             self?.activityIndicatorView.stopAnimating()
             
