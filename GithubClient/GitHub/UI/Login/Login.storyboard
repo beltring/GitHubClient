@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="YuD-Tg-wJg">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Login View Controller-->
+        <scene sceneID="iQd-qz-ibJ">
+            <objects>
+                <viewController id="YuD-Tg-wJg" customClass="LoginViewController" customModule="GithubClient" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jpL-mr-XjB">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KBZ-3k-ag8">
+                                <rect key="frame" x="90.5" y="773" width="233" height="39"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="233" id="XZl-ly-8I6"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="22"/>
+                                <state key="normal" title="Sign in with GitHub">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="signInTapped:" destination="YuD-Tg-wJg" eventType="touchUpInside" id="agJ-Ca-nk1"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="StartImage" translatesAutoresizingMaskIntoConstraints="NO" id="ECh-0k-pFh">
+                                <rect key="frame" x="0.0" y="338" width="414" height="230"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="230" id="qg1-Sh-MKk"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="foW-ED-UZD"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="KBZ-3k-ag8" firstAttribute="centerX" secondItem="foW-ED-UZD" secondAttribute="centerX" id="GYj-Vw-eQp"/>
+                            <constraint firstItem="ECh-0k-pFh" firstAttribute="trailing" secondItem="foW-ED-UZD" secondAttribute="trailing" id="QSf-Tn-8Pw"/>
+                            <constraint firstItem="foW-ED-UZD" firstAttribute="bottom" secondItem="KBZ-3k-ag8" secondAttribute="bottom" constant="50" id="T8o-cJ-M7H"/>
+                            <constraint firstItem="ECh-0k-pFh" firstAttribute="centerY" secondItem="foW-ED-UZD" secondAttribute="centerY" id="hZU-fh-xJh"/>
+                            <constraint firstItem="ECh-0k-pFh" firstAttribute="leading" secondItem="foW-ED-UZD" secondAttribute="leading" id="k9u-Fc-rhb"/>
+                            <constraint firstItem="ECh-0k-pFh" firstAttribute="centerX" secondItem="foW-ED-UZD" secondAttribute="centerX" id="thB-Ze-Q1R"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="signInButton" destination="KBZ-3k-ag8" id="BYd-W0-lSc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="462-aB-IWi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-139.13043478260872" y="166.74107142857142"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="StartImage" width="719" height="397"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
