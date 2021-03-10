@@ -13,7 +13,7 @@
 
 ## Installation
 
-GitHub client requires IOS v13.3+ to run.
+GitHub client requires IOS v13.3+ and Xcode 12+ to run.
 To run the app, install the dependencies using cocoaPods. Open the terminal in the application folder and run the following command
 ```sh
 pod install
