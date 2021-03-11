@@ -1,6 +1,6 @@
 # _GitHub client_
 
-##### The GitHub client is a mobile application for iOS, designed to work with github.com
+##### The GitHub client is a mobile application for iOS, designed to work with github.com. The app only supports the light theme.
 
 ## Features
 
