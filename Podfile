@@ -10,4 +10,5 @@ target 'GithubClient' do
   pod 'ReachabilitySwift'
   pod 'SkyFloatingLabelTextField', '~> 3.0'  
   pod 'Kingfisher', '~> 6.0'
+  pod 'PKHUD', '~> 5.0'
 end
