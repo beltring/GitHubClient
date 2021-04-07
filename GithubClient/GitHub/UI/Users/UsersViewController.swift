@@ -5,8 +5,10 @@
 //  Created by Pavel Boltromyuk on 3/1/21.
 //
 
-import UIKit
+import Kingfisher
+import PopupDialog
 import SafariServices
+import UIKit
 
 class UsersViewController: UIViewController {
 
@@ -39,6 +41,31 @@ class UsersViewController: UIViewController {
         tableView.backgroundView = activityIndicatorView
         self.activityIndicatorView = activityIndicatorView
     }
+    
+    private func setupPopup(user: User) -> PopupDialog {
+        let avatarUrl = URL(string: user.avatarUrl!)
+        let url = URL(string: user.url!)
+        
+        let dialogAppearance = PopupDialogDefaultView.appearance()
+        dialogAppearance.titleFont = .boldSystemFont(ofSize: 34)
+        CancelButton.appearance().titleColor = .black
+        CancelButton.appearance().titleFont = .systemFont(ofSize: 18)
+        DefaultButton.appearance().titleFont = .boldSystemFont(ofSize: 18)
+        
+        let title = user.login
+        let imageView = UIImageView()
+        imageView.kf.setImage(with: avatarUrl)
+        let popup = PopupDialog(title: title, message: "", image: imageView.image)
+
+        let cancelButton = CancelButton(title: "Cancel") {}
+        let detailButton = DefaultButton(title: "Detail", height: 60) { [weak self] in
+            self?.presentSafariViewController(url: url)
+        }
+        
+        popup.addButtons([detailButton, cancelButton])
+
+        return popup
+    }
 }
 
 // MARK: - Get/Set methods
@@ -67,8 +94,8 @@ extension UsersViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let user = users[indexPath.row]
         
-        let url = URL(string: user.url ?? "")
-        presentSafariViewController(url: url)
+        let popup = setupPopup(user: user)
+        self.present(popup, animated: true, completion: nil)
     }
 }
 
