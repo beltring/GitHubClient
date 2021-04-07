@@ -1,11 +1,13 @@
 PODS:
   - KeychainSwift (19.0.0)
+  - Kingfisher (6.2.1)
   - OAuthSwift (2.0.0)
   - ReachabilitySwift (5.0.0)
   - SkyFloatingLabelTextField (3.8.0)
 
 DEPENDENCIES:
   - KeychainSwift (~> 19.0)
+  - Kingfisher (~> 6.0)
   - OAuthSwift (~> 2.0.0)
   - ReachabilitySwift
   - SkyFloatingLabelTextField (~> 3.0)
@@ -13,16 +15,18 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - KeychainSwift
+    - Kingfisher
     - OAuthSwift
     - ReachabilitySwift
     - SkyFloatingLabelTextField
 
 SPEC CHECKSUMS:
   KeychainSwift: a06190cf933ad46b1e0abc3d77d29c06331715c7
+  Kingfisher: e71c6fac2aebb1262888cabc2cb13d313362a48f
   OAuthSwift: 6805456763cf1c7ae0c16765257ed430b7aacae7
   ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
   SkyFloatingLabelTextField: 5a338412114808e961fe2d14ea2c5452c8b6e4aa
 
-PODFILE CHECKSUM: 0c7de5e79a4601fab6bb9daba812df07f6332bbb
+PODFILE CHECKSUM: 4e34e0c4f494203ceb56ceb8b43e13bb54e9e7e7
 
 COCOAPODS: 1.8.4

@@ -5,6 +5,7 @@
 //  Created by Pavel Boltromyuk on 2/23/21.
 //
 
+import Kingfisher
 import UIKit
 
 class PopularCollectionViewCell: UICollectionViewCell {
@@ -42,16 +43,6 @@ extension PopularCollectionViewCell {
         nameRepositoryLabel.text = repository.name
         starCountLabel.text = String (repository.stargazersCount)
         
-        guard let url = URL(string: repository.owner?.avatarUrl ?? "") else { return }
-        LoadService().getImage(url: url) { [weak self] result in
-            switch result {
-            case .success(let image):
-                self?.profileImage.image = image
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
-        
         guard repository.language != nil else {
             colorLanguageImage.isHidden = true
             return
@@ -59,7 +50,10 @@ extension PopularCollectionViewCell {
         
         languageLabel.text = repository.language
         let color = getLanguageColor(repository.language)
-        colorLanguageImage.tintColor = color 
+        colorLanguageImage.tintColor = color
+        
+        guard let url = URL(string: repository.owner?.avatarUrl ?? "") else { return }
+        profileImage.kf.setImage(with: url)
     }
     
     private func getLanguageColor(_ language: String?) -> UIColor {

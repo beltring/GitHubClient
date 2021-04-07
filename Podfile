@@ -9,5 +9,5 @@ target 'GithubClient' do
   pod 'OAuthSwift', '~> 2.0.0'
   pod 'ReachabilitySwift'
   pod 'SkyFloatingLabelTextField', '~> 3.0'  
-
+  pod 'Kingfisher', '~> 6.0'
 end

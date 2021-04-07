@@ -5,6 +5,7 @@
 //  Created by Pavel Boltromyuk on 2/24/21.
 //
 
+import Kingfisher
 import UIKit
 
 class RepositoryViewController: UIViewController {
@@ -38,15 +39,7 @@ class RepositoryViewController: UIViewController {
         watchersCountLabel.text = String(repository?.watchersCount ?? 0)
         forkImage.image = UIImage(systemName: "arrow.branch")
         guard let url = URL(string: repository?.owner?.avatarUrl ?? "") else { return }
-        
-        LoadService().getImage(url: url) { [weak self] result in
-            switch result {
-            case .success(let image):
-                self?.ownerImage.image = image
-            case .failure(let error):
-                self?.presentAlert(message: error.localizedDescription)
-            }
-        }
+        ownerImage.kf.setImage(with: url)
     }
     
     private func setupTableView() {

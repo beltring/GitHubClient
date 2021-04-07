@@ -5,9 +5,10 @@
 //  Created by Pavel Boltromyuk on 2/22/21.
 //
 
-import UIKit
-import SafariServices
 import KeychainSwift
+import Kingfisher
+import SafariServices
+import UIKit
 
 class ProfileViewController: UIViewController {
     
@@ -60,16 +61,6 @@ extension ProfileViewController {
     }
     
     private func success(user: User) {
-        guard let url = URL(string: user.avatarUrl!) else { return }
-        LoadService().getImage(url: url) { [weak self] result in
-            switch result {
-            case .success(let image):
-                self?.profileImage.image = image
-            case .failure(let error):
-                self?.presentAlert(message: error.localizedDescription)
-            }
-        }
-        
         self.user = user
         self.nameLabel.text = user.name
         self.userNameLabel.text = user.login
@@ -89,6 +80,9 @@ extension ProfileViewController {
         else {
             mailStackView.isHidden.toggle()
         }
+        
+        guard let url = URL(string: user.avatarUrl!) else { return }
+        profileImage.kf.setImage(with: url)
     }
 }
 
