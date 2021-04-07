@@ -1,4 +1,5 @@
 PODS:
+  - AMPopTip (4.5.3)
   - DynamicBlurView (4.1.0)
   - KeychainSwift (19.0.0)
   - Kingfisher (6.2.1)
@@ -10,6 +11,7 @@ PODS:
   - SkyFloatingLabelTextField (3.8.0)
 
 DEPENDENCIES:
+  - AMPopTip
   - KeychainSwift (~> 19.0)
   - Kingfisher (~> 6.0)
   - OAuthSwift (~> 2.0.0)
@@ -20,6 +22,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - AMPopTip
     - DynamicBlurView
     - KeychainSwift
     - Kingfisher
@@ -30,6 +33,7 @@ SPEC REPOS:
     - SkyFloatingLabelTextField
 
 SPEC CHECKSUMS:
+  AMPopTip: 77eef4793d50709bef83825b72da4f501263b91d
   DynamicBlurView: 58e18fae80bb614e34681a4486870e7d257b62e8
   KeychainSwift: a06190cf933ad46b1e0abc3d77d29c06331715c7
   Kingfisher: e71c6fac2aebb1262888cabc2cb13d313362a48f
@@ -39,6 +43,6 @@ SPEC CHECKSUMS:
   ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
   SkyFloatingLabelTextField: 5a338412114808e961fe2d14ea2c5452c8b6e4aa
 
-PODFILE CHECKSUM: 8c69ee02e5ef8f056bfcd0982d338e78dfee2c48
+PODFILE CHECKSUM: 7ebc1fdcbf8dc9464020bb0054eca4318a0f097c
 
 COCOAPODS: 1.8.4

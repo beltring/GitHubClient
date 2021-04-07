@@ -12,4 +12,5 @@ target 'GithubClient' do
   pod 'Kingfisher', '~> 6.0'
   pod 'PKHUD', '~> 5.0'
   pod 'PopupDialog', '~> 1.1'
+  pod 'AMPopTip'
 end
