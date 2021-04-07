@@ -30,14 +30,6 @@ extension UserTableViewCell {
         loginLabel.text = user.login
         
         guard let url = URL(string: user.avatarUrl ?? "") else { return }
-        
-        LoadService().getImage(url: url) { [weak self] result in
-            switch result {
-            case .success(let image):
-                self?.profileImage.image = image
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
+        profileImage.kf.setImage(with: url)
     }
 }
