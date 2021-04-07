@@ -18,6 +18,7 @@ class RepositoryViewController: UIViewController {
     @IBOutlet weak var forkCountLabel: UILabel!
     @IBOutlet weak var watchersCountLabel: UILabel!
     @IBOutlet weak var forkImage: UIImageView!
+    @IBOutlet weak var branchLabel: UILabel!
     
     private var repository: Repository?
     
@@ -31,13 +32,19 @@ class RepositoryViewController: UIViewController {
     
     private func setupVC() {
         ownerImage.layer.cornerRadius = 35
+        var branch = repository?.defaultBranch ?? ""
+        if !branch.isEmpty {
+            branch += " branch"
+        }
         
         userNameLabel.text = repository?.owner?.login
         nameLabel.text = repository?.name
         starCountLabel.text = String(repository?.stargazersCount ?? 0)
         forkCountLabel.text = String(repository?.forksCount ?? 0)
         watchersCountLabel.text = String(repository?.watchersCount ?? 0)
+        branchLabel.text = branch
         forkImage.image = UIImage(systemName: "arrow.branch")
+        
         guard let url = URL(string: repository?.owner?.avatarUrl ?? "") else { return }
         ownerImage.kf.setImage(with: url)
     }
@@ -58,7 +65,6 @@ class RepositoryViewController: UIViewController {
 extension RepositoryViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(Row.allCases.count)
         return Row.allCases.count
     }
     

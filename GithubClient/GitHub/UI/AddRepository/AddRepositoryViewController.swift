@@ -48,14 +48,14 @@ class AddRepositoryViewController: UIViewController {
     }
     
     
-    //    MARK: - Actions
+    //MARK: - Actions
     @objc private func createRepository() {
         guard let name = repositoryTextField.text,
               let description = descriptionTextField.text
         else { return }
         
         if name.isEmpty {
-            presentAlert(message: "Enter the repository name")
+            presentHUD(content: .labeledError(title: "Enter the repository name", subtitle: nil), delay: 1)
             return
         }
         
@@ -81,10 +81,11 @@ extension AddRepositoryViewController {
             switch result {
             case .success(let statusCode):
                 if statusCode == 201 {
+                    self?.presentHUD(content: .success)
                     self?.dismiss(animated: true, completion: nil)
                 }
                 else {
-                    self?.presentAlert(message: "Error, try again")
+                    self?.presentHUD(content: .labeledError(title: "Error, try again", subtitle: nil), delay: 1)
                 }
             case .failure(let error):
                 self?.presentAlert(message: error.localizedDescription)
