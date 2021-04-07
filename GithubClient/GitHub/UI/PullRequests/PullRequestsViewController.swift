@@ -18,6 +18,7 @@ class PullRequestsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.navigationItem.title = "Pull requests"
         fetchPullRequests(url: pullRequestsUrl!)
         setupTableView()
     }
