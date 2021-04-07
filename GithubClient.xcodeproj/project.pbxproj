@@ -90,6 +90,7 @@
 		23E0474025EAE33700C22F06 /* AuthorizeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E0473F25EAE33700C22F06 /* AuthorizeData.swift */; };
 		23E0474525EAE49A00C22F06 /* KeychainKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E0474425EAE49A00C22F06 /* KeychainKeys.swift */; };
 		79C6A859709A7780CBA8BAEA /* Pods_GithubClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B36522C541ECA6C7B65D6231 /* Pods_GithubClient.framework */; };
+		CEA7A66A261D9C7100965FC0 /* UIViewController+HUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA7A669261D9C7100965FC0 /* UIViewController+HUD.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -180,6 +181,7 @@
 		474A1FBE3CE69A300D5AEFA2 /* Pods-GithubClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GithubClient.debug.xcconfig"; path = "Target Support Files/Pods-GithubClient/Pods-GithubClient.debug.xcconfig"; sourceTree = "<group>"; };
 		5DEE3E31816B4DB7CD7350F8 /* Pods-GithubClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GithubClient.release.xcconfig"; path = "Target Support Files/Pods-GithubClient/Pods-GithubClient.release.xcconfig"; sourceTree = "<group>"; };
 		B36522C541ECA6C7B65D6231 /* Pods_GithubClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GithubClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CEA7A669261D9C7100965FC0 /* UIViewController+HUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+HUD.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -620,6 +622,7 @@
 			children = (
 				23B1D46025E3F861001E9570 /* UIViewController+Instance.swift */,
 				2359712B25EFF5A9006AAE09 /* UIViewController+PresentingSafari.swift */,
+				CEA7A669261D9C7100965FC0 /* UIViewController+HUD.swift */,
 			);
 			path = UIViewController;
 			sourceTree = "<group>";
@@ -898,6 +901,7 @@
 				2364EBD225E7E3F300B9E44F /* CommitsViewController.swift in Sources */,
 				23B1D42825E3EC61001E9570 /* AppDelegate.swift in Sources */,
 				2355BC8F25F3EA3400A90464 /* AddRepositoryViewController.swift in Sources */,
+				CEA7A66A261D9C7100965FC0 /* UIViewController+HUD.swift in Sources */,
 				2355127625ED37440057C593 /* UsersViewController.swift in Sources */,
 				235DFB2625F0F89400AE523D /* OfflineViewController.swift in Sources */,
 				23580B8B25EC2EB2006E94E0 /* SearchViewController.swift in Sources */,
