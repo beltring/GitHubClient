@@ -5,31 +5,54 @@
 //  Created by Pavel Boltromyuk on 3/6/21.
 //
 
+import SkyFloatingLabelTextField
 import UIKit
 
 class AddRepositoryViewController: UIViewController {
-
+    
     @IBOutlet weak var navItem: UINavigationItem!
-    @IBOutlet weak var nameRepositoryTextField: UITextField!
-    @IBOutlet weak var descriptionTextField: UITextField!
     @IBOutlet weak var segmentControl: UISegmentedControl!
     @IBOutlet weak var addReadmeSwitch: UISwitch!
+    @IBOutlet weak var textFieldsStackView: UIStackView!
     
     private let service = RepositoriesApiService()
+    private var repositoryTextField: SkyFloatingLabelTextFieldWithIcon!
+    private var descriptionTextField: SkyFloatingLabelTextField!
     
+    //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         navItem.rightBarButtonItem = UIBarButtonItem(title: "Submit", style: .done, target: self, action: #selector(createRepository))
+        setupTextFields()
     }
+    
+    //MARK: - Setup
+    func setupTextFields() {
+        let indigoColor = UIColor(red: 86, green: 0, blue: 130/255, alpha: 1.0)
+        let textFieldframe = CGRect(x: 0, y: 0, width: 0, height: 0)
+        
+        repositoryTextField = SkyFloatingLabelTextFieldWithIcon(frame: textFieldframe, iconType: .image)
+        repositoryTextField.placeholder = "Name"
+        repositoryTextField.title = "Repository name"
+        repositoryTextField.iconImage = UIImage(systemName: "book.closed")
+        repositoryTextField.selectedLineColor = indigoColor
+        repositoryTextField.selectedTitleColor = indigoColor
+        self.textFieldsStackView.addArrangedSubview(repositoryTextField)
 
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        view.endEditing(true)
+        descriptionTextField = SkyFloatingLabelTextField(frame: textFieldframe)
+        descriptionTextField.placeholder = "Description (optional)"
+        descriptionTextField.title = "Description"
+        descriptionTextField.selectedTitleColor = indigoColor
+        descriptionTextField.selectedLineColor = indigoColor
+        self.textFieldsStackView.addArrangedSubview(descriptionTextField)
     }
-
+    
+    
+    //    MARK: - Actions
     @objc private func createRepository() {
-        guard let name = nameRepositoryTextField.text,
+        guard let name = repositoryTextField.text,
               let description = descriptionTextField.text
-              else { return }
+        else { return }
         
         if name.isEmpty {
             presentAlert(message: "Enter the repository name")
@@ -44,7 +67,10 @@ class AddRepositoryViewController: UIViewController {
         
         let data = RepositoryData(name: name, description: description, isPrivate: isPrivate, IsReadme: addReadmeSwitch.isOn)
         sendData(data: data)
-        
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
     }
 }
 
