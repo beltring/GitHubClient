@@ -35,25 +35,25 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="GUs-TZ-8H9">
-                                        <rect key="frame" x="8" y="167.5" width="279.5" height="21"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="76" translatesAutoresizingMaskIntoConstraints="NO" id="GUs-TZ-8H9">
+                                        <rect key="frame" x="8" y="167.5" width="264.5" height="21"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="RoD-Rl-87o" userLabel="Stars Stack View">
-                                                <rect key="frame" x="0.0" y="0.0" width="149" height="21"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="98" height="21"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="16s-gm-aMM">
                                                         <rect key="frame" x="0.0" y="-0.5" width="22" height="21"/>
                                                         <color key="tintColor" systemColor="systemYellowColor"/>
                                                         <imageReference key="image" image="star.fill" catalog="system" symbolScale="medium"/>
                                                     </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="234234" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="65B-g6-YOy">
-                                                        <rect key="frame" x="27" y="0.0" width="71.5" height="21"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="65B-g6-YOy">
+                                                        <rect key="frame" x="27" y="0.0" width="20.5" height="21"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                         <color key="textColor" name="CustomGray"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stars" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RyZ-sj-cMX">
-                                                        <rect key="frame" x="103.5" y="0.0" width="45.5" height="21"/>
+                                                        <rect key="frame" x="52.5" y="0.0" width="45.5" height="21"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                         <color key="textColor" name="CustomGray"/>
                                                         <nil key="highlightedColor"/>
@@ -61,7 +61,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="wN1-Nd-PSa" userLabel="Forks Stack View">
-                                                <rect key="frame" x="189" y="0.0" width="90.5" height="21"/>
+                                                <rect key="frame" x="174" y="0.0" width="90.5" height="21"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="opr-De-mxQ">
                                                         <rect key="frame" x="0.0" y="0.0" width="20" height="21"/>
@@ -87,25 +87,41 @@
                                             </stackView>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="5zh-TM-14b" userLabel="Stars Stack View">
-                                        <rect key="frame" x="8" y="207.5" width="131" height="24"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="43" translatesAutoresizingMaskIntoConstraints="NO" id="5zh-TM-14b">
+                                        <rect key="frame" x="8" y="207.5" width="301" height="24"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="eye" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="nbf-Ew-vim">
-                                                <rect key="frame" x="0.0" y="1.5" width="26" height="20.5"/>
-                                                <color key="tintColor" systemColor="systemOrangeColor"/>
-                                            </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t0h-35-svq">
-                                                <rect key="frame" x="31" y="0.0" width="12" height="24"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                <color key="textColor" name="CustomGray"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Watchers" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="waF-fX-Rko">
-                                                <rect key="frame" x="48" y="0.0" width="83" height="24"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                <color key="textColor" name="CustomGray"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="BrM-fk-1Ju">
+                                                <rect key="frame" x="0.0" y="0.0" width="131" height="24"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="eye" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="nbf-Ew-vim">
+                                                        <rect key="frame" x="0.0" y="1.5" width="26" height="20.5"/>
+                                                        <color key="tintColor" systemColor="systemOrangeColor"/>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t0h-35-svq">
+                                                        <rect key="frame" x="31" y="0.0" width="12" height="24"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                        <color key="textColor" name="CustomGray"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Watchers" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="waF-fX-Rko">
+                                                        <rect key="frame" x="48" y="0.0" width="83" height="24"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                        <color key="textColor" name="CustomGray"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qm4-JV-K5q">
+                                                <rect key="frame" x="174" y="0.0" width="127" height="24"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="master branch" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dWa-wd-sNF">
+                                                        <rect key="frame" x="0.0" y="0.0" width="127" height="24"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                        <color key="textColor" name="CustomGray"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
                                         </subviews>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="21" translatesAutoresizingMaskIntoConstraints="NO" id="Uto-uO-hOx">
@@ -152,6 +168,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="branchLabel" destination="dWa-wd-sNF" id="iY6-dS-DSs"/>
                         <outlet property="forkCountLabel" destination="OZ8-4n-RUL" id="uLF-BV-nUB"/>
                         <outlet property="forkImage" destination="opr-De-mxQ" id="EeH-ve-1ba"/>
                         <outlet property="nameLabel" destination="ZqA-IT-hQx" id="hfH-bp-8IM"/>
