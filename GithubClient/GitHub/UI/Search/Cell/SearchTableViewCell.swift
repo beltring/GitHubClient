@@ -9,12 +9,20 @@ import UIKit
 
 class SearchTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var menuImage: UIImageView!
-    @IBOutlet weak var searchLabel: UILabel!
+    @IBOutlet private weak var menuImage: UIImageView!
+    @IBOutlet private weak var searchLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         menuImage.tintColor = .black
     }
     
+    // MARK: - set methods
+    func setMenuImage(image: UIImage!) {
+        menuImage.image = image
+    }
+    
+    func setSearchLabelText(text: String) {
+        searchLabel.text = text
+    }
 }

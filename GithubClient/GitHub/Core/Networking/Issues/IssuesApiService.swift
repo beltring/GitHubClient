@@ -36,8 +36,7 @@ class IssuesApiService {
                 DispatchQueue.main.async {
                     completion(.success(issues))
                 }
-            }
-            catch {
+            } catch {
                 DispatchQueue.main.async {
                     completion(.failure(error))
                 }

@@ -9,10 +9,10 @@ import UIKit
 
 class RepositoryTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var starCountLabel: UILabel!
-    @IBOutlet weak var languageLabel: UILabel!
-    @IBOutlet weak var colorLanguageImage: UIImageView!
+    @IBOutlet private weak var nameLabel: UILabel!
+    @IBOutlet private weak var starCountLabel: UILabel!
+    @IBOutlet private weak var languageLabel: UILabel!
+    @IBOutlet private weak var colorLanguageImage: UIImageView!
     
     override func prepareForReuse() {
         colorLanguageImage.isHidden = false

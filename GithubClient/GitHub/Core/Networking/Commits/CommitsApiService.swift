@@ -14,7 +14,7 @@ class CommitsApiService {
         guard var urlComponents = URLComponents(string: url) else { return }
         
         urlComponents.queryItems = [
-            URLQueryItem(name: "per_page", value: "100"),
+            URLQueryItem(name: "per_page", value: "100")
         ]
         
         let accessToken = AuthorizeData.shared.accessToken!
@@ -22,7 +22,7 @@ class CommitsApiService {
         var request = URLRequest(url: urlComponents.url!)
         request.addValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
         
-        URLSession.shared.dataTask(with: request){ data, _, error in
+        URLSession.shared.dataTask(with: request) { data, _, error in
             
             if let error = error {
                 DispatchQueue.main.async {
@@ -43,8 +43,7 @@ class CommitsApiService {
                 DispatchQueue.main.async {
                     completion(.success(commits))
                 }
-            }
-            catch {
+            } catch {
                 DispatchQueue.main.async {
                     completion(.failure(error))
                 }

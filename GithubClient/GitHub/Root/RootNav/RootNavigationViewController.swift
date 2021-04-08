@@ -18,8 +18,7 @@ class RootNavigationViewController: UINavigationController {
         
         if AuthorizeData.shared.isAuthorized {
             vc = RootTabBarViewController.initial()
-        }
-        else {
+        } else {
             vc = LoginViewController.initial()
         }
         

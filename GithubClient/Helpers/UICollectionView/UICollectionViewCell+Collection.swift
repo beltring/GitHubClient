@@ -14,13 +14,11 @@ extension UICollectionViewCell {
         return dequeueReusableCellPrivate(in: collectionView, for: indexPath, reuseIdentifier: identifier ?? name)
     }
     
-    
     private class func dequeueReusableCellPrivate<T>(in collectionView: UICollectionView, for indexPath: IndexPath, reuseIdentifier: String) -> T {
-        return collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! T
+        return (collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? T)!
     }
     
-    //Mark: Register
-    
+    // MARK: - Register
     class func registerCellNib(_ nibName: String? = nil,
                                bundle bundleOrNil: Bundle? = nil,
                                forCellReuseIdentifier identifier: String? = nil,

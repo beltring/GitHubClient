@@ -31,8 +31,7 @@ class PullRequestApiService {
                 DispatchQueue.main.async {
                     completion(.success(pullRequests))
                 }
-            }
-            catch {
+            } catch {
                 DispatchQueue.main.async {
                     completion(.failure(error))
                 }

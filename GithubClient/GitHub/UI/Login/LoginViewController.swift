@@ -10,7 +10,7 @@ import OAuthSwift
 
 class LoginViewController: UIViewController {
 
-    @IBOutlet weak var signInButton: UIButton!
+    @IBOutlet private weak var signInButton: UIButton!
     
     private let network = NetworkReachabilityManager.sharedInstance
     
@@ -28,7 +28,7 @@ class LoginViewController: UIViewController {
         signInButton.layer.cornerRadius = 20
     }
     
-    @IBAction func signInTapped(_ sender: UIButton) {
+    @IBAction private func signInTapped(_ sender: UIButton) {
         GitHubAuthService.shared.auth(viewController: self)
     }
 }

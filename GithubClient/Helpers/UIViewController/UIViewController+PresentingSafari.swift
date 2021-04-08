@@ -28,7 +28,7 @@ extension UIViewController {
     private static let safariDelegate = WebViewControllerDelegate()
 }
 
-fileprivate class WebViewControllerDelegate: NSObject, SFSafariViewControllerDelegate {
+private class WebViewControllerDelegate: NSObject, SFSafariViewControllerDelegate {
     func safariViewControllerDidFinish(_ controller: SFSafariViewController) {
         controller.dismiss(animated: true, completion: nil)
     }

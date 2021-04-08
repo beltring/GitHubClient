@@ -34,8 +34,7 @@ class SearchApiService {
                 DispatchQueue.main.async {
                     completion(.success(repositories))
                 }
-            }
-            catch {
+            } catch {
                 DispatchQueue.main.async {
                     completion(.failure(error))
                 }
@@ -69,8 +68,7 @@ class SearchApiService {
                 DispatchQueue.main.async {
                     completion(.success(users))
                 }
-            }
-            catch {
+            } catch {
                 DispatchQueue.main.async {
                     completion(.failure(error))
                 }

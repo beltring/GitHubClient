@@ -26,11 +26,9 @@ extension UIView {
         return view(from: nibName ?? name, owner: owner, options: options, bundle: bundle)
     }
     
-    
-    //MARK: - Private
-    
+    // MARK: - Private
     private class func view<T: UIView>(from nibName: String, owner: Any?, options: LoadOptions?, bundle: Bundle = Bundle.main) -> T {
         
-        return bundle.loadNibNamed(nibName, owner: owner, options: options as? [UINib.OptionsKey : Any])?.first(where: { $0 is T }) as! T
+        return (bundle.loadNibNamed(nibName, owner: owner, options: options as? [UINib.OptionsKey : Any])?.first(where: { $0 is T }) as? T)!
     }
 }

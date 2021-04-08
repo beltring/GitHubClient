@@ -11,5 +11,5 @@ struct RepositoryData {
     let name: String
     let description: String
     let isPrivate: Bool
-    let IsReadme: Bool
+    let isReadme: Bool
 }

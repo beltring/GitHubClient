@@ -10,12 +10,12 @@ import UIKit
 
 class PopularCollectionViewCell: UICollectionViewCell {
 
-    @IBOutlet weak var profileImage: UIImageView!
-    @IBOutlet weak var userNameLabel: UILabel!
-    @IBOutlet weak var nameRepositoryLabel: UILabel!
-    @IBOutlet weak var starCountLabel: UILabel!
-    @IBOutlet weak var colorLanguageImage: UIImageView!
-    @IBOutlet weak var languageLabel: UILabel!
+    @IBOutlet private weak var profileImage: UIImageView!
+    @IBOutlet private weak var userNameLabel: UILabel!
+    @IBOutlet private weak var nameRepositoryLabel: UILabel!
+    @IBOutlet private weak var starCountLabel: UILabel!
+    @IBOutlet private weak var colorLanguageImage: UIImageView!
+    @IBOutlet private weak var languageLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -36,12 +36,12 @@ class PopularCollectionViewCell: UICollectionViewCell {
     }
 }
 
-// MARK: -  Configure cell
+// MARK: - Configure cell
 extension PopularCollectionViewCell {
     func configure(repository: Repository) {
         userNameLabel.text = repository.owner?.login
         nameRepositoryLabel.text = repository.name
-        starCountLabel.text = String (repository.stargazersCount)
+        starCountLabel.text = String(repository.stargazersCount)
         
         guard repository.language != nil else {
             colorLanguageImage.isHidden = true
@@ -76,7 +76,7 @@ extension PopularCollectionViewCell {
     }
 }
 
-fileprivate struct Constant {
+private struct Constant {
     static let cellBorderWidth: CGFloat = 1
     static let cellCornerRadius: CGFloat  = 10
     static let imageCornerRadius: CGFloat  = 17

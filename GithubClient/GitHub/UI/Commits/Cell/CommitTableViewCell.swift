@@ -9,9 +9,9 @@ import UIKit
 
 class CommitTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var commitMessageLabel: UILabel!
-    @IBOutlet weak var userNameLabel: UILabel!
-    @IBOutlet weak var profileImage: UIImageView!
+    @IBOutlet private weak var commitMessageLabel: UILabel!
+    @IBOutlet private weak var userNameLabel: UILabel!
+    @IBOutlet private weak var profileImage: UIImageView!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -38,4 +38,3 @@ extension CommitTableViewCell {
         profileImage.kf.setImage(with: url)
     }
 }
-

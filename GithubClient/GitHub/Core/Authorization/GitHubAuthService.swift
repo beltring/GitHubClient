@@ -15,7 +15,7 @@ final class GitHubAuthService {
     
     private init() {}
     
-    func auth(viewController vc: UIViewController){
+    func auth(viewController vc: UIViewController) {
         let oauthswift = OAuth2Swift(
             consumerKey:    "e37c794a79b6a108b19a",
             consumerSecret: "cd42384506f3fa0472abbe3c2145c23505fa04e3",
@@ -26,7 +26,7 @@ final class GitHubAuthService {
         self.oauthswift = oauthswift
         oauthswift.authorizeURLHandler = SafariURLHandler(viewController: vc, oauthSwift: oauthswift)
         let state = generateState(withLength: 20)
-        let _ = oauthswift.authorize(
+        _ = oauthswift.authorize(
             withCallbackURL: URL(string: "githubClient://oauth-callback")!, scope: "delete_repo,read:user,repo,user:email", state: state) { result in
             switch result {
             case .success(let (credential, _, _)):

@@ -12,15 +12,15 @@ import UIKit
 
 class ProfileViewController: UIViewController {
     
-    @IBOutlet weak var profileImage: UIImageView!
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var userNameLabel: UILabel!
-    @IBOutlet weak var locationLabel: UILabel!
-    @IBOutlet weak var mailLabel: UILabel!
-    @IBOutlet weak var followersCountLabel: UILabel!
-    @IBOutlet weak var followingCountLabel: UILabel!
-    @IBOutlet weak var locationStackView: UIStackView!
-    @IBOutlet weak var mailStackView: UIStackView!
+    @IBOutlet private weak var profileImage: UIImageView!
+    @IBOutlet private weak var nameLabel: UILabel!
+    @IBOutlet private weak var userNameLabel: UILabel!
+    @IBOutlet private weak var locationLabel: UILabel!
+    @IBOutlet private weak var mailLabel: UILabel!
+    @IBOutlet private weak var followersCountLabel: UILabel!
+    @IBOutlet private weak var followingCountLabel: UILabel!
+    @IBOutlet private weak var locationStackView: UIStackView!
+    @IBOutlet private weak var mailStackView: UIStackView!
     
     private let userService = UserApiService()
     private var user: User?
@@ -69,15 +69,13 @@ extension ProfileViewController {
         
         if let location = user.location {
             self.locationLabel.text = location
-        }
-        else {
+        } else {
             locationStackView.isHidden.toggle()
         }
         
         if let email = user.email {
             self.mailLabel.text = email
-        }
-        else {
+        } else {
             mailStackView.isHidden.toggle()
         }
         
@@ -89,15 +87,14 @@ extension ProfileViewController {
 // MARK: - SFSafariViewControllerDelegate
 extension ProfileViewController: SFSafariViewControllerDelegate {
     
-    @IBAction func signOutTapped() {
+    @IBAction private func signOutTapped() {
         if let url = URL(string: "https://github.com/logout") {
             let vc = SFSafariViewController(url: url)
             vc.delegate = self
-            // TODO: add processing for clicking the done button
             present(vc, animated: true, completion: { [weak self] in
                 AuthorizeData.shared.resetData()
-                let nav = self?.navigationController as! RootNavigationViewController
-                nav.setRootController()
+                let nav = self?.navigationController as? RootNavigationViewController
+                nav?.setRootController()
             })
         }
     }

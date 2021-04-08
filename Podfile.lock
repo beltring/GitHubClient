@@ -18,7 +18,7 @@ DEPENDENCIES:
   - PKHUD (~> 5.0)
   - PopupDialog (~> 1.1)
   - ReachabilitySwift
-  - SkyFloatingLabelTextField (~> 3.0)
+  - SkyFloatingLabelTextField (~> 3.8.0)
 
 SPEC REPOS:
   trunk:
@@ -43,6 +43,6 @@ SPEC CHECKSUMS:
   ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
   SkyFloatingLabelTextField: 5a338412114808e961fe2d14ea2c5452c8b6e4aa
 
-PODFILE CHECKSUM: 7ebc1fdcbf8dc9464020bb0054eca4318a0f097c
+PODFILE CHECKSUM: 111591dbfafe0f5bc77e604949465c19ec2343df
 
 COCOAPODS: 1.8.4

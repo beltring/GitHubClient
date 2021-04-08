@@ -10,7 +10,7 @@ import SafariServices
 
 class IssuesViewController: UIViewController {
     
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet private weak var tableView: UITableView!
     
     private let searchController = UISearchController(searchResultsController: nil)
     private weak var activityIndicatorView: UIActivityIndicatorView!

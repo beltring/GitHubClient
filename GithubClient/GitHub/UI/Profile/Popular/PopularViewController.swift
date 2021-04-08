@@ -10,8 +10,8 @@ import UIKit
 
 class PopularViewController: UIViewController {
     
-    @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet weak var popularLabel: UILabel!
+    @IBOutlet private weak var collectionView: UICollectionView!
+    @IBOutlet private weak var popularLabel: UILabel!
     
     private var popularRepositories = [Repository]()
     private var activityIndicatorView: UIActivityIndicatorView!
@@ -105,7 +105,7 @@ extension PopularViewController {
     }
 }
 
-fileprivate struct Constants {
+private struct Constants {
     static let cellHeight: CGFloat = 170
     static let cellWidthCoefficient: CGFloat = 0.8
 }

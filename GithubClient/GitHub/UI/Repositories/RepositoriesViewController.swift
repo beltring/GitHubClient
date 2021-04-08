@@ -9,7 +9,7 @@ import UIKit
 
 class RepositoriesViewController: UIViewController {
     
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet private weak var tableView: UITableView!
     
     private let repositoryService = RepositoriesApiService()
     private let searchService = SearchApiService()
@@ -106,8 +106,7 @@ extension RepositoriesViewController: UITableViewDelegate, UITableViewDataSource
         
         if isFiltering {
             repos = filteredRepositories[indexPath.row]
-        }
-        else {
+        } else {
             repos = repositories[indexPath.row]
         }
         
@@ -122,8 +121,7 @@ extension RepositoriesViewController: UITableViewDelegate, UITableViewDataSource
         
         if isFiltering {
             repos = filteredRepositories[indexPath.row]
-        }
-        else {
+        } else {
             repos = repositories[indexPath.row]
         }
         
@@ -203,7 +201,6 @@ extension RepositoriesViewController: UISearchResultsUpdating {
       tableView.reloadData()
     }
 }
-
 
 // MARK: - Sreens repositories
 enum RepositoryScreen {

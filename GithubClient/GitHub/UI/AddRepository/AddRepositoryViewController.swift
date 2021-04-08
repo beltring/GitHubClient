@@ -10,23 +10,23 @@ import UIKit
 
 class AddRepositoryViewController: UIViewController {
     
-    @IBOutlet weak var navItem: UINavigationItem!
-    @IBOutlet weak var segmentControl: UISegmentedControl!
-    @IBOutlet weak var addReadmeSwitch: UISwitch!
-    @IBOutlet weak var textFieldsStackView: UIStackView!
+    @IBOutlet private weak var navItem: UINavigationItem!
+    @IBOutlet private weak var segmentControl: UISegmentedControl!
+    @IBOutlet private weak var addReadmeSwitch: UISwitch!
+    @IBOutlet private weak var textFieldsStackView: UIStackView!
     
     private let service = RepositoriesApiService()
     private var repositoryTextField: SkyFloatingLabelTextFieldWithIcon!
     private var descriptionTextField: SkyFloatingLabelTextField!
     
-    //MARK: - Lifecycle
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         navItem.rightBarButtonItem = UIBarButtonItem(title: "Submit", style: .done, target: self, action: #selector(createRepository))
         setupTextFields()
     }
     
-    //MARK: - Setup
+    // MARK: - Setup
     func setupTextFields() {
         let indigoColor = UIColor(red: 86, green: 0, blue: 130/255, alpha: 1.0)
         let textFieldframe = CGRect(x: 0, y: 0, width: 0, height: 0)
@@ -47,8 +47,7 @@ class AddRepositoryViewController: UIViewController {
         self.textFieldsStackView.addArrangedSubview(descriptionTextField)
     }
     
-    
-    //MARK: - Actions
+    // MARK: - Actions
     @objc private func createRepository() {
         guard let name = repositoryTextField.text,
               let description = descriptionTextField.text
@@ -65,7 +64,7 @@ class AddRepositoryViewController: UIViewController {
             isPrivate = true
         }
         
-        let data = RepositoryData(name: name, description: description, isPrivate: isPrivate, IsReadme: addReadmeSwitch.isOn)
+        let data = RepositoryData(name: name, description: description, isPrivate: isPrivate, isReadme: addReadmeSwitch.isOn)
         sendData(data: data)
     }
     
@@ -83,8 +82,7 @@ extension AddRepositoryViewController {
                 if statusCode == 201 {
                     self?.presentHUD(content: .success)
                     self?.dismiss(animated: true, completion: nil)
-                }
-                else {
+                } else {
                     self?.presentHUD(content: .labeledError(title: "Error, try again", subtitle: nil), delay: 1)
                 }
             case .failure(let error):

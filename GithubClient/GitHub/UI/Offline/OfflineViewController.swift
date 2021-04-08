@@ -14,7 +14,7 @@ class OfflineViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        network.reachability.whenReachable = { reachability in
+        network.reachability.whenReachable = { _ in
             DispatchQueue.main.async {
                 self.dismiss(animated: true, completion: nil)
             }

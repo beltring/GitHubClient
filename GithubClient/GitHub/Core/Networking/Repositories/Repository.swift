@@ -31,4 +31,3 @@ struct Repository: Decodable {
         case pullUrl = "pulls_url"
     }
 }
-

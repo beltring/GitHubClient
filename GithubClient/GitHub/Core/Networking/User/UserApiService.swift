@@ -13,7 +13,7 @@ class UserApiService {
         
         guard let request = URLRequest(path: "user") else { return }
         
-        URLSession.shared.dataTask(with: request){ data, _, error in
+        URLSession.shared.dataTask(with: request) { data, _, error in
             
             if let error = error {
                 DispatchQueue.main.async {
@@ -34,8 +34,7 @@ class UserApiService {
                 DispatchQueue.main.async {
                     completion(.success(user))
                 }
-            }
-            catch {
+            } catch {
                 DispatchQueue.main.async {
                     completion(.failure(error))
                 }

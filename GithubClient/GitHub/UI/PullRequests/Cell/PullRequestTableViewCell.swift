@@ -9,8 +9,8 @@ import UIKit
 
 class PullRequestTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var pullLabel: UILabel!
-    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet private weak var pullLabel: UILabel!
+    @IBOutlet private weak var titleLabel: UILabel!
     
     override func prepareForReuse() {
         pullLabel.text = nil

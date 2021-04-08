@@ -9,8 +9,8 @@ import UIKit
 
 class SearchViewController: UIViewController {
 
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private weak var searchBar: UISearchBar!
     
     private var searchText = ""
     
@@ -62,10 +62,11 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = SearchTableViewCell.dequeueReusableCell(in: tableView, for: indexPath)
         
-        let searchText = #""\#(self.searchText)""#
-        cell.searchLabel.text = Row.allCases[indexPath.row].title + searchText
-        cell.menuImage.image = Row.allCases[indexPath.row].image
-        
+        var searchText = #""\#(self.searchText)""#
+        searchText = Row.allCases[indexPath.row].title + searchText
+        let image = Row.allCases[indexPath.row].image
+        cell.setSearchLabelText(text: searchText)
+        cell.setMenuImage(image: image)
         return cell
     }
     
@@ -91,7 +92,7 @@ extension SearchViewController: UISearchBarDelegate {
 }
 
 // MARK: - Rows
-fileprivate enum Row: Int, CaseIterable {
+private enum Row: Int, CaseIterable {
     case repositories
     case users
     

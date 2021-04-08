@@ -10,15 +10,15 @@ import UIKit
 
 class RepositoryViewController: UIViewController {
 
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var ownerImage: UIImageView!
-    @IBOutlet weak var userNameLabel: UILabel!
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var starCountLabel: UILabel!
-    @IBOutlet weak var forkCountLabel: UILabel!
-    @IBOutlet weak var watchersCountLabel: UILabel!
-    @IBOutlet weak var forkImage: UIImageView!
-    @IBOutlet weak var branchLabel: UILabel!
+    @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private weak var ownerImage: UIImageView!
+    @IBOutlet private weak var userNameLabel: UILabel!
+    @IBOutlet private weak var nameLabel: UILabel!
+    @IBOutlet private weak var starCountLabel: UILabel!
+    @IBOutlet private weak var forkCountLabel: UILabel!
+    @IBOutlet private weak var watchersCountLabel: UILabel!
+    @IBOutlet private weak var forkImage: UIImageView!
+    @IBOutlet private weak var branchLabel: UILabel!
     
     private var repository: Repository?
     
@@ -71,8 +71,9 @@ extension RepositoryViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = RepositoryMenuTableViewCell.dequeueReusableCell(in: tableView, for: indexPath)
         
+        let text = Row.allCases[indexPath.row].title
         cell.accessoryType = .disclosureIndicator
-        cell.titleLabel.text = Row.allCases[indexPath.row].title
+        cell.setTitleLabelText(text: text)
         
         return cell
     }
@@ -122,7 +123,7 @@ extension RepositoryViewController {
 }
 
 // MARK: - ROWS
-fileprivate enum Row: Int, CaseIterable {
+private enum Row: Int, CaseIterable {
     case commits
     case code
     case pullRequests
@@ -138,4 +139,3 @@ fileprivate enum Row: Int, CaseIterable {
         }
     }
 }
-

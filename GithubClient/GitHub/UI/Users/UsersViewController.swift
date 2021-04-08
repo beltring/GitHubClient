@@ -12,7 +12,7 @@ import UIKit
 
 class UsersViewController: UIViewController {
 
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet private weak var tableView: UITableView!
     
     private let searchService = SearchApiService()
     private var users = [User]()

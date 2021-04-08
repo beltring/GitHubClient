@@ -95,12 +95,12 @@ class RepositoriesApiService {
             "name": data.name,
             "description": data.description,
             "private": data.isPrivate,
-            "auto_init": data.IsReadme
+            "auto_init": data.isReadme
         ]
         let bodyData = try? JSONSerialization.data(withJSONObject: body, options: [])
         request.httpBody = bodyData
         
-        URLSession.shared.dataTask(with: request){ _, response, error in
+        URLSession.shared.dataTask(with: request) { _, response, error in
             
             if let error = error {
                 DispatchQueue.main.async {

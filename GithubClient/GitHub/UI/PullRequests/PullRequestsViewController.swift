@@ -9,7 +9,7 @@ import UIKit
 
 class PullRequestsViewController: UIViewController {
 
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet private weak var tableView: UITableView!
     
     var pullRequestsUrl: URL?
     private let service = PullRequestApiService()
@@ -38,8 +38,7 @@ extension PullRequestsViewController: UITableViewDelegate, UITableViewDataSource
         
         if count == 0 {
             tableView.setEmptyView(title: "There are no pull requests in this repository", message: "")
-        }
-        else{
+        } else {
             tableView.restore()
         }
         

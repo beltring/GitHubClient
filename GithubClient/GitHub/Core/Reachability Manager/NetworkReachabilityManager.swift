@@ -18,7 +18,7 @@ class NetworkReachabilityManager: NSObject {
     
     private override init() {
         super.init()
-        reachability = try! Reachability()
+        reachability = try? Reachability()
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(networkStatusChanged(_:)),
@@ -36,7 +36,7 @@ class NetworkReachabilityManager: NSObject {
         print("network status changed")
     }
     
-    static func stopNotifier() -> Void {
+    static func stopNotifier() {
         do {
             try (NetworkReachabilityManager.sharedInstance.reachability).startNotifier()
         } catch {

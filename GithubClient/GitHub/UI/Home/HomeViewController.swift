@@ -9,8 +9,8 @@ import UIKit
 
 class HomeViewController: UIViewController {
 
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private weak var searchBar: UISearchBar!
     
     private let repositoryService = RepositoriesApiService()
     private var starredRepositories = [Repository]()
@@ -66,8 +66,10 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = MenuTableViewCell.dequeueReusableCell(in: tableView, for: indexPath)
         cell.accessoryType = .disclosureIndicator
         
-        cell.titleLabel.text = Row.allCases[indexPath.row].title
-        cell.menuIconImageView.image = Row.allCases[indexPath.row].image
+        let text = Row.allCases[indexPath.row].title
+        let image = Row.allCases[indexPath.row].image
+        cell.setTitleLabelText(text: text)
+        cell.setMenuIconImageView(image: image)
         
         return cell
     }
@@ -97,7 +99,7 @@ extension HomeViewController: UISearchBarDelegate {
 }
 
 // MARK: - ROWS
-fileprivate enum Row: Int, CaseIterable {
+private enum Row: Int, CaseIterable {
     case repositories
     case starred
     case issues
