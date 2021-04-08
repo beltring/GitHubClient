@@ -59,6 +59,7 @@
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="WVm-dQ-o8l" id="m74-w4-Qct"/>
+                        <outlet property="popularLabel" destination="89y-4S-abc" id="ZWL-Lu-bnP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j8p-LY-eld" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

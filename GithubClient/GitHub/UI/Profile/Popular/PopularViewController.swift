@@ -5,20 +5,27 @@
 //  Created by Pavel Boltromyuk on 2/23/21.
 //
 
+import AMPopTip
 import UIKit
 
 class PopularViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var popularLabel: UILabel!
     
     private var popularRepositories = [Repository]()
     private var activityIndicatorView: UIActivityIndicatorView!
+    private let popTip = PopTip()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        let tap = UITapGestureRecognizer(target: self, action: #selector(tappedLabel(_:)))
+        popularLabel.isUserInteractionEnabled = true
+        popularLabel.addGestureRecognizer(tap)
         setupActivityIndicator()
         setupCollectionView()
+        setupPopTip()
         activityIndicatorView.startAnimating()
         fetchPopularRepository()
     }
@@ -33,6 +40,21 @@ class PopularViewController: UIViewController {
         let activityIndicatorView = UIActivityIndicatorView(style: .medium)
         collectionView.backgroundView = activityIndicatorView
         self.activityIndicatorView = activityIndicatorView
+    }
+    
+    private func setupPopTip() {
+        popTip.font = UIFont(name: "Avenir-Medium", size: 12)!
+        popTip.shouldDismissOnTap = true
+        popTip.actionAnimation = .bounce(8)
+        popTip.edgeInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
+        popTip.bubbleColor = UIColor(red: 0.31, green: 0.57, blue: 0.87, alpha: 1)
+    }
+    
+    @objc func tappedLabel(_ sender: UITapGestureRecognizer? = nil) {
+        popTip.show(text: "Most popular repositories this user", direction: .autoHorizontal, maxWidth: 200, in: view, from: popularLabel.frame)
+        var _ = Timer.scheduledTimer(withTimeInterval: 3, repeats: true) { (_) in
+            self.popTip.hide()
+        }
     }
 }
 
