@@ -1,0 +1,103 @@
+//
+//  ProfileViewController.swift
+//  GithubClient
+//
+//  Created by Pavel Boltromyuk on 2/22/21.
+//
+
+import KeychainSwift
+import Kingfisher
+import SafariServices
+import UIKit
+
+class ProfileViewController: UIViewController {
+    
+    @IBOutlet private weak var profileImage: UIImageView!
+    @IBOutlet private weak var nameLabel: UILabel!
+    @IBOutlet private weak var userNameLabel: UILabel!
+    @IBOutlet private weak var locationLabel: UILabel!
+    @IBOutlet private weak var mailLabel: UILabel!
+    @IBOutlet private weak var followersCountLabel: UILabel!
+    @IBOutlet private weak var followingCountLabel: UILabel!
+    @IBOutlet private weak var locationStackView: UIStackView!
+    @IBOutlet private weak var mailStackView: UIStackView!
+    
+    private let userService = UserApiService()
+    private var user: User?
+    private var activityIndicator = UIActivityIndicatorView(style: .large)
+    
+    // MARK: - Lifecycle
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        tabBarController?.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Sign out", style: .done, target: self, action: #selector(signOutTapped))
+        
+        setupActivityIndicator()
+        activityIndicator.startAnimating()
+        profileImage.layer.cornerRadius = 35
+        fetchUserInformation()
+    }
+    
+    // MARK: - Setup
+    private func setupActivityIndicator() {
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(activityIndicator)
+        activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+    }
+}
+
+// MARK: - API calls
+extension ProfileViewController {
+    private func fetchUserInformation() {
+        userService.getUserInformation { [weak self] result in
+            self?.activityIndicator.stopAnimating()
+            
+            switch result {
+            case .success(let user):
+                self?.success(user: user)
+            case .failure(let error):
+                self?.presentAlert(message: error.localizedDescription)
+            }
+        }
+    }
+    
+    private func success(user: User) {
+        self.user = user
+        self.nameLabel.text = user.name
+        self.userNameLabel.text = user.login
+        self.followersCountLabel.text = String(user.followers ?? 0)
+        self.followingCountLabel.text = String(user.following ?? 0)
+        
+        if let location = user.location {
+            self.locationLabel.text = location
+        } else {
+            locationStackView.isHidden.toggle()
+        }
+        
+        if let email = user.email {
+            self.mailLabel.text = email
+        } else {
+            mailStackView.isHidden.toggle()
+        }
+        
+        guard let url = URL(string: user.avatarUrl!) else { return }
+        profileImage.kf.setImage(with: url)
+    }
+}
+
+// MARK: - Extensions
+// MARK: - SFSafariViewControllerDelegate
+extension ProfileViewController: SFSafariViewControllerDelegate {
+    
+    @IBAction private func signOutTapped() {
+        if let url = URL(string: "https://github.com/logout") {
+            let vc = SFSafariViewController(url: url)
+            vc.delegate = self
+            present(vc, animated: true, completion: { [weak self] in
+                AuthorizeData.shared.resetData()
+                let nav = self?.navigationController as? RootNavigationViewController
+                nav?.setRootController()
+            })
+        }
+    }
+}
