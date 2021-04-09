@@ -80,6 +80,10 @@
 		23E0474525EAE49A00C22F06 /* KeychainKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E0474425EAE49A00C22F06 /* KeychainKeys.swift */; };
 		79C6A859709A7780CBA8BAEA /* Pods_GithubClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B36522C541ECA6C7B65D6231 /* Pods_GithubClient.framework */; };
 		CE3453C626201E4700F6AC9E /* GitHubAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3453C526201E4700F6AC9E /* GitHubAPI.swift */; };
+		CE34540B2620883600F6AC9E /* BranchesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3454092620883600F6AC9E /* BranchesViewController.swift */; };
+		CE345411262088E300F6AC9E /* Branches.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE345410262088E300F6AC9E /* Branches.storyboard */; };
+		CE34541726208A0100F6AC9E /* BranchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE34541526208A0100F6AC9E /* BranchTableViewCell.swift */; };
+		CE34541826208A0100F6AC9E /* BranchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE34541626208A0100F6AC9E /* BranchTableViewCell.xib */; };
 		CE6FD5DD261F2DBA00899577 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6FD5DC261F2DBA00899577 /* Constants.swift */; };
 		CEA7A66A261D9C7100965FC0 /* UIViewController+HUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA7A669261D9C7100965FC0 /* UIViewController+HUD.swift */; };
 /* End PBXBuildFile section */
@@ -162,6 +166,10 @@
 		5DEE3E31816B4DB7CD7350F8 /* Pods-GithubClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GithubClient.release.xcconfig"; path = "Target Support Files/Pods-GithubClient/Pods-GithubClient.release.xcconfig"; sourceTree = "<group>"; };
 		B36522C541ECA6C7B65D6231 /* Pods_GithubClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GithubClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE3453C526201E4700F6AC9E /* GitHubAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubAPI.swift; sourceTree = "<group>"; };
+		CE3454092620883600F6AC9E /* BranchesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BranchesViewController.swift; sourceTree = "<group>"; };
+		CE345410262088E300F6AC9E /* Branches.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Branches.storyboard; sourceTree = "<group>"; };
+		CE34541526208A0100F6AC9E /* BranchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BranchTableViewCell.swift; sourceTree = "<group>"; };
+		CE34541626208A0100F6AC9E /* BranchTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BranchTableViewCell.xib; sourceTree = "<group>"; };
 		CE6FD5DC261F2DBA00899577 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		CEA7A669261D9C7100965FC0 /* UIViewController+HUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+HUD.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -497,6 +505,25 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		CE345408262087C500F6AC9E /* Branches */ = {
+			isa = PBXGroup;
+			children = (
+				CE345410262088E300F6AC9E /* Branches.storyboard */,
+				CE3454092620883600F6AC9E /* BranchesViewController.swift */,
+				CE3454142620895000F6AC9E /* Cell */,
+			);
+			path = Branches;
+			sourceTree = "<group>";
+		};
+		CE3454142620895000F6AC9E /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				CE34541526208A0100F6AC9E /* BranchTableViewCell.swift */,
+				CE34541626208A0100F6AC9E /* BranchTableViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		CE6FD5CA261F1A9A00899577 /* Application */ = {
 			isa = PBXGroup;
 			children = (
@@ -534,6 +561,7 @@
 			isa = PBXGroup;
 			children = (
 				2355BC8D25F3EA1E00A90464 /* AddRepository */,
+				CE345408262087C500F6AC9E /* Branches */,
 				2364EBCC25E7E2C200B9E44F /* Commits */,
 				23B1D4B925E41C0D001E9570 /* Home */,
 				2359CEB625E9605600FA0F0E /* Issues */,
@@ -679,6 +707,7 @@
 				2355127C25ED393B0057C593 /* UserTableViewCell.xib in Resources */,
 				2359CEC925E97E7700FA0F0E /* IssueTableViewCell.xib in Resources */,
 				2364EBD725E7E45F00B9E44F /* CommitTableViewCell.xib in Resources */,
+				CE345411262088E300F6AC9E /* Branches.storyboard in Resources */,
 				236CBC8B25E703CA003B144A /* RepositoryMenuTableViewCell.xib in Resources */,
 				2353639625E454FA00225412 /* Popular.storyboard in Resources */,
 				235363B825E4676000225412 /* RepositoryTableViewCell.xib in Resources */,
@@ -694,6 +723,7 @@
 				23B1D4D525E430A4001E9570 /* Profile.storyboard in Resources */,
 				23B1D4CB25E4225F001E9570 /* MenuTableViewCell.xib in Resources */,
 				23580B9725EC43ED006E94E0 /* SearchTableViewCell.xib in Resources */,
+				CE34541826208A0100F6AC9E /* BranchTableViewCell.xib in Resources */,
 				23B1D43425E3EC62001E9570 /* Assets.xcassets in Resources */,
 				2359CEB825E9607200FA0F0E /* Issues.storyboard in Resources */,
 				235363AF25E4641200225412 /* Repositories.storyboard in Resources */,
@@ -799,7 +829,9 @@
 				23B1D4BE25E41C4D001E9570 /* HomeViewController.swift in Sources */,
 				23B1D4D225E43093001E9570 /* ProfileViewController.swift in Sources */,
 				2353F58C25E80C1F0089818C /* Commit.swift in Sources */,
+				CE34540B2620883600F6AC9E /* BranchesViewController.swift in Sources */,
 				23B1D46125E3F861001E9570 /* UIViewController+Instance.swift in Sources */,
+				CE34541726208A0100F6AC9E /* BranchTableViewCell.swift in Sources */,
 				23B1D46725E3F90E001E9570 /* UICollectionViewCell+Collection.swift in Sources */,
 				2364EBD225E7E3F300B9E44F /* CommitsViewController.swift in Sources */,
 				23B1D42825E3EC61001E9570 /* AppDelegate.swift in Sources */,
