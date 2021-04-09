@@ -18,6 +18,7 @@ enum GitHubAPI {
     case addRepositories(RepositoryData)
     case getCommits(String)
     case getPullRequests(String)
+    case getBranches(String)
 }
 
 // MARK: Moya Extension
@@ -44,6 +45,8 @@ extension GitHubAPI: TargetType {
             return commitPath
         case .getPullRequests(let pullPath):
             return pullPath
+        case .getBranches(let branchesPath):
+            return branchesPath
         }
     }
     
@@ -76,6 +79,9 @@ extension GitHubAPI: TargetType {
                                                    "private": data.isPrivate,
                                                    "auto_init": data.isReadme], encoding: JSONEncoding.default)
         case .getCommits:
+            return .requestParameters(parameters: ["per_page" : "100"], encoding: URLEncoding.queryString)
+            
+        case .getBranches:
             return .requestParameters(parameters: ["per_page" : "100"], encoding: URLEncoding.queryString)
         default:
             return .requestPlain

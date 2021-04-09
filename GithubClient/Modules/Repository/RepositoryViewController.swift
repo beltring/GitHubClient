@@ -6,6 +6,7 @@
 //
 
 import Kingfisher
+import Moya
 import UIKit
 
 class RepositoryViewController: UIViewController {
@@ -21,6 +22,8 @@ class RepositoryViewController: UIViewController {
     @IBOutlet private weak var branchLabel: UILabel!
     
     private var repository: Repository?
+    private var branches = [Branch]()
+    private let provider = MoyaProvider<GitHubAPI>()
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -64,7 +67,7 @@ class RepositoryViewController: UIViewController {
         presentSafariViewController(url: url)
     }
     
-    func showCommits() {
+    private func showCommits() {
         let vc = CommitsViewController.initial()
         
         // api.github.com/repos/user/reposName/commits{/sha}
@@ -74,7 +77,7 @@ class RepositoryViewController: UIViewController {
         navigationController?.pushViewController(vc, animated: true)
     }
     
-    func showPullRequests() {
+    private func showPullRequests() {
         let vc = PullRequestsViewController.initial()
         
         // https://api.github.com/repos/user/reposName/pulls{/number}
@@ -82,6 +85,27 @@ class RepositoryViewController: UIViewController {
             .replacingOccurrences(of: "https://api.github.com/", with: "")
         
         navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    // MARK: API calls
+    private func getBranches() {
+        // https://api.github.com/repos/user/reposName/branches{/branch}
+        let branchesPath = repository?.branchesUrl?.replacingOccurrences(of: "{/branch}", with: "")
+            .replacingOccurrences(of: "https://api.github.com/", with: "")
+        
+        provider.request(.getBranches(branchesPath!)) { [weak self] result in
+            switch result {
+            case .success(let response):
+                do {
+                    let decoder = JSONDecoder()
+                    self?.branches = try decoder.decode([Branch].self, from: response.data)
+                } catch {
+                    print("Decoding error")
+                }
+            case .failure(let error):
+                self?.presentAlert(message: error.localizedDescription)
+            }
+        }
     }
 }
 
