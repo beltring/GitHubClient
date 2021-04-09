@@ -34,17 +34,13 @@ class RepositoryViewController: UIViewController {
     // MARK: - Setup
     private func setupVC() {
         ownerImage.layer.cornerRadius = 35
-        var branch = repository?.defaultBranch ?? ""
-        if !branch.isEmpty {
-            branch += " branch"
-        }
         
         userNameLabel.text = repository?.owner?.login
         nameLabel.text = repository?.name
         starCountLabel.text = String(repository?.stargazersCount ?? 0)
         forkCountLabel.text = String(repository?.forksCount ?? 0)
         watchersCountLabel.text = String(repository?.watchersCount ?? 0)
-        branchLabel.text = branch
+        branchLabel.text = repository?.defaultBranch ?? ""
         forkImage.image = UIImage(systemName: "arrow.branch")
         
         guard let url = URL(string: repository?.owner?.avatarUrl ?? "") else { return }

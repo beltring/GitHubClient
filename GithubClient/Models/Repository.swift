@@ -19,6 +19,7 @@ struct Repository: Decodable {
     let owner: Owner?
     let url: String
     let pullUrl: String?
+    let branchesUrl: String?
     
     private enum CodingKeys: String, CodingKey {
         case id, name, language, owner
@@ -29,5 +30,6 @@ struct Repository: Decodable {
         case commitsUrl = "commits_url"
         case url = "html_url"
         case pullUrl = "pulls_url"
+        case branchesUrl = "branches_url"
     }
 }
