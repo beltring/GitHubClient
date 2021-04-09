@@ -6,6 +6,7 @@
 //
 
 import AMPopTip
+import Moya
 import UIKit
 
 class CommitsViewController: UIViewController {
@@ -14,10 +15,10 @@ class CommitsViewController: UIViewController {
     
     var commitsUrl: String?
     
-    private let commitsService = CommitsApiService()
     private let popTip = PopTip()
     private var commitsData = [CommitData]()
     private var activityIndicatorView: UIActivityIndicatorView!
+    private let provider = MoyaProvider<GitHubAPI>()
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -28,7 +29,7 @@ class CommitsViewController: UIViewController {
         setupActivityIndicator()
         setupPopTip()
         self.activityIndicatorView.startAnimating()
-        fetchCommits()
+        getCommits()
     }
     
     // MARK: - Setup
@@ -97,16 +98,20 @@ extension CommitsViewController: UITableViewDataSource {
 
 // MARK: - API Calls
 extension CommitsViewController {
-    func fetchCommits() {
+    func getCommits() {
         guard let url = commitsUrl else { return }
-        commitsService.getCommitsForDefaultBranch(url: url) { [weak self] result in
+        provider.request(.getCommits(url)) { [weak self] result in
             self?.activityIndicatorView.stopAnimating()
-            
             switch result {
-            case .success(let commits):
-                self?.commitsData = commits
-                self?.tableView.separatorStyle = UITableViewCell.SeparatorStyle.singleLine
-                self?.tableView.reloadData()
+            case .success(let response):
+                do {
+                    let decoder = JSONDecoder()
+                    self?.commitsData = try decoder.decode([CommitData].self, from: response.data)
+                    self?.tableView.separatorStyle = UITableViewCell.SeparatorStyle.singleLine
+                    self?.tableView.reloadData()
+                } catch {
+                    print("Decoding error")
+                }
             case .failure(let error):
                 self?.presentAlert(message: error.localizedDescription)
             }

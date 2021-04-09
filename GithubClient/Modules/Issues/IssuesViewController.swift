@@ -5,6 +5,7 @@
 //  Created by Pavel Boltromyuk on 2/26/21.
 //
 
+import Moya
 import SafariServices
 import UIKit
 
@@ -13,11 +14,11 @@ class IssuesViewController: UIViewController {
     @IBOutlet private weak var tableView: UITableView!
     
     private let searchController = UISearchController(searchResultsController: nil)
-    private let issuesService = IssuesApiService()
     private var activityIndicatorView: UIActivityIndicatorView!
     private var issues = [Issue]()
     private var filteredIssues = [Issue]()
     private var filter: Filter = .all
+    private let provider = MoyaProvider<GitHubAPI>()
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -28,7 +29,7 @@ class IssuesViewController: UIViewController {
         setupSearchBar()
         setupActivityIndicator()
         activityIndicatorView.startAnimating()
-        fetchIssues()
+        getIssues()
     }
     
     // MARK: - Setup
@@ -57,15 +58,20 @@ class IssuesViewController: UIViewController {
     }
     
     // MARK: - API calls
-    private func fetchIssues(filter: String = "all") {
-        issuesService.getIssues(filter: filter) { [weak self] result in
+    private func getIssues(filter: String = "all") {
+        provider.request(.getIssues(filter)) { [weak self] result in
             self?.activityIndicatorView.stopAnimating()
             
             switch result {
-            case .success(let issues):
-                self?.issues = issues
-                self?.filteredIssues = issues
-                self?.tableView.reloadData()
+            case .success(let response):
+                do {
+                    let decoder = JSONDecoder()
+                    self?.issues = try decoder.decode([Issue].self, from: response.data)
+                    self?.filteredIssues = try decoder.decode([Issue].self, from: response.data)
+                    self?.tableView.reloadData()
+                } catch {
+                    print("Decoding error")
+                }
             case .failure(let error):
                 self?.presentAlert(message: error.localizedDescription)
             }
@@ -146,13 +152,13 @@ extension IssuesViewController: UISearchResultsUpdating {
             
             switch filter {
             case .all:
-                fetchIssues(filter: filter.rawValue)
+                getIssues(filter: filter.rawValue)
             case .created:
-                fetchIssues(filter: filter.rawValue)
+                getIssues(filter: filter.rawValue)
             case .assigned:
-                fetchIssues(filter: filter.rawValue)
+                getIssues(filter: filter.rawValue)
             case .mentioned:
-                fetchIssues(filter: filter.rawValue)
+                getIssues(filter: filter.rawValue)
             }
         }
         

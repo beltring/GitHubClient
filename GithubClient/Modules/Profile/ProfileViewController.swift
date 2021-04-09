@@ -5,8 +5,8 @@
 //  Created by Pavel Boltromyuk on 2/22/21.
 //
 
-import KeychainSwift
 import Kingfisher
+import Moya
 import SafariServices
 import UIKit
 
@@ -22,9 +22,9 @@ class ProfileViewController: UIViewController {
     @IBOutlet private weak var locationStackView: UIStackView!
     @IBOutlet private weak var mailStackView: UIStackView!
     
-    private let userService = UserApiService()
     private var user: User?
     private var activityIndicator = UIActivityIndicatorView(style: .large)
+    private let provider = MoyaProvider<GitHubAPI>()
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -34,7 +34,7 @@ class ProfileViewController: UIViewController {
         setupActivityIndicator()
         activityIndicator.startAnimating()
         profileImage.layer.cornerRadius = 35
-        fetchUserInformation()
+        getUserInformation()
     }
     
     // MARK: - Setup
@@ -48,13 +48,19 @@ class ProfileViewController: UIViewController {
 
 // MARK: - API calls
 extension ProfileViewController {
-    private func fetchUserInformation() {
-        userService.getUserInformation { [weak self] result in
+    private func getUserInformation() {
+        provider.request(.getUser) { [weak self] result in
             self?.activityIndicator.stopAnimating()
             
             switch result {
-            case .success(let user):
-                self?.success(user: user)
+            case .success(let response):
+                do {
+                    let decoder = JSONDecoder()
+                    let user = try decoder.decode(User.self, from: response.data)
+                    self?.success(user: user)
+                } catch {
+                    print("Decoding error")
+                }
             case .failure(let error):
                 self?.presentAlert(message: error.localizedDescription)
             }

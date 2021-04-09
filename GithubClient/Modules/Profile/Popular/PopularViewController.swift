@@ -6,6 +6,7 @@
 //
 
 import AMPopTip
+import Moya
 import UIKit
 
 class PopularViewController: UIViewController {
@@ -16,6 +17,7 @@ class PopularViewController: UIViewController {
     private let popTip = PopTip()
     private var popularRepositories = [Repository]()
     private var activityIndicatorView: UIActivityIndicatorView!
+    private let provider = MoyaProvider<GitHubAPI>()
     
     // MARK: Lifecycle
     override func viewDidLoad() {
@@ -62,16 +64,22 @@ class PopularViewController: UIViewController {
     
     // MARK: - API calls
     private func fetchPopularRepository() {
-        RepositoriesApiService().getRepositoriesForAuthUser { [weak self] result in
+        provider.request(.getUserRepositories) { [weak self] result in
             self?.activityIndicatorView.stopAnimating()
             
             switch result {
-            case .success(let repositories):
-                let repos = repositories.sorted(by: { (repos1, repos2) -> Bool in
-                    return repos1.stargazersCount > repos2.stargazersCount ? true : false
-                }).prefix(5)
-                self?.popularRepositories = Array(repos)
-                self?.collectionView.reloadData()
+            case .success(let response):
+                do {
+                    let decoder = JSONDecoder()
+                    let repos = try decoder.decode([Repository].self, from: response.data)
+                    let popular = repos.sorted(by: { (repos1, repos2) -> Bool in
+                        return repos1.stargazersCount > repos2.stargazersCount ? true : false
+                    }).prefix(5)
+                    self?.popularRepositories = Array(popular)
+                    self?.collectionView.reloadData()
+                } catch {
+                    print("Decoding error")
+                }
             case .failure(let error):
                 self?.presentAlert(message: error.localizedDescription)
             }

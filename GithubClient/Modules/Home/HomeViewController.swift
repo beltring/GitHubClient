@@ -12,7 +12,6 @@ class HomeViewController: UIViewController {
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var searchBar: UISearchBar!
     
-    private let repositoryService = RepositoriesApiService()
     private let network = NetworkReachabilityManager.sharedInstance
     private var starredRepositories = [Repository]()
     

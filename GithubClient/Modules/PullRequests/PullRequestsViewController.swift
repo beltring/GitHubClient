@@ -5,23 +5,24 @@
 //  Created by Pavel Boltromyuk on 2/28/21.
 //
 
+import Moya
 import UIKit
 
 class PullRequestsViewController: UIViewController {
 
     @IBOutlet private weak var tableView: UITableView!
     
-    var pullRequestsUrl: URL?
+    var pullRequestsUrl: String?
     
-    private let service = PullRequestApiService()
     private var pullRequests = [PullRequest]()
+    private let provider = MoyaProvider<GitHubAPI>()
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.navigationItem.title = "Pull requests"
-        fetchPullRequests(url: pullRequestsUrl!)
+        getPullRequests()
         setupTableView()
     }
 
@@ -34,12 +35,17 @@ class PullRequestsViewController: UIViewController {
     }
     
     // MARK: - API calls
-    private func fetchPullRequests(url: URL) {
-        service.getPullRequest(url: url) { [weak self] result in
+    private func getPullRequests() {
+        provider.request(.getPullRequests(pullRequestsUrl!)) { [weak self] result in
             switch result {
-            case .success(let pulls):
-                self?.pullRequests = pulls
-                self?.tableView.reloadData()
+            case .success(let response):
+                do {
+                    let decoder = JSONDecoder()
+                    self?.pullRequests = try decoder.decode([PullRequest].self, from: response.data)
+                    self?.tableView.reloadData()
+                } catch {
+                    print("Decoding error")
+                }
             case .failure(let error):
                 self?.presentAlert(message: error.localizedDescription)
             }
