@@ -6,6 +6,7 @@
 //
 
 import Kingfisher
+import Moya
 import PopupDialog
 import SafariServices
 import UIKit
@@ -14,10 +15,10 @@ class UsersViewController: UIViewController {
 
     @IBOutlet private weak var tableView: UITableView!
     
-    private let searchService = SearchApiService()
     private var users = [User]()
     private var searchText = ""
     private var activityIndicatorView: UIActivityIndicatorView!
+    private let provider = MoyaProvider<GitHubAPI>()
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -27,7 +28,7 @@ class UsersViewController: UIViewController {
         setupTableView()
         setupActivityIndicator()
         activityIndicatorView.startAnimating()
-        fetchUsers(searchText: searchText)
+        getUsers(searchText: searchText)
     }
 
     // MARK: - Setup
@@ -70,18 +71,23 @@ class UsersViewController: UIViewController {
     }
     
     // MARK: - API calls
-    private func fetchUsers(searchText: String) {
-        searchService.getUsersBySearchText(searchText: searchText) { [weak self] result in
-    
+    private func getUsers(searchText: String) {
+        provider.request(.getSearchUsers(searchText)) { [weak self] result in
+            self?.activityIndicatorView.stopAnimating()
+            
             switch result {
-            case .success(let userData):
-                self?.users = userData.users ?? [User]()
-                self?.tableView.reloadData()
+            case .success(let response):
+                do {
+                    let decoder = JSONDecoder()
+                    let userData = try decoder.decode(UsersData.self, from: response.data)
+                    self?.users = userData.users ?? [User]()
+                    self?.tableView.reloadData()
+                } catch {
+                    print("Decoding error")
+                }
             case .failure(let error):
                 self?.presentAlert(message: error.localizedDescription)
             }
-            
-            self?.activityIndicatorView.stopAnimating()
         }
     }
     

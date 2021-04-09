@@ -5,6 +5,7 @@
 //  Created by Pavel Boltromyuk on 2/23/21.
 //
 
+import Moya
 import UIKit
 
 class RepositoriesViewController: UIViewController {
@@ -13,13 +14,12 @@ class RepositoriesViewController: UIViewController {
     
     var screen: RepositoryScreen = .all
     
-    private let repositoryService = RepositoriesApiService()
-    private let searchService = SearchApiService()
     private var repositories = [Repository]()
     private var filteredRepositories = [Repository]()
     private var activityIndicatorView: UIActivityIndicatorView!
-    private let searchController = UISearchController(searchResultsController: nil)
     private var searchText = ""
+    private let searchController = UISearchController(searchResultsController: nil)
+    private let provider = MoyaProvider<GitHubAPI>()
     private let refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(refresh(sender:)), for: .valueChanged)
@@ -62,15 +62,15 @@ class RepositoriesViewController: UIViewController {
     private func setupScreen() {
         switch screen {
         case .all:
-            fetchRepositories()
+            getRepositories()
             tableView.refreshControl = refreshControl
             navigationItem.hidesSearchBarWhenScrolling = false
             setupSearchController()
             navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Create", style: .done, target: self, action: #selector(showAddRepositoryScreen))
         case .search:
-            fetchSearchRepositories(searchText: searchText)
+            getSearchRepositories(searchText: searchText)
         case .starred:
-            fetchStarredRepositories()
+            getStarredRepositories()
             setupSearchController()
         }
     }
@@ -82,7 +82,7 @@ class RepositoriesViewController: UIViewController {
     }
     
     @IBAction private func refresh(sender: UIRefreshControl) {
-        fetchRepositories()
+        getRepositories()
     }
     
     // MARK: - Get/Set methods
@@ -137,43 +137,59 @@ extension RepositoriesViewController: UITableViewDelegate {
 
 // MARK: - API calls
 extension RepositoriesViewController {
-    private func fetchRepositories() {
-        repositoryService.getRepositoriesForAuthUser { [weak self] result in
+    private func getRepositories() {
+        provider.request(.getUserRepositories) { [weak self] result in
             self?.activityIndicatorView.stopAnimating()
             self?.refreshControl.endRefreshing()
             
             switch result {
-            case .success(let repositories):
-                self?.repositories = repositories
+            case .success(let response):
+                do {
+                let decoder = JSONDecoder()
+                self?.repositories = try decoder.decode([Repository].self, from: response.data)
                 self?.tableView.reloadData()
+                } catch {
+                    print("Decoding error")
+                }
             case .failure(let error):
                 self?.presentAlert(message: error.localizedDescription)
             }
         }
     }
     
-    private func fetchSearchRepositories(searchText: String) {
-        searchService.getRepositoriesBySearchText(searchText: searchText) { [weak self] result in
+    private func getSearchRepositories(searchText: String) {
+        provider.request(.getSearchRepositories(searchText)) { [weak self] result in
             self?.activityIndicatorView.stopAnimating()
             
             switch result {
-            case .success(let repositoriesData):
-                self?.repositories = repositoriesData.repositories ?? [Repository]()
-                self?.tableView.reloadData()
+            case .success(let response):
+                do {
+                    let decoder = JSONDecoder()
+                    let reposData = try decoder.decode(RepositoriesData.self, from: response.data)
+                    self?.repositories = reposData.repositories ?? [Repository]()
+                    self?.tableView.reloadData()
+                } catch {
+                    print("Decoding error")
+                }
             case .failure(let error):
                 self?.presentAlert(message: error.localizedDescription)
             }
         }
     }
     
-    private func fetchStarredRepositories() {
-        repositoryService.getStarredRepositories { [weak self] result in
+    private func getStarredRepositories() {
+        provider.request(.getStarredRepositories) { [weak self] result in
             self?.activityIndicatorView.stopAnimating()
             
             switch result {
-            case .success(let repositories):
-                self?.repositories = repositories
-                self?.tableView.reloadData()
+            case .success(let response):
+                do {
+                    let decoder = JSONDecoder()
+                    self?.repositories = try decoder.decode([Repository].self, from: response.data)
+                    self?.tableView.reloadData()
+                } catch {
+                    print("Decoding error")
+                }
             case .failure(let error):
                 self?.presentAlert(message: error.localizedDescription)
             }

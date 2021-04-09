@@ -73,6 +73,7 @@ class RepositoryViewController: UIViewController {
         
         // api.github.com/repos/user/reposName/commits{/sha}
         vc.commitsUrl = repository?.commitsUrl?.replacingOccurrences(of: "{/sha}", with: "")
+            .replacingOccurrences(of: "https://api.github.com/", with: "")
         
         navigationController?.pushViewController(vc, animated: true)
     }
@@ -81,9 +82,8 @@ class RepositoryViewController: UIViewController {
         let vc = PullRequestsViewController.initial()
         
         // https://api.github.com/repos/user/reposName/pulls{/number}
-        let strUrl = repository?.pullUrl?.replacingOccurrences(of: "{/number}", with: "")
-        guard let url = URL(string: strUrl!) else { return }
-        vc.pullRequestsUrl = url
+        vc.pullRequestsUrl = repository?.pullUrl?.replacingOccurrences(of: "{/number}", with: "")
+            .replacingOccurrences(of: "https://api.github.com/", with: "")
         
         navigationController?.pushViewController(vc, animated: true)
     }

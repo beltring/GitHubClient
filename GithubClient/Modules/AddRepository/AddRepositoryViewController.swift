@@ -5,6 +5,7 @@
 //  Created by Pavel Boltromyuk on 3/6/21.
 //
 
+import Moya
 import SkyFloatingLabelTextField
 import UIKit
 
@@ -15,9 +16,9 @@ class AddRepositoryViewController: UIViewController {
     @IBOutlet private weak var addReadmeSwitch: UISwitch!
     @IBOutlet private weak var textFieldsStackView: UIStackView!
     
-    private let service = RepositoriesApiService()
     private var repositoryTextField: SkyFloatingLabelTextFieldWithIcon!
     private var descriptionTextField: SkyFloatingLabelTextField!
+    private let provider = MoyaProvider<GitHubAPI>()
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -65,7 +66,7 @@ class AddRepositoryViewController: UIViewController {
         }
         
         let data = RepositoryData(name: name, description: description, isPrivate: isPrivate, isReadme: addReadmeSwitch.isOn)
-        sendData(data: data)
+        addRepository(data: data)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -77,11 +78,11 @@ class AddRepositoryViewController: UIViewController {
 
 // MARK: - API Calls
 extension AddRepositoryViewController {
-    private func sendData(data: RepositoryData) {
-        service.addRepository(data: data) { [weak self] result in
+    private func addRepository(data: RepositoryData) {
+        provider.request(.addRepositories(data)) { [weak self] result in
             switch result {
-            case .success(let statusCode):
-                if statusCode == 201 {
+            case .success(let response):
+                if response.statusCode == 201 {
                     self?.presentHUD(content: .success)
                     self?.dismiss(animated: true, completion: nil)
                 } else {
