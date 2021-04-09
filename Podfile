@@ -8,6 +8,7 @@ target 'GithubClient' do
   pod 'AMPopTip'
   pod 'KeychainSwift', '~> 19.0'
   pod 'Kingfisher', '~> 6.0'
+  pod 'Moya', '~> 14.0'
   pod 'OAuthSwift', '~> 2.0.0'
   pod 'PKHUD', '~> 5.0'
   pod 'PopupDialog', '~> 1.1'
