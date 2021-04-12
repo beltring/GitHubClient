@@ -23,7 +23,7 @@ class BranchTableViewCell: UITableViewCell {
     }
     
     // MARK: - Setup
-    func setup(branchName: String, isDefault: Bool = false) {
+    func setup(branchName: String, isDefault: Bool = true) {
         branchLabel.text = branchName
         markImage.isHidden = isDefault
     }

@@ -32,6 +32,7 @@ class RepositoryViewController: UIViewController {
         self.navigationItem.title = repository?.name
         setupVC()
         setupTableView()
+        getBranches()
     }
     
     // MARK: - Setup
@@ -54,6 +55,16 @@ class RepositoryViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         RepositoryMenuTableViewCell.registerCellNib(in: tableView)
+    }
+    
+    @IBAction private func tappedChangeBranch(_ sender: UIButton) {
+        let vc = BranchesViewController.initial()
+        vc.branches = branches
+        vc.defaultBranch = branchLabel.text!
+        vc.closure = { [weak self] text in
+            self?.branchLabel.text = text
+        }
+        present(vc, animated: false, completion: nil)
     }
     
     // MARK: - Get/Set methods

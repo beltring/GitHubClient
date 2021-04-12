@@ -11,6 +11,10 @@ class BranchesViewController: UIViewController {
 
     @IBOutlet private weak var tableView: UITableView!
     
+    var branches = [Branch]()
+    var defaultBranch: String = ""
+    var closure: ((String) -> Void)?
+    
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,11 +35,18 @@ class BranchesViewController: UIViewController {
 // MARK: - UITableViewDataSource
 extension BranchesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return branches.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = BranchTableViewCell.dequeueReusableCell(in: tableView, for: indexPath)
+        
+        let branch = branches[indexPath.row]
+        if branch.name != defaultBranch {
+            cell.setup(branchName: branch.name!)
+        } else {
+            cell.setup(branchName: branch.name!, isDefault: false)
+        }
         
         return cell
     }
@@ -43,6 +54,8 @@ extension BranchesViewController: UITableViewDataSource {
 
 extension BranchesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("select")
+        let branch = branches[indexPath.row]
+        closure?(branch.name!)
+        self.dismiss(animated: true, completion: nil)
     }
 }
