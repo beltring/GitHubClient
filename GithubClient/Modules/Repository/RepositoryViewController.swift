@@ -6,6 +6,7 @@
 //
 
 import Kingfisher
+import Moya
 import UIKit
 
 class RepositoryViewController: UIViewController {
@@ -21,6 +22,8 @@ class RepositoryViewController: UIViewController {
     @IBOutlet private weak var branchLabel: UILabel!
     
     private var repository: Repository?
+    private var branches = [Branch]()
+    private let provider = MoyaProvider<GitHubAPI>()
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -29,22 +32,19 @@ class RepositoryViewController: UIViewController {
         self.navigationItem.title = repository?.name
         setupVC()
         setupTableView()
+        getBranches()
     }
     
     // MARK: - Setup
     private func setupVC() {
         ownerImage.layer.cornerRadius = 35
-        var branch = repository?.defaultBranch ?? ""
-        if !branch.isEmpty {
-            branch += " branch"
-        }
         
         userNameLabel.text = repository?.owner?.login
         nameLabel.text = repository?.name
         starCountLabel.text = String(repository?.stargazersCount ?? 0)
         forkCountLabel.text = String(repository?.forksCount ?? 0)
         watchersCountLabel.text = String(repository?.watchersCount ?? 0)
-        branchLabel.text = branch
+        branchLabel.text = repository?.defaultBranch ?? ""
         forkImage.image = UIImage(systemName: "arrow.branch")
         
         guard let url = URL(string: repository?.owner?.avatarUrl ?? "") else { return }
@@ -55,6 +55,16 @@ class RepositoryViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         RepositoryMenuTableViewCell.registerCellNib(in: tableView)
+    }
+    
+    @IBAction private func tappedChangeBranch(_ sender: UIButton) {
+        let vc = BranchesViewController.initial()
+        vc.branches = branches
+        vc.defaultBranch = branchLabel.text!
+        vc.closure = { [weak self] text in
+            self?.branchLabel.text = text
+        }
+        present(vc, animated: false, completion: nil)
     }
     
     // MARK: - Get/Set methods
@@ -68,17 +78,18 @@ class RepositoryViewController: UIViewController {
         presentSafariViewController(url: url)
     }
     
-    func showCommits() {
+    private func showCommits() {
         let vc = CommitsViewController.initial()
         
         // api.github.com/repos/user/reposName/commits{/sha}
         vc.commitsUrl = repository?.commitsUrl?.replacingOccurrences(of: "{/sha}", with: "")
             .replacingOccurrences(of: "https://api.github.com/", with: "")
+        vc.branch = branchLabel.text!
         
         navigationController?.pushViewController(vc, animated: true)
     }
     
-    func showPullRequests() {
+    private func showPullRequests() {
         let vc = PullRequestsViewController.initial()
         
         // https://api.github.com/repos/user/reposName/pulls{/number}
@@ -86,6 +97,27 @@ class RepositoryViewController: UIViewController {
             .replacingOccurrences(of: "https://api.github.com/", with: "")
         
         navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    // MARK: API calls
+    private func getBranches() {
+        // https://api.github.com/repos/user/reposName/branches{/branch}
+        let branchesPath = repository?.branchesUrl?.replacingOccurrences(of: "{/branch}", with: "")
+            .replacingOccurrences(of: "https://api.github.com/", with: "")
+        
+        provider.request(.getBranches(branchesPath!)) { [weak self] result in
+            switch result {
+            case .success(let response):
+                do {
+                    let decoder = JSONDecoder()
+                    self?.branches = try decoder.decode([Branch].self, from: response.data)
+                } catch {
+                    print("Decoding error")
+                }
+            case .failure(let error):
+                self?.presentAlert(message: error.localizedDescription)
+            }
+        }
     }
 }
 

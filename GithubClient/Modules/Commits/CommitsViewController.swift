@@ -14,6 +14,7 @@ class CommitsViewController: UIViewController {
     @IBOutlet private weak var tableView: UITableView!
     
     var commitsUrl: String?
+    var branch: String?
     
     private let popTip = PopTip()
     private var commitsData = [CommitData]()
@@ -63,11 +64,34 @@ class CommitsViewController: UIViewController {
     }
     
     // MARK: - Actions
-    @objc func tappedInformation(_ sender: UIBarButtonItem) {
+    @objc private func tappedInformation(_ sender: UIBarButtonItem) {
         let coordinates = CGRect(x: tableView.frame.maxX, y: 0, width: 0, height: 0)
-        popTip.show(text: "Сommits from the default branch", direction: .autoHorizontal, maxWidth: 200, in: tableView, from: coordinates)
+        popTip.show(text: "Сommits from the selected branch", direction: .autoHorizontal, maxWidth: 200, in: tableView, from: coordinates)
         var _ = Timer.scheduledTimer(withTimeInterval: 3, repeats: true) { (_) in
             self.popTip.hide()
+        }
+    }
+    
+    // MARK: - API calls
+    private func getCommits() {
+        guard let url = commitsUrl else { return }
+        guard let branch = branch else { return }
+        
+        provider.request(.getCommits(url, branch)) { [weak self] result in
+            self?.activityIndicatorView.stopAnimating()
+            switch result {
+            case .success(let response):
+                do {
+                    let decoder = JSONDecoder()
+                    self?.commitsData = try decoder.decode([CommitData].self, from: response.data)
+                    self?.tableView.separatorStyle = UITableViewCell.SeparatorStyle.singleLine
+                    self?.tableView.reloadData()
+                } catch {
+                    print("Decoding error")
+                }
+            case .failure(let error):
+                self?.presentAlert(message: error.localizedDescription)
+            }
         }
     }
 }
@@ -93,28 +117,5 @@ extension CommitsViewController: UITableViewDataSource {
         cell.configure(commit: commitsData[indexPath.row])
         
         return cell
-    }
-}
-
-// MARK: - API Calls
-extension CommitsViewController {
-    func getCommits() {
-        guard let url = commitsUrl else { return }
-        provider.request(.getCommits(url)) { [weak self] result in
-            self?.activityIndicatorView.stopAnimating()
-            switch result {
-            case .success(let response):
-                do {
-                    let decoder = JSONDecoder()
-                    self?.commitsData = try decoder.decode([CommitData].self, from: response.data)
-                    self?.tableView.separatorStyle = UITableViewCell.SeparatorStyle.singleLine
-                    self?.tableView.reloadData()
-                } catch {
-                    print("Decoding error")
-                }
-            case .failure(let error):
-                self?.presentAlert(message: error.localizedDescription)
-            }
-        }
     }
 }
