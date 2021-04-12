@@ -84,6 +84,7 @@ class RepositoryViewController: UIViewController {
         // api.github.com/repos/user/reposName/commits{/sha}
         vc.commitsUrl = repository?.commitsUrl?.replacingOccurrences(of: "{/sha}", with: "")
             .replacingOccurrences(of: "https://api.github.com/", with: "")
+        vc.branch = branchLabel.text!
         
         navigationController?.pushViewController(vc, animated: true)
     }
