@@ -52,6 +52,7 @@ extension BranchesViewController: UITableViewDataSource {
     }
 }
 
+// MARK: - UITableViewDelegate
 extension BranchesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let branch = branches[indexPath.row]

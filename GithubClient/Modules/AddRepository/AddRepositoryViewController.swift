@@ -28,7 +28,7 @@ class AddRepositoryViewController: UIViewController {
     }
     
     // MARK: - Setup
-    func setupTextFields() {
+    private func setupTextFields() {
         let indigoColor = UIColor(red: 86, green: 0, blue: 130/255, alpha: 1.0)
         let textFieldframe = CGRect(x: 0, y: 0, width: 0, height: 0)
         
@@ -72,12 +72,8 @@ class AddRepositoryViewController: UIViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
     }
-}
-
-// MARK: - Extensions
-
-// MARK: - API Calls
-extension AddRepositoryViewController {
+    
+    // MARK: - API calls
     private func addRepository(data: RepositoryData) {
         provider.request(.addRepositories(data)) { [weak self] result in
             switch result {

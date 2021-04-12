@@ -30,7 +30,7 @@ class PopularViewController: UIViewController {
         setupCollectionView()
         setupPopTip()
         activityIndicatorView.startAnimating()
-        fetchPopularRepository()
+        getPopularRepository()
     }
     
     // MARK: - Setup
@@ -63,7 +63,7 @@ class PopularViewController: UIViewController {
     }
     
     // MARK: - API calls
-    private func fetchPopularRepository() {
+    private func getPopularRepository() {
         provider.request(.getUserRepositories) { [weak self] result in
             self?.activityIndicatorView.stopAnimating()
             
