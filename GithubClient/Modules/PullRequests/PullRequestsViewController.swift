@@ -60,7 +60,7 @@ extension PullRequestsViewController: UITableViewDataSource {
         let count = pullRequests.count
         
         if count == 0 {
-            tableView.setEmptyView(title: "There are no pull requests in this repository", message: "")
+            tableView.setEmptyView(title: "There are no pull requests in this repository", animated: true)
         } else {
             tableView.restore()
         }
