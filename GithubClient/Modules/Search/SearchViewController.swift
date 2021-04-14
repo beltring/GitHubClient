@@ -54,7 +54,7 @@ class SearchViewController: UIViewController {
 extension SearchViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if searchText.isEmpty {
-            tableView.setEmptyView(title: "Enter the text", message: "")
+            tableView.setEmptyView(title: "Enter the text")
             return 0
         }
         

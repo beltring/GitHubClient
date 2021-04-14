@@ -85,6 +85,7 @@
 		CE34541726208A0100F6AC9E /* BranchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE34541526208A0100F6AC9E /* BranchTableViewCell.swift */; };
 		CE34541826208A0100F6AC9E /* BranchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE34541626208A0100F6AC9E /* BranchTableViewCell.xib */; };
 		CE34541C2620943700F6AC9E /* Branch.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE34541B2620943700F6AC9E /* Branch.swift */; };
+		CE6CE1732626F1C2007D7E72 /* emptyAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = CE6CE1722626F1C2007D7E72 /* emptyAnimation.json */; };
 		CE6FD5DD261F2DBA00899577 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6FD5DC261F2DBA00899577 /* Constants.swift */; };
 		CEA7A66A261D9C7100965FC0 /* UIViewController+HUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA7A669261D9C7100965FC0 /* UIViewController+HUD.swift */; };
 /* End PBXBuildFile section */
@@ -172,6 +173,7 @@
 		CE34541526208A0100F6AC9E /* BranchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BranchTableViewCell.swift; sourceTree = "<group>"; };
 		CE34541626208A0100F6AC9E /* BranchTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BranchTableViewCell.xib; sourceTree = "<group>"; };
 		CE34541B2620943700F6AC9E /* Branch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Branch.swift; sourceTree = "<group>"; };
+		CE6CE1722626F1C2007D7E72 /* emptyAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = emptyAnimation.json; sourceTree = "<group>"; };
 		CE6FD5DC261F2DBA00899577 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		CEA7A669261D9C7100965FC0 /* UIViewController+HUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+HUD.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -526,6 +528,14 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		CE6CE1752626F6F0007D7E72 /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				CE6CE1722626F1C2007D7E72 /* emptyAnimation.json */,
+			);
+			path = Animations;
+			sourceTree = "<group>";
+		};
 		CE6FD5CA261F1A9A00899577 /* Application */ = {
 			isa = PBXGroup;
 			children = (
@@ -593,6 +603,7 @@
 		CE6FD5D1261F1B1700899577 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				CE6CE1752626F6F0007D7E72 /* Animations */,
 				23B1D43325E3EC62001E9570 /* Assets.xcassets */,
 			);
 			path = Resources;
@@ -716,6 +727,7 @@
 				235363B825E4676000225412 /* RepositoryTableViewCell.xib in Resources */,
 				23578CD225EC063F00F9090C /* PullRequests.storyboard in Resources */,
 				2364EBCF25E7E34300B9E44F /* Commits.storyboard in Resources */,
+				CE6CE1732626F1C2007D7E72 /* emptyAnimation.json in Resources */,
 				23B1D49525E4076C001E9570 /* RootTabBar.storyboard in Resources */,
 				2355127325ED37030057C593 /* Users.storyboard in Resources */,
 				23B1D4BB25E41C3C001E9570 /* Home.storyboard in Resources */,
