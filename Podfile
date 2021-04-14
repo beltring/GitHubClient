@@ -11,6 +11,7 @@ target 'GithubClient' do
   pod 'Moya', '~> 14.0'
   pod 'OAuthSwift', :git => 'https://github.com/OAuthSwift/OAuthSwift', :tag => '2.1.2'
   pod 'PKHUD', '~> 5.0'
+  pod 'lottie-ios', '~> 3.2.1' 
   pod 'PopupDialog', '~> 1.1'
   pod 'ReachabilitySwift'
   pod 'SkyFloatingLabelTextField', '~> 3.8.0'  

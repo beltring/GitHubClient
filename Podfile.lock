@@ -4,6 +4,7 @@ PODS:
   - DynamicBlurView (4.1.0)
   - KeychainSwift (19.0.0)
   - Kingfisher (6.2.1)
+  - lottie-ios (3.2.1)
   - Moya (14.0.0):
     - Moya/Core (= 14.0.0)
   - Moya/Core (14.0.0):
@@ -19,6 +20,7 @@ DEPENDENCIES:
   - AMPopTip
   - KeychainSwift (~> 19.0)
   - Kingfisher (~> 6.0)
+  - lottie-ios (~> 3.2.1)
   - Moya (~> 14.0)
   - OAuthSwift (from `https://github.com/OAuthSwift/OAuthSwift`, tag `2.1.2`)
   - PKHUD (~> 5.0)
@@ -33,6 +35,7 @@ SPEC REPOS:
     - DynamicBlurView
     - KeychainSwift
     - Kingfisher
+    - lottie-ios
     - Moya
     - PKHUD
     - PopupDialog
@@ -55,6 +58,7 @@ SPEC CHECKSUMS:
   DynamicBlurView: 58e18fae80bb614e34681a4486870e7d257b62e8
   KeychainSwift: a06190cf933ad46b1e0abc3d77d29c06331715c7
   Kingfisher: e71c6fac2aebb1262888cabc2cb13d313362a48f
+  lottie-ios: 106e92eaf11fbed0a76590b4cdb9b5ec26123ff7
   Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
   OAuthSwift: b65415797d860d0a25c7d178250cfb8cec4b83bf
   PKHUD: 98f3e4bc904b9c916f1c5bb6d765365b5357291b
@@ -62,6 +66,6 @@ SPEC CHECKSUMS:
   ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
   SkyFloatingLabelTextField: 5a338412114808e961fe2d14ea2c5452c8b6e4aa
 
-PODFILE CHECKSUM: f6aebcd364024b515586f7aea2b41bd377cd1a12
+PODFILE CHECKSUM: a822c8332f253e40af8cc75e0403110b8c8c2700
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.10.1
